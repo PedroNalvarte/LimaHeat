@@ -3,8 +3,3 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>
-<link rel="shortcut icon" href="images/usmpicon.ico" />
-<link href="verano/css/general.css" rel="stylesheet" type="text/css"/>
-<link href="verano/css/formulario.css" rel="stylesheet" type="text/css"/>
-
-<link href="verano/css/tooltip.css" rel="stylesheet" type="text/css"/>

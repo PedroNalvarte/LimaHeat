@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import limaHeat.dao.ILimaHeat;
+import limaHeat.dao.impl.implLimaHeat;
 
 @WebServlet(name = "limaHeatServlet", urlPatterns = {"/limaHeatServlet"})
 public class limaHeatServlet extends HttpServlet {
@@ -21,6 +23,16 @@ public class limaHeatServlet extends HttpServlet {
         String accion = request.getParameter("accion");
         
         //action equals
+        
+        if(accion.equals("prueba")){
+            
+            ILimaHeat limaDao = new implLimaHeat();
+            
+            limaDao.prueba();
+        
+            
+        
+        }
         
         
         
