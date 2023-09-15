@@ -1,0 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<script src="jq/jquery-3.6.0.min.js"></script>
+<script src="jq/bootstrap/bootstrap.bundle.min.js"></script>
+
