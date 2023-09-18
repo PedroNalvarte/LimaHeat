@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import limaHeat.bean.Usuario;
 import limaHeat.dao.ILimaHeat;
 import limaHeat.dao.impl.implLimaHeat;
 import org.json.JSONArray;
@@ -56,28 +57,77 @@ public class limaHeatServlet extends HttpServlet {
 
             response.getWriter().write(resultado);
         
+            
         }else if(accion.equals("agregarHTTPSesion")){
         
             String usuario = request.getParameter("usuario");
             
-            HttpSession session = request.getSession();
-            session.setAttribute("usuario", usuario);
+            ILimaHeat limaDao = new implLimaHeat();
             
-            String jsonLista = new Gson().toJson("Correcto");
-            response.getWriter().write(jsonLista);
+            //"ID_PARTICIPANTE"/"ID_TIPO_PARTICIPANTE"/"TIPO_PARTICIPANTE"/"NOMBRES"/"APELLIDO_1"/"APELLIDO_2"/"TIPO_DOCUMENTO_IDENTIDAD"/
+            //"NUMERO_DOCUMENTO_IDENTIDAD"/"FECHA_NACIMIENTO"/"ID_TIPO_CUENTA"/"TIPO_CUENTA"
+            List<Object[]> listado = limaDao.obtenerDatosPorUsuario(usuario);
+            resultado = json.matriz(listado);
+            
+            System.out.println(resultado);
+            
+            JSONObject jsonObject = new JSONObject(resultado);
+            JSONArray rowsArray = jsonObject.getJSONArray("rows");
+            JSONArray innerArray = rowsArray.getJSONArray(0);
+            
+            String idParticipante = innerArray.getInt(0) +"";
+            String idTipoParticipante = innerArray.getInt(1) +"";
+            String tipoParticipante = innerArray.getString(2);
+            String nombres = innerArray.getString(3);
+            String apellido1 = innerArray.getString(4);
+            String apellido2 = innerArray.getString(5);
+            String tipoDocumentoIdentidad = innerArray.getString(6) +"";
+            String numeroDocumentoIdentidad = innerArray.getString(7);
+            String fechaNacimiento = innerArray.getInt(8)+"";
+            String idTipoCuenta = innerArray.getInt(9)+"";
+            String tipoCuenta = innerArray.getString(10);
+
+            Usuario usuario_logged = new Usuario();
+
+            usuario_logged.setUsuario(usuario);
+            usuario_logged.setIdParticipante(idParticipante);
+            usuario_logged.setIdTipoParticipante(idTipoParticipante);
+            usuario_logged.setTipoParticipante(tipoParticipante);
+            usuario_logged.setNombres(nombres);
+            usuario_logged.setApellido1(apellido1);
+            usuario_logged.setApellido2(apellido2);
+            usuario_logged.setTipoDocumentoIdentidad(tipoDocumentoIdentidad);
+            usuario_logged.setNumeroDocumentoIdentidad(numeroDocumentoIdentidad);
+            usuario_logged.setFechaNacimiento(fechaNacimiento);
+            usuario_logged.setIdTipoCuenta(idTipoCuenta);
+            usuario_logged.setTipoCuenta(tipoCuenta);
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario_logged", usuario_logged);
+            
+            String mensaje = new Gson().toJson("Correcto");
+            response.getWriter().write(mensaje);
             
         }else if(accion.equals("obtenerHTTPSesion")){
             
             HttpSession session = request.getSession();
-            String usuario = (String) session.getAttribute("usuario");
             
-            ILimaHeat limaDao = new implLimaHeat();
+            Usuario usuario_logged = (Usuario) session.getAttribute("usuario_logged");
+            String json2 = new Gson().toJson(usuario_logged);
             
-            List<Object[]> listado = limaDao.obtenerPersonaPorUsuario(usuario);
-            resultado = json.matriz(listado);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json2);
+    
+        }else if(accion.equals("finalizarHTTPSesion")){
             
-            response.getWriter().write(resultado);
+            HttpSession session = request.getSession();
             
+            session.removeAttribute("usuario_logged");
+            
+            String mensaje = new Gson().toJson("Correcto");
+            response.getWriter().write(mensaje);
+    
         }
         
     }

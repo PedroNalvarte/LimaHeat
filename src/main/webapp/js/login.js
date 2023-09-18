@@ -32,7 +32,7 @@ $('#inicio-sesion').on('submit', function(event){
                             url: "limaHeatServlet",
                             dataType: "json",
                             data:{
-                                accion: "agregarHTTPSesion", usuario:usuario
+                                accion:"agregarHTTPSesion", usuario:usuario
                             },
                             success: function (result) {
                                 

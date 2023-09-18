@@ -57,13 +57,18 @@ public class implLimaHeat implements ILimaHeat{
     }
 
     @Override
-    public List<Object[]> obtenerPersonaPorUsuario(String usuario) {
+    public List<Object[]> obtenerDatosPorUsuario(String usuario) {
         
         String sql = new StringBuilder()
-            .append("select concat(\"NOMBRES\",' ',\"APELLIDO_1\",' ',\"APELLIDO_2\")  from \"PARTICIPANTE\" p where \"USUARIO\" = '"+usuario+"'")
+            .append("select p.\"ID_PARTICIPANTE\", p.\"ID_TIPO_PARTICIPANTE\", tp.\"TIPO_PARTICIPANTE\",  p.\"NOMBRES\", p.\"APELLIDO_1\", p.\"APELLIDO_2\", ")
+            .append("tdi.\"TIPO_DOCUMENTO_IDENTIDAD\", p.\"NUMERO_DOCUMENTO_IDENTIDAD\", p.\"FECHA_NACIMIENTO\", c.\"ID_TIPO_CUENTA\", tc.\"TIPO_CUENTA\" ")
+            .append("from \"PARTICIPANTE\" p ")
+            .append("inner join \"CUENTA\" c on c.\"ID_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
+            .append("inner join \"TIPO_CUENTA\" tc on tc.\"ID_TIPO_CUENTA\" = c.\"ID_TIPO_CUENTA\" ")
+            .append("inner join \"TIPO_PARTICIPANTE\" tp on tp.\"ID_TIPO_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
+            .append("inner join \"TIPO_DOCUMENTO_IDENTIDAD\" tdi on tdi.\"ID_TIPO_DOCUMENTO_IDENTIDAD\" = p.\"ID_TIPO_DOCUMENTO_IDENTIDAD\" ")
+            .append("where p.\"USUARIO\" = '"+usuario+"'")
             .toString();
-        
-        System.out.println(sql);
         
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);

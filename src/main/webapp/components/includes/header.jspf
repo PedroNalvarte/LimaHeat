@@ -1,9 +1,14 @@
+<%@page import="limaHeat.bean.Usuario"%>
 <%@ page pageEncoding="UTF-8" %>
+
+<%
+	Usuario logged = (Usuario) request.getSession().getAttribute("usuario_logged");
+	
+%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>
-<%%>
 
 <style>
     .row-info {
@@ -14,7 +19,7 @@
 <div class="row row-info">
     <div class="col col-md-9"></div>
     <div class="col col-md-3">
-        <h5 id="nombre-usuario"> <%=%> </h5>
+        <h5>¡Hola <%=logged.getApellido1()+" "+logged.getApellido2()+" "+logged.getNombres()%>!</h5>
         <input type="button" value="Cerrar Sesion" id="btnCerrarSesion"/>
     </div>
 </div>
@@ -41,25 +46,33 @@
 
 <script src="jq/jquery-3.6.0.min.js"></script>
 <script>
-
-    $.ajax({
-        url: "limaHeatServlet",
-        dataType: "json",
-        data: {
-            accion: "obtenerHTTPSesion"
-        },
-        success: function (result) {
-
-            let mensaje = "¡Hola " + result.rows[0][0] + "!"
-
-            $("#nombre-usuario").text(mensaje);
-
-        }
-    });
-
+    
     $("#btnCerrarSesion").click(function () {
 
         $("#modal-cerrar-sesion").modal("show");
+
+    });
+    
+    $("#btnModalCerrarSesionAceptar").click(function () {
+
+        $.ajax({
+            url: "limaHeatServlet",
+            dataType: "json",
+            data:{
+                accion:"finalizarHTTPSesion"
+            },
+            success: function (result) {
+
+                window.location.href = "login.jsp";
+
+            }
+        });
+
+    });
+    
+    $("#btnModalCerrarSesionCancelar").click(function () {
+
+        $("#modal-cerrar-sesion").modal("hide");
 
     });
 

@@ -8,6 +8,6 @@ public interface ILimaHeat {
     
     List<Object[]> cambiarContrasena( String usuario, String nuevaContrasena);
     
-    List<Object[]> obtenerPersonaPorUsuario( String usuario);
+    List<Object[]> obtenerDatosPorUsuario( String usuario);
     
 }

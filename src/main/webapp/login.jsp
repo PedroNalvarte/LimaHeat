@@ -12,7 +12,6 @@
             <form action="action" id="inicio-sesion">
                 <input id="txtUsername" type="text" placeholder="Usuario" required>
                 <input id="txtPassword" type="password" placeholder="Contraseña" required>
-                <button type="button">¿Olvidaste tu contraseña?</button>
                 <button type="submit">Ingresar</button>
             </form>
         </div>
