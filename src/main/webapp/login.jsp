@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hola</title>
-        <%@include file="components/includes/header.jspf"%> 
+        <title>Inicio de Sesion</title>
+        <%@include file="components/includes/header-login.jspf"%> 
     </head>
     <body>
         
@@ -58,7 +58,7 @@
         
         
         
-        <%@include file="components/includes/footer.jspf"%>
+        <%@include file="components/includes/footer-login.jspf"%>
         <script src="js/login.js"></script>
     </body>
 </html>

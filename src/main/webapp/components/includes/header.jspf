@@ -3,3 +3,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>
+<%%>
+
+<style>
+    .row-info {
+        background-color: red;
+    }
+</style>
+
+<div class="row row-info">
+    <div class="col col-md-9"></div>
+    <div class="col col-md-3">
+        <h5 id="nombre-usuario"> <%=%> </h5>
+        <input type="button" value="Cerrar Sesion" id="btnCerrarSesion"/>
+    </div>
+</div>
+
+<!-- Modal cerrar sesion -->
+<div id="modal-cerrar-sesion" class="modal fade" role="dialog">
+    <div class="modal-dialog  modal-dialog-centered modal-sm ">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header-color">
+                <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+            </div>
+            <div class="modal-body">
+                <p style="color: black;font-size: 15px;">¿Seguro que desea cerrar sesion?</p>
+            </div>
+            <div class="modal-footer btnLogin">
+                <button style="width: 30%;font-size: 15px" type="button" id="btnModalCerrarSesionAceptar" data-dismiss="modal">Aceptar</button>
+                <button style="width: 30%;font-size: 15px" type="button" id="btnModalCerrarSesionCancelar" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal -->
+
+<script src="jq/jquery-3.6.0.min.js"></script>
+<script>
+
+    $.ajax({
+        url: "limaHeatServlet",
+        dataType: "json",
+        data: {
+            accion: "obtenerHTTPSesion"
+        },
+        success: function (result) {
+
+            let mensaje = "¡Hola " + result.rows[0][0] + "!"
+
+            $("#nombre-usuario").text(mensaje);
+
+        }
+    });
+
+    $("#btnCerrarSesion").click(function () {
+
+        $("#modal-cerrar-sesion").modal("show");
+
+    });
+
+
+</script>

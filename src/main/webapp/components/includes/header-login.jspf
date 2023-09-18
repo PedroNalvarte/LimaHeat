@@ -1,0 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>

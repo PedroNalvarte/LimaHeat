@@ -44,14 +44,33 @@ public class implLimaHeat implements ILimaHeat{
         
         String sql = new StringBuilder()
             .append("UPDATE public.\"CUENTA\" ")
-            .append("SET \"CONTRASENA\"='"+nuevaContrasena+"' ")
-            .append("from \"PARTICIPANTE\" p where \"USUARIO\" = '"+usuario+"')")
+            .append("SET \"CONTRASENA\"='"+nuevaContrasena+"'")
+            .append("WHERE \"ID_PARTICIPANTE\"= (select \"ID_PARTICIPANTE\"  from \"PARTICIPANTE\" p where \"USUARIO\" = '"+usuario+"')")
             .toString();
+        
+        System.out.println(sql);
         
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
         
         return listado;
     }
+
+    @Override
+    public List<Object[]> obtenerPersonaPorUsuario(String usuario) {
+        
+        String sql = new StringBuilder()
+            .append("select concat(\"NOMBRES\",' ',\"APELLIDO_1\",' ',\"APELLIDO_2\")  from \"PARTICIPANTE\" p where \"USUARIO\" = '"+usuario+"'")
+            .toString();
+        
+        System.out.println(sql);
+        
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado =  obj.selectGeneral(sql);
+        
+        return listado;
+    }
+    
+    
     
 }

@@ -10,23 +10,37 @@ $('#inicio-sesion').on('submit', function(event){
         url: "limaHeatServlet",
         dataType: "json",
         data:{
-            accion: "iniciar-sesion",usuario:usuario
+            accion: "iniciar-sesion",usuario:usuario, contra:contra
         },
         success: function (result) {
-            
             
             if(result.rows.length === 1){
                 
                 let contraObtenida = result.rows[0][0];
                 
                 if(contra === contraObtenida){
-                
-                    if(usuario = contraObtenida){
+                    
+                    //Primer inicio de sesion con contraseña asignada
+                    if(usuario === contraObtenida){
                         $("#modal-cambio-contraseña").modal("show");
                         $("#btnModalContrasenaAceptar").attr("usuario",usuario);
+                     
+                    //Inicio de sesion comun con contraseña elejida
+                    }else{
                         
+                        $.ajax({
+                            url: "limaHeatServlet",
+                            dataType: "json",
+                            data:{
+                                accion: "agregarHTTPSesion", usuario:usuario
+                            },
+                            success: function (result) {
+                                
+                                window.location.href = "modulos.jsp";
+
+                            }
+                        }); 
                     }
-                
                 
                 }else if(contra != contraObtenida){
 
@@ -39,8 +53,7 @@ $('#inicio-sesion').on('submit', function(event){
                     $("#mensaje").text("El usuario ingresado no existe.");
                     $("#modal-verificacion").modal("show");
             }
-            
-   
+
         }
     }); 
 
@@ -65,12 +78,13 @@ $("#btnModalContrasenaAceptar").click(function(){
         },
         success: function (result) {
             
-            alert(result);
-            alert(result.rows[0][0]);
+            $("#modal-cambio-contraseña").modal("hide");
             
+            $("#mensaje").text("Contraseña cambiada, por favor inicie sesión.");
+            $("#modal-verificacion").modal("show");
+            let contra = $("#txtPassword").val("");
             
-            
-   
+
         }
     }); 		
 });
