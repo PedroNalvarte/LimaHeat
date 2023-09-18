@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface ILimaHeat {
     
-    List<Object[]> prueba();
+    List<Object[]> inicioSesion( String usuario);
+    
+    List<Object[]> cambiarContrasena( String usuario, String nuevaContrasena);
     
 }

@@ -3,6 +3,7 @@ package limaHeat.servlets;
 import general.json.JsonHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,17 +25,35 @@ public class limaHeatServlet extends HttpServlet {
         
         //action equals
         
-        if(accion.equals("prueba")){
+            //String grupo = request.getParameter("grupo");
+        
+        if(accion.equals("iniciar-sesion")){
+            
+            String usuario = request.getParameter("usuario");
             
             ILimaHeat limaDao = new implLimaHeat();
             
-            limaDao.prueba();
-        
+            List<Object[]> listado = limaDao.inicioSesion(usuario);
+            resultado = json.matriz(listado);
+
+            response.getWriter().write(resultado);
             
+        }else if(accion.equals("cambiarContrasena")){
+            
+            String usuario = request.getParameter("usuario");
+            String nuevaContrasena = request.getParameter("nuevaContrasena");
+            
+            ILimaHeat limaDao = new implLimaHeat();
+            
+            List<Object[]> listado = limaDao.cambiarContrasena(usuario, nuevaContrasena);
+            resultado = json.matriz(listado);
+
+            response.getWriter().write(resultado);
+        
+        
+        
         
         }
-        
-        
         
     }
 
