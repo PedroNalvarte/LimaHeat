@@ -3,16 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package limaHeat.dao.impl;
-import limaHeat.dao.ICategorias;
 import java.sql.ResultSet;
 import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.List;
+import limaHeat.dao.ICategorias;
 /**
  *
  * @author creo0
  */
-public class implCategorias implements ICategorias {
+public class implAgregarCategorias implements ICategorias {
 
     @Override
     public List<Object[]> crearCategorias(String usuario) {

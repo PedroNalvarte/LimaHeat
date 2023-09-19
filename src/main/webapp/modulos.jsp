@@ -22,7 +22,7 @@
                             <div class="image-container">
                                 <img class="img-responsive" src="https://media.istockphoto.com/id/959080376/es/foto/de-b%C3%A1squetbol.jpg?b=1&s=612x612&w=0&k=20&c=6UBcxBWQHoZYoXBKKKXU3-Eke3HgWnPMGbSelT1PIt4=" alt="Imagen de fondo">
                                 
-                                    <button  onclick="categoria()" type="button" class="plus-button"></button> 
+                                    <button  onclick="categoria()" type="button" class="plus-button">+</button> 
                                
                                
                             </div>
