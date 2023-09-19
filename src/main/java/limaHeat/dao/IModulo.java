@@ -4,18 +4,10 @@
  */
 package limaHeat.dao;
 
-import java.util.List;
-
 /**
  *
  * @author creo0
  */
-public interface ICategorias {
+public interface IModulo {
     
-        
-    List<Object[]> crearCategorias( String usuario);
-    
-    List<Object[]> eliminarCategorias( String usuario);
-    
-     List<Object[]> ActualizarCategorias( String usuario);
 }
