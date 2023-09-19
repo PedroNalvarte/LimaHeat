@@ -28,6 +28,8 @@ $('#inicio-sesion').on('submit', function(event){
                     //Inicio de sesion comun con contraseña elejida
                     }else{
                         
+                        $("#btnIngresar").text("Cargando...");
+                        
                         $.ajax({
                             url: "limaHeatServlet",
                             dataType: "json",

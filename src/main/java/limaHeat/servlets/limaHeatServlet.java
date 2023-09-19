@@ -69,8 +69,6 @@ public class limaHeatServlet extends HttpServlet {
             List<Object[]> listado = limaDao.obtenerDatosPorUsuario(usuario);
             resultado = json.matriz(listado);
             
-            System.out.println(resultado);
-            
             JSONObject jsonObject = new JSONObject(resultado);
             JSONArray rowsArray = jsonObject.getJSONArray("rows");
             JSONArray innerArray = rowsArray.getJSONArray(0);

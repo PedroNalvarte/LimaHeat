@@ -4,18 +4,50 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio de Sesion</title>
-        <%@include file="components/includes/header-login.jspf"%> 
+        <%@include file="components/includes/header-login.jspf"%>
+        <link rel="stylesheet" href="css/login.css"/>
     </head>
     <body>
-        
-        <div >
+
+        <div class="container">
             <form action="action" id="inicio-sesion">
-                <input id="txtUsername" type="text" placeholder="Usuario" required>
-                <input id="txtPassword" type="password" placeholder="Contraseña" required>
-                <button type="submit">Ingresar</button>
+                
+            <div class="row mt-3">
+                <div class="col col-md-12">
+                    <h4>Inicie Sesión</h4>
+                </div>
+            </div>
+                
+            <div class="row mt-3">
+                <div class="col col-md-12">
+                    <input id="txtUsername" type="text" placeholder="Usuario" required>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col col-md-12">
+                    <input id="txtPassword" type="password" placeholder="Contraseña" required>
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-3">
+                <div class="col col-md-12">
+                    <button id="btnIngresar" type="submit">Ingresar</button>
+                </div>
+            </div>
+
             </form>
         </div>
-        
+
+
+        <div>
+            
+                
+                
+                
+            
+        </div>
+
         <!-- Modal Confirmar proceso de datos -->
         <div id="modal-verificacion" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-sm ">
@@ -34,7 +66,7 @@
             </div>
         </div>
         <!-- Fin Modal -->
-        
+
         <!-- Modal Confirmar proceso de datos -->
         <div id="modal-cambio-contraseña" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-md ">
@@ -54,9 +86,9 @@
             </div>
         </div>
         <!-- Fin Modal -->
-        
-        
-        
+
+
+
         <%@include file="components/includes/footer-login.jspf"%>
         <script src="js/login.js"></script>
     </body>
