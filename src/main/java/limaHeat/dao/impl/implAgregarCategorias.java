@@ -3,33 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package limaHeat.dao.impl;
-import java.sql.ResultSet;
-import java.sql.SQLOutput;
-import java.sql.Statement;
-import java.util.List;
-import limaHeat.dao.ICategorias;
+
+import general.conexion.ConectaDb;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import limaHeat.dao.ICategoria;
+
 /**
  *
  * @author creo0
  */
-public class implAgregarCategorias implements ICategorias {
+public class implAgregarCategorias implements ICategoria {
 
     @Override
-    public List<Object[]> crearCategorias(String usuario) {
-       
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public boolean insertarDatos(String NOMBRE_CATEGORIA, String ABREVIATURA, String DESC_CATEGORIA, String ESTADO_REGISTRO, String IMAGEN) {
+        String sql = "INSERT INTO \"CATEGORIA\" (\"NOMBRE_CATEGORIA\", \"ABREVIATURA\", \"DESC_CATEGORIA\", \"ESTADO_REGISTRO\",\"IMAGEN\") VALUES (?, ?, ?, ?, ? )";
+        try (Connection connection = new ConectaDb().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-    @Override
-    public List<Object[]> eliminarCategorias(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+            preparedStatement.setString(1, NOMBRE_CATEGORIA);
+            preparedStatement.setString(2, ABREVIATURA);
+            preparedStatement.setString(3, DESC_CATEGORIA);
+            preparedStatement.setString(4, ESTADO_REGISTRO);
+            preparedStatement.setString(5, IMAGEN);
 
-    @Override
-    public List<Object[]> ActualizarCategorias(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-    
 }

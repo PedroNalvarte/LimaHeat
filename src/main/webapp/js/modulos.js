@@ -4,7 +4,7 @@
  */
   function categoria () {
     
-    window.location.href = "categoria.jsp";
+    window.location.href = "agregarCategoria.jsp";
 
 }
      

@@ -4,10 +4,6 @@
  */
 package limaHeat.dao;
 
-/**
- *
- * @author creo0
- */
 public interface IModulo {
     
 }
