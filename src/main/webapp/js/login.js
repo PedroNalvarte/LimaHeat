@@ -22,6 +22,9 @@ $('#inicio-sesion').on('submit', function(event){
                     
                     //Primer inicio de sesion con contraseña asignada
                     if(usuario === contraObtenida){
+                        $("#txtNuevoPassword").val("");
+                        $("#txtRepetirPassword").val("");
+                        $("#mensajeTexto").text("");
                         $("#modal-cambio-contraseña").modal("show");
                         $("#btnModalContrasenaAceptar").attr("usuario",usuario);
                      
@@ -67,12 +70,18 @@ $("#btnModalAceptar").click(function(){
 		
 });
 
-$("#btnModalContrasenaAceptar").click(function(){
+$('#cambio-contraseña').on('submit', function(event){
+    
+    event.preventDefault();
+    event.stopImmediatePropagation();
     
     let usuario = $("#btnModalContrasenaAceptar").attr("usuario");
     let nuevaContrasena = $("#txtNuevoPassword").val();
+    let repeticionContraseña = $("#txtRepetirPassword").val();
     
-    $.ajax({
+    if(nuevaContrasena === repeticionContraseña){
+        
+        $.ajax({
         url: "limaHeatServlet",
         dataType: "json",
         data:{
@@ -85,8 +94,12 @@ $("#btnModalContrasenaAceptar").click(function(){
             $("#mensaje").text("Contraseña cambiada, por favor inicie sesión.");
             $("#modal-verificacion").modal("show");
             let contra = $("#txtPassword").val("");
-            
 
         }
-    }); 		
+        }); 
+            
+    }else{
+        
+        $("#mensajeTexto").text("Las contraseñas deben coincidir.");
+    }  		
 });

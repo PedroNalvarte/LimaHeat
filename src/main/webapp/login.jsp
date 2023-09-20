@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio de Sesion</title>
-        <%@include file="components/includes/header-login.jspf"%>
+        <%@include file="components/includes/header-noUser.jspf"%>
         <link rel="stylesheet" href="css/login.css"/>
     </head>
     <body>
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="row mt-3 mb-3">
+            <div class="row mt-3">
                 <div class="col col-md-12">
                     <button id="btnIngresar" type="submit">Ingresar</button>
                 </div>
@@ -67,7 +67,7 @@
         </div>
         <!-- Fin Modal -->
 
-        <!-- Modal Confirmar proceso de datos -->
+        <!-- Modal cambio de contraseña -->
         <div id="modal-cambio-contraseña" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-md ">
                 <!-- Modal content-->
@@ -76,11 +76,34 @@
                         <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
                     </div>
                     <div class="modal-body">
+                        
                         <p style="color: black;font-size: 15px;">Parece que es la primera vez que inicia sesion, debe cambiar su contraseña.</p>
-                        <input id="txtNuevoPassword" type="text" placeholder="Nueva Contraseña" >
+                       
+                        <form action="action" id="cambio-contraseña">
+                            
+                        <div class="row mt-2">
+                            <div class="col col-md-12">
+                                <label><strong>Nueva Contraseña:</strong></label>
+                                <input id="txtNuevoPassword" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col col-md-12">
+                                <label><strong>Repetir Nueva Contraseña:</strong></label>
+                                <input id="txtRepetirPassword" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-3">
+                            <div class="col col-md-12">
+                                <p style="color: red;" id="mensajeTexto"></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer btnLogin">
-                        <button style="width: 30%;font-size: 15px" type="button" id="btnModalContrasenaAceptar" data-dismiss="modal">Aceptar</button>
+                    
+                    <div class="modal-footer">
+                        
+                        <button id="btnModalContrasenaAceptar" style="width: 30%;font-size: 15px" type="submit"data-dismiss="modal">Aceptar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -89,7 +112,7 @@
 
 
 
-        <%@include file="components/includes/footer-login.jspf"%>
+        <%@include file="components/includes/footer-noUser.jspf"%>
         <script src="js/login.js"></script>
     </body>
 </html>
