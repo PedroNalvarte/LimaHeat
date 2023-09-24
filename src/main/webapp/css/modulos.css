@@ -1,49 +1,34 @@
-/* styles.css */
 
-.container_details {
-  background-image: url('ruta_de_la_imagen.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* Ajusta la altura según tu preferencia */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-top:10px;
 }
 
-.card-img-actions {
-  text-align: center;
+.card img {
+    max-width: 100%;
+    height: auto;
 }
 
-.image-container {
-  position: relative;
-  display: inline-block;
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.card-text {
+    font-size: 16px;
 }
 
-.plus-button {
-  position: absolute;
-  top: 10px; /* Ajusta la posición vertical según tu preferencia */
-  right: 10px; /* Ajusta la posición horizontal según tu preferencia */
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo transparente */
-  border: none;
-  border-radius: 50%; /* Forma de círculo */
-  color: #fff; /* Color del botón */
-  font-size: 24px;
-  cursor: pointer;
+.btn-custom {
+    background-color: #007BFF;
+    color: #fff;
 }
 
-.plus-button:focus {
-  outline: none;
-}
-
-.plus-button:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Cambia el fondo al pasar el cursor sobre el botón */
+/* Estilos para centrar las tarjetas verticalmente */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }

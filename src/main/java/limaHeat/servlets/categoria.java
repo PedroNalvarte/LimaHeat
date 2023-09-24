@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import general.json.JsonHelper;
-import java.util.List;
+import static java.awt.SystemColor.window;
 import limaHeat.dao.ICategoria;
 import limaHeat.dao.impl.implAgregarCategorias;
 
@@ -34,12 +34,15 @@ public class categoria extends HttpServlet {
         if (insercionExitosa) {
             resultado = "Inserción exitosa";
             response.setStatus(HttpServletResponse.SC_OK);
+            response.sendRedirect("modulos.jsp"); 
         } else {
             resultado = "Error en la inserción";
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
         response.getWriter().write(resultado);
+        
+     
     }
 
 }

@@ -9,21 +9,19 @@ $('#insertar').on('submit', function(event) {
     let IMAGEN = $("#IMAGEN").val();
 
     $.ajax({
-        url: "enviar_registro", // Reemplaza con la URL correcta de tu servlet
+        url: "enviar_registro", 
         dataType: "json",
-        method: "POST", // Método HTTP POST para enviar los datos
+        method: "POST", 
         data: {
             NOMBRE_CATEGORIA: NOMBRE_CATEGORIA,
             ABREVIATURA: ABREVIATURA,
             DESC_CATEGORIA: DESC_CATEGORIA,
             ESTADO_REGISTRO: ESTADO_REGISTRO,
-            IMAGEN: IMAGEN
-            accion: "agregar_categoria" // Puedes cambiar esto según tu lógica en el servlet
+            IMAGEN: IMAGEN,
+            accion: "agregar_categoria"
+            
         },
         success: function(result) {
-            $("#btnInsertar").text("Cargando...");
-            
-            // Realiza la redirección después de agregar la categoría
             window.location.href = "modulos.jsp";
         }
     });
