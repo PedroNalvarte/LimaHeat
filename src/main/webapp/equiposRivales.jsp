@@ -20,24 +20,7 @@
             <div class="row mt-3">
                 <div class="col col-md-12 lista-equipos-rivales">
 
-                    <button class="mi-button">
-                        <div class="card mi-card">
-                            <h2>hola</h2>
-                            <div class="input-group">
-                                <i class="bi bi-people"></i><label"> asdasd: asdsad</label><br>
-                                <i class="bi bi-person-fill"></i><label"> asdsad</label>
-                            </div>
-                        </div>
-                    </button>
 
-                    <button class="mi-button" onclick="registrarNuevo()">
-                        <div class="card mi-card card-agregar">
-
-                            <i style="font-size: 70px" class="bi bi-plus-circle-fill"></i>
-                            <h2>REGISTRAR NUEVO</h2>
-
-                        </div>
-                    </button>
 
                 </div>
             </div>
@@ -74,6 +57,25 @@
                             <button style="width: 30%;font-size: 15px" type="submit" data-dismiss="modal">Registrar</button>
                         </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Modal -->
+            
+            <!-- Modal Confirmar proceso de datos -->
+            <div id="modal-verificacion" class="modal fade" role="dialog">
+                <div class="modal-dialog  modal-dialog-centered modal-sm ">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header-color">
+                            <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: black;font-size: 15px;" id="mensaje"></p>
+                        </div>
+                        <div class="modal-footer btnLogin">
+                            <button style="width: 30%;font-size: 15px" type="button" id="btnModalAceptar" data-dismiss="modal">Aceptar</button>
+                        </div>
                     </div>
                 </div>
             </div>
