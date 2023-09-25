@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+.carta{
+    width: 40%;
+    height: auto;
+    padding: 2.5rem;
+    border: 2px solid black;
+    font-size: 2.3rem;
+    text-align: center;
+    cursor: pointer;
+}
