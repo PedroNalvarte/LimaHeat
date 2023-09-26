@@ -57,7 +57,7 @@ public class temporadasServlet extends HttpServlet {
             response.getWriter().write(listaTipos);
         }
         else if(accion.equals("registrar-temporada")){
-            
+           
             String resultado;
             String nombreTemporada = request.getParameter("nombreTemporada");
             String tipoTemporada = request.getParameter("tipoTemporada");
@@ -65,16 +65,10 @@ public class temporadasServlet extends HttpServlet {
             String fechaFin = request.getParameter("fechaFin");
             
            ITemporadas temporadaDao = new implTemporadas();
-            boolean registro = temporadaDao.registrarTemporadas(nombreTemporada, tipoTemporada, fechaInicio, fechaFin);
-
-            if (registro) {
-                resultado = "Ok";
-                response.setStatus(HttpServletResponse.SC_OK);
-                response.sendRedirect("temporadas.jsp"); 
-            } else {
-                resultado = "Error";
-                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            }
+           List<Object[]> listado = temporadaDao.registrarTemporada(nombreTemporada, tipoTemporada, fechaInicio, fechaFin);
+           
+           resultado = json.matriz(listado);
+      
 
             response.getWriter().write(resultado);
        

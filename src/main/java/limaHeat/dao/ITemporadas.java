@@ -14,5 +14,5 @@ import java.util.List;
 public interface ITemporadas {
      List<Object[]> listarTemporadas();
      List<Object[]> tiposTemporadas();
-     boolean registrarTemporadas(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin);
+     List<Object[]> registrarTemporada(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin);
 }

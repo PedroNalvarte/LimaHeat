@@ -42,27 +42,20 @@ public class implTemporadas implements ITemporadas {
     }
 
     @Override
-    public boolean registrarTemporadas(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin) {
-        String sql = "INSERT INTO \"TEMPORADA\" (\"NOMBRE_TEMPORADA\", \"ID_TIPO_TEMPORADA\", \"FECHA_INICIO\", \"FECHA_FIN\", \"ESTADO_REGISTRO\") VALUES (?, ?, ?, ? )";
-        try (Connection connection = new ConectaDb().getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-            int tipoInt = Integer.parseInt(tipoTemporada);
-            Date fechaI = Date.valueOf(fechaInicio);
-            Date fechaF = Date.valueOf(fechaFin);
-            preparedStatement.setString(1, nombreTemporada);
-            preparedStatement.setInt(2, tipoInt);
-            preparedStatement.setDate(3, fechaI);
-            preparedStatement.setDate(4, fechaF);
-            preparedStatement.setString(5, "A");
-            
-           
-     
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
+    public List<Object[]> registrarTemporada(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin) {
+        String sql = new StringBuilder()
+            .append("INSERT INTO public.\"TEMPORADA\" ")
+            .append("(\"ID_TEMPORADA\", \"NOMBRE_TEMPORADA\", \"ID_TIPO_TEMPORADA\", \"FECHA_INICIO\", \"FECHA_FIN\", \"ESTADO_REGISTRO\", \"FECHA_REGISTRO\")")
+            .append("VALUES(nextval('\"TEMPORADA_ID_TEMPORADA_seq\"'::regclass), '"+nombreTemporada+"', "+tipoTemporada+", '" + fechaInicio + "'::DATE, '" + fechaFin + "'::DATE, 'A', now()); ")
+            .toString();
         
+        System.out.println(sql);
+    
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado =  obj.selectGeneral(sql);
+        
+        return listado;
     }
+
+  
 }

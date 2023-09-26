@@ -24,41 +24,40 @@
                         <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
                     </div>
                     <div class="modal-body">
-                        <form action = "temporadasServlet" id="crearTemporada" method="post" >
+                        <form action = "action" id="crearTemporada">
                              <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <input id="nombreTemporada" name="nombreTemporada" type="text" placeholder="Nombre de Temporada" required>
+                                    <input id="nombreTemporada" name="nombreTemporada" type="text" class="form-control" placeholder="Nombre de Temporada" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <label for="fechaInicio">Fecha de inicio:</label>
-                                    <input id="fechaInicio" name="fechaInicio "type="date" placeholder="Fecha de Inicio"  required/>
+                                    <input id="fechaInicio" name="fechaInicio "type="date" placeholder="Fecha de Inicio" class="form-control"  required/>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <label for="fechaFin">Fecha de fin:</label>
-                                    <input id="fechaFin" name="fechaFin" type="date" placeholder="Fecha de Fin"  required/>
+                                    <input id="fechaFin" name="fechaFin" type="date" placeholder="Fecha de Fin" class="form-control"  required/>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <select id="tipoTemporada" name="tipoTemporada">
+                                    <select id="tipoTemporada" name="tipoTemporada" class="form-control" required>
                                         <option>--Seleccionar Tipo--</option>
                                     </select>
                                 </div>
                                 
-                            
+                            <div class="modal-footer btnLogin">
+                                <button type="submit" value="registrar" data-dismiss="modal">Registrar</button>
+                             </div>
                                 
                             </div>
-                            
-                            <input type="submit" value="registrar"/>
-                        </form>
+                         </form>    
                     </div>
-                    <div class="modal-footer btnLogin">
-                        <button style="width: 30%;font-size: 15px" type="button" id="btnCrear" data-dismiss="modal">Aceptar</button>
-                    </div>
+                        
+                    
                 </div>
             </div>
         </div>

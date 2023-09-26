@@ -93,13 +93,12 @@ $.ajax({
     $.ajax({
         url: "temporadasServlet",
         dataType: "json",
-        method: "POST",
         data:{
             accion: "registrar-temporada", nombreTemporada: nombreTemporada, tipoTemporada:tipoTemporada, fechaInicio:fechaInicio,
             fechaFin: fechaFin
         },
         success: function (result) {
-            console.log(result);
+             console.log(result);
              $("#modal-creacion").modal("hide");
              window.location.href = "temporadas.jsp";
             
