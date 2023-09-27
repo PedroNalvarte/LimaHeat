@@ -8,7 +8,7 @@ $(function() {
 
 function registrarNuevo(){
     
-    cargarDDLCategorias();
+    cargarDDLCategorias("ddlCategoria");
     $("#ddlCategoria").val("0");
     $("#txtNomEquipo").val("");
     $("#modal-registrar-equipo-rival").modal("show");
@@ -33,6 +33,7 @@ $('#registrar-Equipo-rival').on('submit', function(event){
         success: function (result) {
             
             $("#modal-registrar-equipo-rival").modal("hide");
+            cargarEquipos();
             
         }
     }); 
@@ -40,7 +41,7 @@ $('#registrar-Equipo-rival').on('submit', function(event){
 });
 
 //Cargar datos para select de categorias
-function cargarDDLCategorias(){
+function cargarDDLCategorias(id){
     
     $.ajax({
         url: "equiposRivalesServlet",
@@ -50,11 +51,11 @@ function cargarDDLCategorias(){
         },
         success: function (result) {
             let cantidad = result.rows.length;
-            $("#ddlCategoria").html("");
-            $("#ddlCategoria").append("<option value=''>SELECCIONE CATEGORIA</option>");
+            $("#"+id).html("");
+            $("#"+id).append("<option value=''>SELECCIONE CATEGORIA</option>");
             
             for (let i = 0; i < cantidad; i++) {
-                $("#ddlCategoria").append("<option value='"+result.rows[i][0]+"'>"+result.rows[i][1]+"</option>");
+                $("#"+id).append("<option value='"+result.rows[i][0]+"'>"+result.rows[i][1]+"</option>");
             }
         }
     });   
@@ -73,17 +74,18 @@ function cargarEquipos(){
         success: function (result) {
             let cantidad = result.rows.length;
             
+            $(".lista-equipos-rivales").html("");
+            
             for (let i = 0; i < cantidad; i++) {
                 
                 var html = ``;
-                    html += `<button idEquipo="${result.rows[i][0]}" idCategoria="${result.rows[i][1]}" class="mi-button">`;
+                    html += `<article class="mi-button" >`;
                         html += `<div class="card mi-card">`;
                             html += `<h2>${result.rows[i][3]}</h2>`;
-                            html += `<div class="input-group">`;
-                                html += `<i class="bi bi-bookmark"> </i> <label>${result.rows[i][2]}</label>`;
-                            html += `</div>`;
+                            html += `<div class="row"><i class="bi bi-bookmark"></i><label>${result.rows[i][2]}</label></div>`;
+                            html += `<div class="botones"><a id="${result.rows[i][0]}" onclick="editarEquipo(this.id)" <i class="bi bi-pencil"></i>      <a id="${result.rows[i][0]}" cat="${result.rows[i][1]}" onclick="botonEquipo(this.id,this.getAttribute('cat'))"<i class="bi bi-eye-fill"></i></a></div>`;
                         html += `</div>`;
-                    html += `</button>`;
+                    html += `</article>`;
                  
                 $(".lista-equipos-rivales").append(html);
             }
@@ -102,3 +104,62 @@ function cargarEquipos(){
     }); 
      
 }
+
+function botonEquipo(idEquipo, idCategoria){
+        
+    location.href = 'equipoTemporada.jsp?idE='+idEquipo+"&cat="+idCategoria;
+    
+}
+
+function editarEquipo(id){
+    
+    cargarDDLCategorias("ddlEditCategoria");
+    
+    //"ID_CATEGORIA"	"NOMBRE_CATEGORIA"	"ID_TIPO_EQUIPO"	"TIPO_EQUIPO"	"NOMBRE_EQUIPO"
+    $.ajax({
+        url: "equiposRivalesServlet",
+        dataType: "json",
+        data:{
+            accion: "cargarDatosEquipo",id:id
+        },
+        success: function (result) {
+            
+            $("#txtEditNomEquipo").attr('idEquipo',id);
+            $("#ddlEditCategoria").val((result.rows[0][0]).toString());
+            $("#txtEditNomEquipo").val(result.rows[0][4]);
+            $("#modal-editar").modal("show");
+                 
+        }
+        
+    }); 
+    
+    
+  
+}
+
+$('#editar-Equipo-rival').on('submit', function(event){
+    
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    
+    //obtener datos y registrar equipo
+    let idCategoria = $("#ddlEditCategoria option:selected").val();
+    let nombreEquipo = $("#txtEditNomEquipo").val();
+    let idEquipo = $("#txtEditNomEquipo").attr('idEquipo');
+    
+    $.ajax({
+        url: "equiposRivalesServlet",
+        dataType: "json",
+        data:{
+            accion: "editarEquipo", idCategoria:idCategoria, nombreEquipo:nombreEquipo, idEquipo:idEquipo
+        },
+        success: function (result) {
+            
+            $("#modal-editar").modal("hide");
+            $("#txtEditNomEquipo").attr('idEquipo',"");
+            cargarEquipos();
+            
+        }
+    }); 
+     
+});

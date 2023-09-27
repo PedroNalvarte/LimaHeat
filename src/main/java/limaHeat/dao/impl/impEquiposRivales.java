@@ -51,6 +51,39 @@ public class impEquiposRivales implements IEquiposRivales{
         return listado;
        
     }
+
+    @Override
+    public List<Object[]> cargarDatosEquipo(String id) {
+        
+        String sql = new StringBuilder()
+            .append("select e.\"ID_CATEGORIA\", c.\"NOMBRE_CATEGORIA\", e.\"ID_TIPO_EQUIPO\", te.\"TIPO_EQUIPO\", e.\"NOMBRE_EQUIPO\"  from \"EQUIPO\" e ")
+            .append("inner join \"CATEGORIA\" c on c.\"ID_CATEGORIA\"=e.\"ID_CATEGORIA\" ")
+            .append("inner join \"TIPO_EQUIPO\" te on te.\"ID_TIPO_EQUIPO\"=e.\"ID_TIPO_EQUIPO\" ")
+            .append("where e.\"ID_EQUIPO\" = "+id+"")
+            .toString();
+             
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado =  obj.selectGeneral(sql);
+        
+        return listado;
+        
+    }
+
+    @Override
+    public List<Object[]> editarEquipo(String idCategoria, String nombreEquipo, String idEquipo) {
+        
+        String sql = new StringBuilder()
+            .append("UPDATE public.\"EQUIPO\" ")
+            .append("SET \"ID_CATEGORIA\"="+idCategoria+", \"NOMBRE_EQUIPO\"='"+nombreEquipo+"', \"FECHA_REGISTRO\"= now() ")
+            .append("WHERE \"ID_EQUIPO\"="+idEquipo+"; ")
+            .toString();
+             
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado =  obj.selectGeneral(sql);
+        
+        return listado;
+       
+    }
     
     
     

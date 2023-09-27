@@ -33,7 +33,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 3px">REGISTRAR NUEVO EQUIPO RIVAL</center>
                     </div>
                     <div class="modal-body">
                         <p style="color: black;font-size: 15px;">Ingrese los datos del equipo rival que desea registrar.</p>
@@ -60,7 +60,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin Modal -->
+        </div>
+        <!-- Fin Modal -->
             
             <!-- Modal Confirmar proceso de datos -->
             <div id="modal-verificacion" class="modal fade" role="dialog">
@@ -80,6 +81,43 @@
                 </div>
             </div>
             <!-- Fin Modal -->
+            
+        <!-- Modal registrar equipo rival -->
+        <div id="modal-editar" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-md ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 3px">EDITAR DATOS DEL EQUIPO</center>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: black;font-size: 15px;">Ingrese los datos que desea modificar del equipo rival.</p>
+                        
+                        <form action="action" id="editar-Equipo-rival">
+                        <div class="row mt-3">
+                            <div class="col col-md-12">
+                                <label for="ddlEditCategoria"><strong>Categoria:</strong></label>
+                                <select id="ddlEditCategoria" class="form-control" required></select>  
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col col-md-12">
+                                <label for="txtNomEquipo"><strong>Nombre Equipo:</strong></label>
+                                <input id="txtEditNomEquipo" class="form-control" required></input>  
+                            </div>
+                        </div>
+
+                        <div class="modal-footer btnLogin">
+                            <button style="width: 30%;font-size: 15px" type="submit" data-dismiss="modal">Editar</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
+
 
             <%@include file="components/includes/footer.jspf"%>
             <script src="js/equiposRivales.js"></script>

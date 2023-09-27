@@ -10,4 +10,10 @@ public interface IEquiposRivales {
     
     List<Object[]> listarEquiposRegistrados();
     
+    List<Object[]> cargarDatosEquipo(String id);
+    
+    List<Object[]> editarEquipo(String idCategoria, String nombreEquipo, String idEquipo);
+    
+    
+    
 }

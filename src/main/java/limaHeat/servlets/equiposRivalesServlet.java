@@ -55,6 +55,29 @@ public class equiposRivalesServlet extends HttpServlet {
             resultado = json.matriz(listado);
             
             response.getWriter().write(resultado);
+            
+        }else if(accion.equals("cargarDatosEquipo")){
+            
+            String idEquipo = request.getParameter("id");
+            
+            IEquiposRivales equipoRivalesDao = new impEquiposRivales();
+            List<Object[]> listado = equipoRivalesDao.cargarDatosEquipo(idEquipo);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+            
+        }else if(accion.equals("editarEquipo")){
+            
+            String idCategoria = request.getParameter("idCategoria");
+            String nombreEquipo = request.getParameter("nombreEquipo");
+            String idEquipo = request.getParameter("idEquipo");
+            
+            IEquiposRivales equipoRivalesDao = new impEquiposRivales();
+            List<Object[]> listado = equipoRivalesDao.editarEquipo(idCategoria, nombreEquipo, idEquipo);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+            
         }
     }
 
