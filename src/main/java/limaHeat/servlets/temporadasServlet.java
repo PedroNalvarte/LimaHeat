@@ -73,6 +73,39 @@ public class temporadasServlet extends HttpServlet {
             response.getWriter().write(resultado);
        
         }
+        else if(accion.equals("obtener-temporada")){
+            String resultado;
+            String temporadaSeleccionada = request.getParameter("idTemporada");
+            ITemporadas temporadasDao = new implTemporadas();
+            List<Object[]> temporada = temporadasDao.obtenerTemporada(temporadaSeleccionada);
+            resultado = json.matriz(temporada);
+            System.out.println(resultado);
+            response.getWriter().write(resultado);
+          
+        }
+        else if(accion.equals("eliminar-temporada")){
+            String resultado;
+            String temporadaSeleccionada = request.getParameter("idTemporada");
+            ITemporadas temporadasDao = new implTemporadas();
+            List<Object[]> temporada = temporadasDao.eliminarTemporada(temporadaSeleccionada);
+            resultado = json.matriz(temporada);
+            response.getWriter().write(resultado);
+            
+         
+        }
+        else if(accion.equals("editar-temporada")){
+            String resultado;
+            String nombreTemporada = request.getParameter("nombreTemporada");
+            String tipoTemporada = request.getParameter("tipoTemporada");
+            String fechaInicio = request.getParameter("fechaInicio");
+            String fechaFin = request.getParameter("fechaFin");
+            String temporadaSeleccionada = request.getParameter("idTemporada");
+            
+            ITemporadas temporadasDao = new implTemporadas();
+            List<Object[]> temporada = temporadasDao.editarTemporada(nombreTemporada, tipoTemporada, fechaInicio, fechaFin, temporadaSeleccionada);
+           resultado = json.matriz(temporada);
+           response.getWriter().write(resultado);
+        }
        
               
     }

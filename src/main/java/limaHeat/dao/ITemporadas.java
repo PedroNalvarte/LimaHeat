@@ -15,4 +15,8 @@ public interface ITemporadas {
      List<Object[]> listarTemporadas();
      List<Object[]> tiposTemporadas();
      List<Object[]> registrarTemporada(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin);
+     List<Object[]> obtenerTemporada(String id);
+     List<Object[]> eliminarTemporada(String id);
+     List<Object[]> editarTemporada(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin, String id);
+
 }

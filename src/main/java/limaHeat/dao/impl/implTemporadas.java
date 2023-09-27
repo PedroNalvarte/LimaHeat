@@ -22,7 +22,7 @@ public class implTemporadas implements ITemporadas {
     public List<Object[]> listarTemporadas() {
      
         String sql = new StringBuilder()
-            .append("SELECT \"NOMBRE_TEMPORADA\", \"TIPO_TEMPORADA\" FROM \"TEMPORADA\", \"TIPO_TEMPORADA\" WHERE \"TEMPORADA\".\"ID_TIPO_TEMPORADA\" = \"TIPO_TEMPORADA\".\"ID_TIPO_TEMPORADA\"")
+            .append("SELECT \"NOMBRE_TEMPORADA\", \"TIPO_TEMPORADA\", \"ID_TEMPORADA\" FROM \"TEMPORADA\", \"TIPO_TEMPORADA\" WHERE \"TEMPORADA\".\"ID_TIPO_TEMPORADA\" = \"TIPO_TEMPORADA\".\"ID_TIPO_TEMPORADA\"")
             .toString();
              
         SelectGeneral obj = new SelectGeneral();
@@ -49,12 +49,42 @@ public class implTemporadas implements ITemporadas {
             .append("VALUES(nextval('\"TEMPORADA_ID_TEMPORADA_seq\"'::regclass), '"+nombreTemporada+"', "+tipoTemporada+", '" + fechaInicio + "'::DATE, '" + fechaFin + "'::DATE, 'A', now()); ")
             .toString();
         
-        System.out.println(sql);
     
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
         
         return listado;
+    }
+
+    @Override
+    public List<Object[]> obtenerTemporada(String id) {
+        String sql = new StringBuilder()
+                .append("SELECT \"TEMPORADA\".*, \"TIPO_TEMPORADA\" FROM \"TEMPORADA\", \"TIPO_TEMPORADA\" WHERE \"TEMPORADA\".\"ID_TIPO_TEMPORADA\" = \"TIPO_TEMPORADA\".\"ID_TIPO_TEMPORADA\" AND \"ID_TEMPORADA\" = " + id).toString();
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> temporada = obj.selectGeneral(sql);
+        System.out.println(sql);
+   
+        return temporada;
+    }
+
+    @Override
+    public List<Object[]> eliminarTemporada(String id) {
+       String sql = new StringBuilder()
+               .append("DELETE FROM \"TEMPORADA\" WHERE \"ID_TEMPORADA\" = "  + id).toString();
+       SelectGeneral obj = new SelectGeneral();
+       List<Object[]>  resultado = obj.selectGeneral(sql);
+       return resultado;
+    }
+
+    @Override
+    public List<Object[]> editarTemporada(String nombreTemporada, String tipoTemporada, String fechaInicio, String fechaFin, String id) {
+       String sql = new StringBuilder()
+               .append("UPDATE \"TEMPORADA\" SET \"NOMBRE_TEMPORADA\" = '" + nombreTemporada + "', \"ID_TIPO_TEMPORADA\" = " + tipoTemporada + ", \"FECHA_INICIO\" = '" + fechaInicio + "'::DATE, \"FECHA_FIN\" = '" + fechaFin + "'::DATE," + " \"FECHA_REGISTRO\" = now()")
+               .append(" WHERE \"ID_TEMPORADA\" = " + id).toString();
+       System.out.println(sql);
+       SelectGeneral obj = new SelectGeneral();
+       List<Object[]> resultado = obj.selectGeneral(sql);
+       return resultado;
     }
 
   
