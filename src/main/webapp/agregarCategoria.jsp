@@ -6,11 +6,12 @@
     <title>Registrar Categoria</title>
     <%@include file="components/includes/header.jspf"%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
 </head>
 <body>
 
 <div class="container">
-    <h1 class="mt-5">Registro de Categoría</h1>
+    <h1 class="mt-5" id="titulo">Registro de Categoría</h1>
     <div class="row mt-4">
         <div class="col-md-6">
             <form action="enviar_registro" id="insertar" method="post">
@@ -53,6 +54,6 @@
    
 
 <%@include file="components/includes/footer.jspf"%>
-
+<script src="js/agregarCategoria.js"></script>
 </body>
 </html>

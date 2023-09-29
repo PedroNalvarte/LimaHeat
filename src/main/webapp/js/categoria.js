@@ -1,53 +1,56 @@
-// archivo.js en el paquete "Js"
-  function categoria () {
-    
+function categoria() {
     window.location.href = "modulos.jsp";
-
 }
 
+
+document.addEventListener('DOMContentLoaded' ,cargarCategorias);
 function cargarCategorias() {
-    fetch('modulosServlet')
-        .then(response => response.json())
-        .then(categorias => {
-            var categoriasContainer = document.getElementById('categorias-container');
+    fetch('enviar_registro?accion=obtener')
+            .then(response => response.json())
+            .then(categorias => {
+                var categoriasContainer = document.getElementById('categorias-container');
 
-            categorias.forEach(categoria => {
-                // Crear una tarjeta de categoría
-                var card = document.createElement('div');
-                card.className = 'card mb-3 categoria-card';
+                categorias.forEach(categoria => {
+                  
+                    var card = document.createElement('div');
+                    card.className = 'card mb-3 categoria-card';
 
-                // Crear un contenedor personalizado para la imagen
-                var imageContainer = document.createElement('div');
-                imageContainer.className = 'image-container';
-                var cardImage = document.createElement('img');
-                cardImage.className = 'card-img-top';
-                cardImage.src = categoria.IMAGEN; // Supongamos que 'IMAGEN' es la URL de la imagen
-                imageContainer.appendChild(cardImage);
+                   
+                    var contentContainer = document.createElement('div');
+                    contentContainer.className = 'card-body';
 
-                // Crear un contenedor personalizado para el contenido
-                var contentContainer = document.createElement('div');
-                contentContainer.className = 'card-body';
+                
+                    var cardTitle = document.createElement('h5');
+                    cardTitle.className = 'card-title';
+                    cardTitle.textContent = categoria[1]; 
+                    contentContainer.appendChild(cardTitle);
+                    
+                    var cardTitle = document.createElement('h6');
+                    cardTitle.className = 'card-title';
+                    cardTitle.textContent = categoria[0];
+                    contentContainer.appendChild(cardTitle);
 
-                // Agregar título
-                var cardTitle = document.createElement('h5');
-                cardTitle.className = 'card-title';
-                cardTitle.textContent = categoria.NOMBRE_CATEGORIA;
-                contentContainer.appendChild(cardTitle);
+                    var editarButton = document.createElement('button');
+                    editarButton.textContent = 'Editar';
+                    editarButton.addEventListener('click', function () {
+                        redirigirAEditarCategoria(categoria[0]); 
+                    });
 
+                   
+                    contentContainer.appendChild(editarButton);
 
-                // Agregar el contenedor de imagen y contenido a la tarjeta
-                card.appendChild(imageContainer);
-                card.appendChild(contentContainer);
+                    
+                    card.appendChild(contentContainer);
 
-                // Agregar la tarjeta al contenedor de categorías
-                categoriasContainer.appendChild(card);
+                    
+                    categoriasContainer.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar categorías:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error al cargar categorías:', error);
-        });
 }
 
-
-// Llama a la función para cargar categorías cuando la página se cargue
-document.addEventListener('DOMContentLoaded', cargarCategorias);
+function redirigirAEditarCategoria(idCategoria) {
+    window.location.href = `agregarCategoria.jsp?id=${idCategoria}&accion=Editar`;
+}

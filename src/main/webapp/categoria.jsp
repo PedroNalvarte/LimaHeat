@@ -8,8 +8,8 @@
         <%@include file="components/includes/header.jspf"%>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/categoria.css"/>
+         <script src="js/categoria.js"></script>
 
     </head>
     <body>
@@ -41,6 +41,5 @@
 
             <%@include file="components/includes/footer.jspf"%>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="js/categoria.js"></script>
     </body>
 </html>
