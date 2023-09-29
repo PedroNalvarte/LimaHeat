@@ -53,4 +53,8 @@ public class JsonHelper extends Json{
       String result = toString(map);
       return result;
    }
+
+    public String matriz(boolean insercionExitosa) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

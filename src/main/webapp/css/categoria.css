@@ -1,0 +1,63 @@
+
+.container_details {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ajusta la altura según tu preferencia */
+  top:70px;
+  align-items: center;
+  justify-content: center;
+  
+}
+.mi-tarjeta {
+    max-width: 400px; /* Ajusta el ancho máximo según tu preferencia */
+    margin: 0 auto; /* Centra las tarjetas horizontalmente */
+}
+#categorias-container {
+    max-width: 800px; /* Ajusta el ancho máximo según tu preferencia */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    position: relative;
+
+}
+
+.card-img-actions {
+  text-align: left;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.plus-button {
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical según tu preferencia */
+  right: 10px; /* Ajusta la posición horizontal según tu preferencia */
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo transparente */
+  border: none;
+  border-radius: 50%; /* Forma de círculo */
+  color: #fff; /* Color del botón */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilo para centrar el contenido en dispositivos móviles */
+@media (max-width: 767px) {
+    .mi-tarjeta {
+        max-width: 100%; /* Ancho completo en dispositivos móviles */
+    }
+    #categoria {
+        text-align: center; /* Centra el contenido dentro de #categoria */
+    }
+    #categorias-container {
+        text-align: center; /* Centra el contenido dentro de #categorias-container */
+    }
+}
