@@ -68,11 +68,11 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color modalEliminarHeader">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 3px">EDITAR TEMPORADA</center>
 
                     </div>
                     <div class="modal-body">
-                        <button id = "eliminarTemporada" data-dismiss="modal" class="btn btn-danger btnEliminarT">Eliminar <i class="bi bi-x-square"></i></button>
+                   
                         <form action = "action" id="editarTemporada">
                             <div class="row mt-4">
                                 <div class="col col-md-12">
@@ -115,6 +115,32 @@
             </div>
         </div>
         <!--Final Modal-->
+        
+           <!---- Modal Eliminar Temporada --->
+        <div id="modal-eliminar" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-sm ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 3px">ELIMINAR TEMPORADA</center>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de que deseas eliminar esta temporada?</p>
+                    </div>
+                    <div class="modal-footer ">
+                                    <button value="SI" class="btn btn-danger" id="confirmar-eliminar" data-dismiss="modal">SI</button>
+                                    <button value="NO" class="btn btn-primary" id="cancelar-eliminar" data-dismiss="modal">NO</button>
+                    </div>
+
+                            
+                           
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
 
         <%@include file="components/includes/footer.jspf"%>
         <script src="js/temporadas.js"></script>

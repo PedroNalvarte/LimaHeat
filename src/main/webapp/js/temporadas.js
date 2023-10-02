@@ -6,6 +6,13 @@
     let listaTiposE = document.getElementById("tipoTemporadaE");
     listarTipos(listaTipos);
     listarTipos(listaTiposE);
+    
+    
+    let botonEditarTemporada;
+    let botonEliminarTemporada;
+   
+    
+    
     $.ajax({
         url: "temporadasServlet",
         dataType: "json",
@@ -21,20 +28,45 @@
             let nuevoDiv = document.createElement("div");
             nuevoDiv.classList.add("carta");
             listaTemporadas.push("Temporada " + result.rows[i][0] + " " + result.rows[i][1]);
-            nuevoDiv.innerHTML = "Temporada " + result.rows[i][0] + "<br>" + result.rows[i][1];
+            nuevoDiv.innerHTML = "Temporada " + result.rows[i][0] + "<br>" + result.rows[i][1] + "<br><i class=\"bi bi-pencil boton-editar\"></i> <i class=\"bi bi-x-circle boton-eliminar\" id=\"boton-eliminar\"></i>";
             nuevoDiv.style.borderRadius = "10px";
             nuevoDiv.setAttribute('data-id', result.rows[i][2]);
-            nuevoDiv.addEventListener("click", verDetalles);
+            
             container.appendChild(nuevoDiv);
+         
+        }
+         botonEliminarTemporada = document.getElementsByClassName("boton-eliminar");
+         botonEditarTemporada = document.getElementsByClassName("boton-editar");
+                
+         for(let i = 0; i < botonEliminarTemporada.length; i++){
+            
+            botonEliminarTemporada[i].addEventListener("click", function (){
+                let cartaElement = this.parentNode;
+                let dataId = cartaElement.getAttribute('data-id');
+                eliminarTemporada(dataId);
+            }); 
+           
+
          }
+         
+         for(let k = 0; k < botonEditarTemporada.length; k++){ 
+             botonEditarTemporada[k].addEventListener("click", function(){
+             let cartaElement = this.parentNode;
+             let dataId = cartaElement.getAttribute('data-id');
+             verDetalles(dataId);
+             
+             });
+             
+        }
          
          let finalDiv = document.createElement("div");
          finalDiv.classList.add("carta");
          finalDiv.classList.add("agregar");
          finalDiv.id = "agregarTemporada";
-         finalDiv.innerHTML = " Agregar Temporada<br><i class=\"bi bi-plus-circle\"></i>";
+         finalDiv.innerHTML = "Agregar Temporada<br><br><i class=\"bi bi-plus-circle\"></i>";
          finalDiv.style.backgroundColor = "#bbbcbd";
          finalDiv.style.borderRadius = "10px";
+      
          container.appendChild(finalDiv);
          
          
@@ -53,8 +85,7 @@
         }
     }); 
     
-  function agregar(){
-      
+  function agregar(){   
       $('#modal-creacion').modal('show');
   }
   
@@ -116,9 +147,9 @@ $.ajax({
     });
  });
  
-let temporadaSeleccionada;
- function verDetalles(){      
-      temporadaSeleccionada = this.getAttribute('data-id');
+
+ function verDetalles(id){      
+      temporadaSeleccionada = id;
       
       obtenerDatos(temporadaSeleccionada);
       
@@ -170,15 +201,18 @@ let temporadaSeleccionada;
     return fechaFormateada;
 }
 
-let botonEliminarTemporada = document.getElementById("eliminarTemporada");
-
-botonEliminarTemporada.addEventListener("click", function(){
-   let id = temporadaSeleccionada;
    
-   const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta temporada?");
+function eliminarTemporada (id) {
    
-   if(confirmacion){
-    $.ajax({
+   $('#modal-eliminar').modal('show');
+   
+   let botonConfirmar = document.getElementById("confirmar-eliminar");
+   let botonCancelar = document.getElementById("cancelar-eliminar");
+   
+   
+   
+   botonConfirmar.addEventListener("click", function(){
+       $.ajax({
       url: "temporadasServlet",
       dataType: "json",
       data:{
@@ -192,17 +226,20 @@ botonEliminarTemporada.addEventListener("click", function(){
    });
    
      setTimeout(function() {
-            $("#modal-detalles").modal("hide");
+            $("#modal-eliminar").modal("hide");
             window.location.href = "temporadas.jsp";
-                }, 150);
+                }, 150);  
+   });
    
-    }
-   
-});
+   botonCancelar.addEventListener("click", function(){
+      $("#modal-eliminar").modal("hide"); 
+   });
+};
 
-let botonEditarTemporada = document.getElementById("btnEditarTemporada");
 
-botonEditarTemporada.addEventListener("click", function(){
+
+let botonConfirmarEditar = document.getElementById("btnEditarTemporada");
+botonConfirmarEditar.addEventListener("click", function(){
     event.preventDefault();
     event.stopImmediatePropagation();
     
