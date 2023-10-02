@@ -1,5 +1,5 @@
-function categoria() {
-    window.location.href = "modulos.jsp";
+function agregarCategoria() {
+    window.location.href = "agregarCategoria.jsp";
 }
 
 

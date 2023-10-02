@@ -18,7 +18,7 @@
                             <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/06/28/649ca60ba186f.png" alt="Imagen de la tarjeta 1">
                             <div class="card-body">
                                 <h2 class="card-title">CATEGORIAS</h2>
-                                <button onclick="modulo()" type="button" class="btn btn-custom plus-button">+</button>
+                                <button onclick="categoria()" type="button" class="btn btn-custom plus-button">+</button>
                             </div>
                         </div>
                     </div>
@@ -55,11 +55,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-        <div class="col-md-6">
-            <a href="categoria.jsp" class="btn btn-secondary">Ir a Categorias</a>
-        </div>
-    </div>
+        
         <%@include file="components/includes/footer.jspf"%>
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

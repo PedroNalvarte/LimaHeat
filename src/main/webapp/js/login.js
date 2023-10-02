@@ -41,7 +41,7 @@ $('#inicio-sesion').on('submit', function(event){
                             },
                             success: function (result) {
                                 
-                                window.location.href = "categoria.jsp";
+                                window.location.href = "modulos.jsp";
 
                             }
                         }); 

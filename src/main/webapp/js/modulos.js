@@ -1,10 +1,15 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
- function modulo () {
+function categoria(){
+    window.location.href = "categoria.jsp";
     
-    window.location.href = "agregarCategoria.jsp";
+}
 
+function equiposRivales(){
+    window.location.href = "equiposRivales.jsp";
+    
+}
+
+function temporadas(){
+    window.location.href = "temporadas.jsp";
+    
 }
 

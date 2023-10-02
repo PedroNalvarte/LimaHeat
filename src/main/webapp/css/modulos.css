@@ -1,4 +1,6 @@
-
+body{
+    overflow-x: hidden;
+}
 
 .card {
     border: 1px solid #ccc;
