@@ -1,15 +1,13 @@
-function categoria(){
-    window.location.href = "categoria.jsp";
-    
+function categorias() {
+    window.location.href = "agregarCategoria.jsp";
 }
-
-function equiposRivales(){
+function equiposRivales() {
     window.location.href = "equiposRivales.jsp";
-    
 }
 
-function temporadas(){
+function equipoTemporada() {
+    window.location.href = "equipoTemporada.jsp";
+}
+function temporadas() {
     window.location.href = "temporadas.jsp";
-    
 }
-

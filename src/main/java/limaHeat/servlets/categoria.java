@@ -1,104 +1,95 @@
 package limaHeat.servlets;
 
-import com.google.gson.Gson;
+import general.json.JsonHelper;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import limaHeat.dao.ICategoria;
 import limaHeat.dao.impl.implAgregarCategorias;
 
-@WebServlet(name = "enviar_registro", urlPatterns = {"/enviar_registro"})
+@WebServlet(name = "categoria", urlPatterns = {"/categoria"})
 public class categoria extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+           response.setContentType("application/json;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String lista;
+        JsonHelper json = new JsonHelper();
+        String accion = request.getParameter("accion");
+      
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        String lista;
+        JsonHelper json = new JsonHelper();
         String accion = request.getParameter("accion");
-        
-        if (accion.equals("Editar")) {
-            String ID_CATEGORIA = request.getParameter("ID_CATEGORIA");
-            String NOMBRE_CATEGORIA = request.getParameter("NOMBRE_CATEGORIA");
-            String ABREVIATURA = request.getParameter("ABREVIATURA");
-            String DESC_CATEGORIA = request.getParameter("DESC_CATEGORIA");
-            String ESTADO_REGISTRO = request.getParameter("ESTADO_REGISTRO");
-            String IMAGEN = request.getParameter("IMAGEN");
 
-          
-            ICategoria categoriaDAO = new implAgregarCategorias();
+        if (accion.equals("listar")) {
+            ICategoria CategoriaDao = new implAgregarCategorias();
+            List<Object[]> listado = CategoriaDao.listarCategorias();
+            lista = json.matriz(listado);
 
-           
-            List<Object[]> result = categoriaDAO.editarCategoria(ID_CATEGORIA, NOMBRE_CATEGORIA, ABREVIATURA, DESC_CATEGORIA, ESTADO_REGISTRO, IMAGEN);
+            response.getWriter().write(lista);
 
-            if (result != null && !result.isEmpty()) {
-               
-                response.sendRedirect("modulos.jsp"); 
-            } else {
-                
-                response.sendRedirect("error.jsp"); 
-            }
+        } else if (accion.equals("obtener-categoria")) {
+            String resultado;
+            String categoriaSeleccionada = request.getParameter("ID_CATEGORIA");
+            ICategoria categoriaDao = new implAgregarCategorias();
+            List<Object[]> categoria = categoriaDao.obtenerCategoria(categoriaSeleccionada);
+            resultado = json.matriz(categoria);
+            System.out.println(resultado);
+            response.getWriter().write(resultado);
+
         }
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         response.setContentType("application/json;charset=UTF-8");
-        String resultado;
+        processRequest(request, response);
+        response.setContentType("application/json;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-
-        String NOMBRE_CATEGORIA = request.getParameter("NOMBRE_CATEGORIA");
-        String ABREVIATURA = request.getParameter("ABREVIATURA");
-        String DESC_CATEGORIA = request.getParameter("DESC_CATEGORIA");
-        String ESTADO_REGISTRO = request.getParameter("ESTADO_REGISTRO");      
-        String IMAGEN = request.getParameter("IMAGEN");
-
-        ICategoria categoriaDao = new implAgregarCategorias();
-        boolean insercionExitosa = categoriaDao.insertarDatos(NOMBRE_CATEGORIA, ABREVIATURA, DESC_CATEGORIA, ESTADO_REGISTRO,IMAGEN);
-
-        if (insercionExitosa) {
-            resultado = "Inserción exitosa";
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.sendRedirect("modulos.jsp"); 
-        } else {
-            resultado = "Error en la inserción";
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-
-        response.getWriter().write(resultado);
-        
-     
-    }
-    
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        JsonHelper json = new JsonHelper();
         String accion = request.getParameter("accion");
+        
+       if (accion.equals("registrar-categoria")) {
 
-        if ("obtener".equals(accion)) {
-            ICategoria implementacion = new implAgregarCategorias();
-            List<Object[]> categorias = implementacion.obtenerTodasLasCategorias();
+            String resultado;
+            String NOMBRE_CATEGORIA = request.getParameter("NOMBRE_CATEGORIA");
+            String ABREVIATURA = request.getParameter("ABREVIATURA");
+            String DESC_CATEGORIA = request.getParameter("DESC_CATEGORIA");
+            String IMAGEN = request.getParameter("IMAGEN");
 
-            // Configurar la respuesta HTTP
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
+            ICategoria categoriaDao = new implAgregarCategorias();
+            List<Object[]> listado = categoriaDao.insertarDatos(NOMBRE_CATEGORIA, ABREVIATURA, DESC_CATEGORIA, IMAGEN);
 
-            // Convertir la lista de objetos a JSON y enviarla como respuesta
-            Gson gson = new Gson();
-            String categoriasJson = gson.toJson(categorias);
+            resultado = json.matriz(listado);
 
-            PrintWriter out = response.getWriter();
-            out.print(categoriasJson);
-            out.flush();
+            response.getWriter().write(resultado);
+
         }
+       else if (accion.equals("editar-categoria")) {
+            String resultado;
+            String NOMBRE_CATEGORIA = request.getParameter("NOMBRE_CATEGORIA");
+            String ABREVIATURA = request.getParameter("ABREVIATURA");
+            String DESC_CATEGORIA = request.getParameter("DESC_CATEGORIA");
+            String CategoriaSeleccionada = request.getParameter("ID_CATEGORIA");
 
+            ICategoria categoriaDao = new implAgregarCategorias();
+            List<Object[]> categoria = categoriaDao.editarCategoria(NOMBRE_CATEGORIA, ABREVIATURA, DESC_CATEGORIA, CategoriaSeleccionada);
+            resultado = json.matriz(categoria);
+            response.getWriter().write(resultado);
+        } 
     }
+
 }
