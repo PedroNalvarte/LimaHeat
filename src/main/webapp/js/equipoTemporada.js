@@ -9,23 +9,22 @@ $(function() {
         $("#container-temporadas").attr("idEquipo",idEquipo);
         $("#container-temporadas").attr("idCategoria",idCategoria);
         
+        cargarTitulo(idEquipo, idCategoria);
         cargarTemporadas();
-	
         
-
 });
 
 function cargarTitulo(idEquipo, idCategoria){
     
     $.ajax({
-        url: "equiposRivalesServlet",
+        url: "equipoTemporadaServlet",
         dataType: "json",
         data:{
-            accion: "listarEquiposRegistrados"
+            accion: "cargarTitulo", idEquipo:idEquipo, idCategoria:idCategoria
         },
         success: function (result) {
             
-                  
+            $("#titulo").text("Temporadas del Equipo "+result.rows[0][0]); 
         }
     });
     
@@ -84,3 +83,25 @@ function registrarNuevo(){
     $("#modal-registrar-equipo-rival").modal("show");
     
 } 
+
+$('#registrar-equipo-temporada').on('submit', function(event){
+    
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    
+    alert("hola");
+    
+    /*
+    $.ajax({
+        url: "limaHeatServlet",
+        dataType: "json",
+        data:{
+            accion: "iniciar-sesion",usuario:usuario, contra:contra
+        },
+        success: function (result) {
+            
+
+        }
+    }); 
+    */
+});

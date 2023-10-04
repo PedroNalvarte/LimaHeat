@@ -8,8 +8,14 @@
         <link rel="stylesheet" href="css/equiposRivales.css"/>
     </head>
     <body>
+        
+        <h1 id="titulo"></h1>
 
         <div id="container-temporadas">
+            
+            
+            
+            
 
 
 
@@ -59,7 +65,7 @@
                                     <div class="row">
                                         <div class="col col-md-12">
                                             <label for="txtNomEquipo"><strong>Tipo Documento Identidad:</strong></label>
-                                            <select id="ddlDocId" class="form-control" required></select>
+                                            <select id="ddlDocId" class="form-control"></select>
                                         </div>
                                     </div>
 
@@ -73,7 +79,7 @@
                                     <div class="row mt-3">
                                         <div class="col col-md-12">
                                             <label for="txtNomEquipo"><strong>Temporada:</strong></label>
-                                            <select id="ddlTemporada" class="form-control" required></select>
+                                            <select id="ddlTemporada" class="form-control" ></select>
                                         </div>
                                     </div>
                                 </div>
