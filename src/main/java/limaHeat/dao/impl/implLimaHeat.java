@@ -60,12 +60,12 @@ public class implLimaHeat implements ILimaHeat{
     public List<Object[]> obtenerDatosPorUsuario(String usuario) {
         
         String sql = new StringBuilder()
-            .append("select p.\"ID_PARTICIPANTE\", p.\"ID_TIPO_PARTICIPANTE\", tp.\"TIPO_PARTICIPANTE\",  p.\"NOMBRES\", p.\"APELLIDO_1\", p.\"APELLIDO_2\", ")
-            .append("tdi.\"TIPO_DOCUMENTO_IDENTIDAD\", p.\"NUMERO_DOCUMENTO_IDENTIDAD\", p.\"FECHA_NACIMIENTO\", c.\"ID_TIPO_CUENTA\", tc.\"TIPO_CUENTA\" ")
+            .append("select p.\"ID_PARTICIPANTE\", p.\"ID_TIPO_PARTICIPANTE\", tp.\"TIPO_PARTICIPANTE\",  p.\"NOMBRES\", p.\"APELLIDO_1\", p.\"APELLIDO_2\", tdi.\"TIPO_DOCUMENTO_IDENTIDAD\", ")
+            .append("p.\"NUMERO_DOCUMENTO_IDENTIDAD\", p.\"FECHA_NACIMIENTO\", c.\"ID_TIPO_CUENTA\", tc.\"TIPO_CUENTA\" ")
             .append("from \"PARTICIPANTE\" p ")
-            .append("inner join \"CUENTA\" c on c.\"ID_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
+            .append("inner join \"CUENTA\" c ON c.\"ID_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
             .append("inner join \"TIPO_CUENTA\" tc on tc.\"ID_TIPO_CUENTA\" = c.\"ID_TIPO_CUENTA\" ")
-            .append("inner join \"TIPO_PARTICIPANTE\" tp on tp.\"ID_TIPO_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
+            .append("inner join \"TIPO_PARTICIPANTE\" tp on tp.\"ID_TIPO_PARTICIPANTE\" = p.\"ID_TIPO_PARTICIPANTE\" ")
             .append("inner join \"TIPO_DOCUMENTO_IDENTIDAD\" tdi on tdi.\"ID_TIPO_DOCUMENTO_IDENTIDAD\" = p.\"ID_TIPO_DOCUMENTO_IDENTIDAD\" ")
             .append("where p.\"USUARIO\" = '"+usuario+"'")
             .toString();

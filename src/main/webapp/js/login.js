@@ -40,7 +40,7 @@ $('#inicio-sesion').on('submit', function(event){
                                 accion:"agregarHTTPSesion", usuario:usuario
                             },
                             success: function (result) {
-                                
+
                                 window.location.href = "modulos.jsp";
 
                             }

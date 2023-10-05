@@ -28,6 +28,19 @@ body{
     gap: 30px;
 }
 
+#lista-mis-Equipos{
+   display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px; 
+    
+}
+
+#container-temporadas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
 .card-agregar{
     
     border-radius: 60px 10px 10px 60px;

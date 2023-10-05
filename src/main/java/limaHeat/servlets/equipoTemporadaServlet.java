@@ -36,7 +36,55 @@ public class equipoTemporadaServlet extends HttpServlet {
             
             response.getWriter().write(resultado);
         
-        } 
+        }else if(accion.equals("cargarTipoDni")){
+            
+            IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
+            List<Object[]> listado = equipoTemporadaDao.cargarTipoDni();
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+        
+        }else if(accion.equals("cargarDDLTemporadas")){
+            
+            IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
+            List<Object[]> listado = equipoTemporadaDao.cargarDDLTemporadas();
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+        
+        }else if(accion.equals("registrarTemporada")){
+            
+            System.out.println("llegue");
+            
+            String nombres = request.getParameter("nombres");
+            String ape1 = request.getParameter("ape1");
+            String ape2 = request.getParameter("ape2");
+            String tipoDocIde = request.getParameter("tipoDocIde");
+            String numDocIDe = request.getParameter("numDocIDe");
+            String idTemporada = request.getParameter("idTemporada");
+            String idEquipo = request.getParameter("idEquipo");
+            String idCategoria = request.getParameter("idCategoria");
+            
+            IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
+            List<Object[]> listado = equipoTemporadaDao.registrarTemporada(nombres, ape1, ape2, tipoDocIde, numDocIDe, idTemporada, idEquipo, idCategoria);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+        
+        }else if(accion.equals("listarTemporadas")){
+            
+            String idEquipo = request.getParameter("idEquipo");
+            String idCategoria = request.getParameter("idCategoria");
+            
+            System.out.println("hola servlet");
+            
+            IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
+            List<Object[]> listado = equipoTemporadaDao.listarTemporadas(idEquipo, idCategoria);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+        
+        }
     }
 
     @Override

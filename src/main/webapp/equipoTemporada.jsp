@@ -54,7 +54,7 @@
                                     <div class="row mt-3">
                                         <div class="col col-md-12">
                                             <label for="ddlCategoria"><strong>Segundo Apellido:</strong></label>
-                                            <input id="txtApe2" class="form-control"> 
+                                            <input id="txtApe2" class="form-control" required> 
                                         </div>
                                     </div>
 
@@ -64,8 +64,8 @@
                                     
                                     <div class="row">
                                         <div class="col col-md-12">
-                                            <label for="txtNomEquipo"><strong>Tipo Documento Identidad:</strong></label>
-                                            <select id="ddlDocId" class="form-control"></select>
+                                            <label for="ddlDocId"><strong>Tipo Documento Identidad:</strong></label>
+                                            <select id="ddlDocId" class="form-control" required></select>
                                         </div>
                                     </div>
 
@@ -78,8 +78,8 @@
                                     
                                     <div class="row mt-3">
                                         <div class="col col-md-12">
-                                            <label for="txtNomEquipo"><strong>Temporada:</strong></label>
-                                            <select id="ddlTemporada" class="form-control" ></select>
+                                            <label for="ddlTemporada"><strong>Temporada:</strong></label>
+                                            <select id="ddlTemporada" class="form-control" required></select>
                                         </div>
                                     </div>
                                 </div>

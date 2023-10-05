@@ -10,10 +10,13 @@
          <link rel="stylesheet" href="css/modulos.css"/>
     </head>
     <body>
+        
+        <div id="idTipoCuenta" hidden><%=logged.getIdTipoCuenta()%></div>
+        
         <div class="centered-container">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="moduloCategoria">
                         <div class="card">
                             <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/06/28/649ca60ba186f.png" alt="Imagen de la tarjeta 1">
                             <div class="card-body">
@@ -23,17 +26,17 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="moduloMisEquipos">
                         <div class="card">
                             <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/06/28/649ca60ba186f.png" alt="Imagen de la tarjeta 2">
                             <div class="card-body">
                                 <h2 class="card-title">MIS EQUIPOS</h2>
-                                <button onclick="equipoTemporada()" type="button" class="btn btn-custom plus-button">+</button>
+                                <button onclick="misEquipos()" type="button" class="btn btn-custom plus-button">+</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="moduloEquiposRivales">
                         <div class="card">
                             <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/06/28/649ca60ba186f.png" alt="Imagen de la tarjeta 2">
                             <div class="card-body">
@@ -43,7 +46,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="moduloTemporadas">
                         <div class="card">
                             <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/06/28/649ca60ba186f.png" alt="Imagen de la tarjeta 2">
                             <div class="card-body">
