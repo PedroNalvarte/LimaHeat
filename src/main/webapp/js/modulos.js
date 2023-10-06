@@ -4,7 +4,7 @@ $(function() {
     
     if(idTipoCuenta === "2"){
        
-       alert("te vas");
+      window.location.href = "misEquipos.jsp";
         
         
         

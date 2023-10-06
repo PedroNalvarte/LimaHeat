@@ -49,6 +49,14 @@ public class misEquiposServlet extends HttpServlet {
         
         
         }
+        else if(accion.equals("cargarMisEquiposParticipante")){
+            IMisEquipos misEquiposDao = new impMisEquipos();
+            String idParticipante = request.getParameter("participante");
+            List<Object[]> listado = misEquiposDao.cargarMisEquiposParticipantes(idParticipante);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado); 
+        }
     }
 
     @Override

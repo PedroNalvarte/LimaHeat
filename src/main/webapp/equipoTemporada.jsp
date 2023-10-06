@@ -8,9 +8,12 @@
         <link rel="stylesheet" href="css/equiposRivales.css"/>
     </head>
     <body>
+        <div id="idParticipante" hidden><%=logged.getIdParticipante()%></div>
+        <div id="idTipoCuenta" hidden><%=logged.getIdTipoCuenta()%></div>
         
         <h1 id="titulo"></h1>
-
+        
+         
         <div id="container-temporadas">
             
             
@@ -82,6 +85,40 @@
                                             <select id="ddlTemporada" class="form-control" required></select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="modal-footer btnLogin mt-2">
+                                <button style="width: 30%;font-size: 15px" type="submit" data-dismiss="modal">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
+        
+         <!-- Modal registrar equipo propio -->
+        <div id="modal-registrar-equipo-propio" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-xl ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 3px">REGISTRAR NUEVA TEMPORADA</center>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: black;font-size: 15px;">Sera asignado como el entrenador de esta temporada</p>
+
+                        <form action="action" id="registrar-equipo-temporada-propia">
+                            <div class="row mt-3">    
+                                 
+                                        <div class="col col-md-12">
+                                            <label for="ddlTemporada1"><strong>Temporada:</strong></label>
+                                            <select id="ddlTemporada1" class="form-control" required></select>
+                                        </div>
+                                 
                                 </div>
                             </div>
 

@@ -13,5 +13,10 @@ public interface IEquipoTemporada {
     
     List<Object[]> registrarTemporada(String nombres, String ape1, String ape2, String tipoDocIde, String numDocIDe, String idTemporada, String idEquipo, String idCategoria);
     
+    List<Object[]> registrarTemporadaPropia(String id_categoria, String id_equipo, String id_temporada, String id_participante);
+    
     List<Object[]> listarTemporadas(String idEquipo, String idCategoria);
+    
+    List<Object[]> listarEquiposJugador(String idParticipante);
+    
 }

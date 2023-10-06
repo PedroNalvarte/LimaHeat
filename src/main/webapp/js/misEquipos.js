@@ -12,7 +12,7 @@ $(function() {
         
     }else{
         
-        cargarMisEquiposAsistente();
+        cargarMisEquiposParticipante(idParticipante);
         
     }
 });
@@ -57,13 +57,13 @@ function cargarMisEquipos(){
     });    
 }
 
-function cargarMisEquiposAsistente(idEquipo, idCategoria){
+function cargarMisEquiposParticipante(idParticipante){
     
     $.ajax({
         url: "misEquiposServlet",
         dataType: "json",
         data:{
-            accion: "cargarMisEquipos"
+            accion: "cargarMisEquiposParticipante", participante: idParticipante
         },
         success: function (result) {
             let cantidad = result.rows.length;
@@ -86,6 +86,8 @@ function cargarMisEquiposAsistente(idEquipo, idCategoria){
         }
     });    
 }
+
+
 
 //Cargar datos para select de categorias
 function cargarDDLCategorias(){
@@ -139,4 +141,10 @@ $('#registrar-Equipo').on('submit', function(event){
     
     
 });
+
+function botonEquipo(idEquipo, idCategoria){
+        
+    location.href = 'equipoTemporada.jsp?idE='+idEquipo+"&cat="+idCategoria;
+    
+}
 
