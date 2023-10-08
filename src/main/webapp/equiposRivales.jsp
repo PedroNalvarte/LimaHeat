@@ -12,7 +12,7 @@
         <div class="container">
 
             <div class="row mt-4">
-                <div style="text-align: center" class="col-md-12">
+                <div style="text-align: center; margin-bottom: 25px" class="col-md-12">
                     <h1>EQUIPOS RIVALES</h1>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">REGISTRAR NUEVO EQUIPO RIVAL</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px">REGISTRAR NUEVO EQUIPO RIVAL</center>
                     </div>
                     <div class="modal-body">
                         <p style="color: black;font-size: 15px;">Ingrese los datos del equipo rival que desea registrar.</p>
@@ -69,7 +69,7 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header-color">
-                            <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                            <center style="width: 100%;font-size: 20px;margin-top: 10px">LIMA HEAT</center>
                         </div>
                         <div class="modal-body">
                             <p style="color: black;font-size: 15px;" id="mensaje"></p>
@@ -88,7 +88,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">EDITAR DATOS DEL EQUIPO</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px">EDITAR DATOS DEL EQUIPO</center>
                     </div>
                     <div class="modal-body">
                         <p style="color: black;font-size: 15px;">Ingrese los datos que desea modificar del equipo rival.</p>

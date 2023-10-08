@@ -1,0 +1,20 @@
+body{
+    color: black;
+   
+}
+
+
+
+.logo {
+ height:85px;
+ width: 85px;
+ margin: 10px;
+ object-fit: contain;
+}
+
+.col col-md-2{
+ height:85px;
+ width: 85px;
+ margin: 10px 10px;
+ object-fit: contain;
+}

@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     column-gap: 2rem;
     row-gap: 2rem;
+    
 }
 .carta{
     width: 40%;
@@ -14,6 +15,8 @@
     border: 2px solid black;
     font-size: 2.3rem;
     text-align: center;
+    
+    
 }
 
 .agregar:hover{
@@ -23,6 +26,8 @@
 .boton-editar, .boton-eliminar{
     cursor: pointer;
 }
+
+
 
 
 

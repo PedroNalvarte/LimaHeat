@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/temporadas.css"/>
     </head>
     <body>
-        <h1>Temporadas</h1>
+        <h1 style="text-align: center; margin: 25px">Temporadas</h1>
 
         <div class="container" id="mainContainer">
 
@@ -27,6 +27,7 @@
                         <form action = "action" id="crearTemporada">
                             <div class="row mt-4">
                                 <div class="col col-md-12">
+                                     <label for="fechaInicio">Nombre de Temporada:</label>
                                     <input id="nombreTemporada" name="nombreTemporada" type="text" class="form-control" placeholder="Nombre de Temporada" required>
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color modalEliminarHeader">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">EDITAR TEMPORADA</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px">EDITAR TEMPORADA</center>
 
                     </div>
                     <div class="modal-body">

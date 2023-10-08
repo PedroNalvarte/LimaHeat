@@ -8,13 +8,38 @@ body{
     justify-content: center;
     align-items: center;
     
+   
 }
 
 .container{
     width: 20%;
     text-align: center;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom:  20px;
+    box-shadow: 2px 5px 15px black;
 }
 
 input{
     width: 100%;
 }
+
+#btnIngresar{
+    background-color: #ce5250;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 20px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+#txtUsername{
+    border-radius: 10px;
+}
+
+#txtPassword{
+    border-radius: 10px;
+}
+
+

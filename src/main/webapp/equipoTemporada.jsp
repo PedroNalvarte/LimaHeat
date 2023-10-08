@@ -27,7 +27,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">REGISTRAR NUEVA TEMPORADA</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px">REGISTRAR NUEVA TEMPORADA</center>
                     </div>
                     <div class="modal-body">
                         <p style="color: black;font-size: 15px;">Debe asignar un entrenador para la temporada:</p>

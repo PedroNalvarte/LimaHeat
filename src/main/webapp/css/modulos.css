@@ -4,13 +4,18 @@ body{
 
 .card {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    border-top:10px;
+    border-radius: 15px;
+    border-top:10px ;
+    margin: 20px 10px;
+    
+    box-shadow: 2px 5px 10px black;
 }
 
 .card img {
     max-width: 100%;
-    height: auto;
+  
+    padding: 10px 10px;
+    border-radius: 15px;
 }
 
 .card-title {

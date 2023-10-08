@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/agregarCategoria.css"/>
     </head>
     <body>
-    <h1>Categoria</h1>
+        <h1 style="text-align: center; margin: 30px">Categoria</h1>
 
         <div class="container" id="mainContainer">
 
@@ -19,7 +19,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">REGISTRAR NUEVA CATEGORIA</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px">REGISTRAR NUEVA CATEGORIA</center>
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="crearCategoria" method="post">
@@ -68,7 +68,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header-color modalEliminarHeader">
-                    <center style="width: 100%;font-size: 20px;margin-top: 3px">EDITAR CATEGORIA</center>
+                    <center style="width: 100%;font-size: 20px;margin-top: 10px">EDITAR CATEGORIA</center>
 
                 </div>
                 <div class="modal-body">
