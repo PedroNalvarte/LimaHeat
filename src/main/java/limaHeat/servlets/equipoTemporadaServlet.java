@@ -84,7 +84,19 @@ public class equipoTemporadaServlet extends HttpServlet {
             
             response.getWriter().write(resultado);
         
+        }else if(accion.equals("registrarTemporadaPropia")){
+            String idParticipante = request.getParameter("participante");
+            String idTemporada = request.getParameter("temporada");
+            String idEquipo = request.getParameter("equipo");
+            String idCategoria = request.getParameter("categoria");
+            
+            IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
+            List<Object[]> listado = equipoTemporadaDao.registrarTemporadaPropia(idCategoria, idEquipo, idTemporada, idParticipante);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
         }
+    
     }
 
     @Override

@@ -9,4 +9,6 @@ public interface IMisEquipos {
     
     List<Object[]> registrarNuevoEquipo(String nombreEquipo, String idCategoria);
     
+    List<Object[]> cargarMisEquiposParticipantes(String idParticipante);
+    
 }
