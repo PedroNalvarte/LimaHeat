@@ -9,41 +9,74 @@
         <link rel="stylesheet" href="css/agregarCategoria.css"/>
     </head>
     <body>
-        <h1 style="text-align: center; margin: 30px">Categoria</h1>
+        
+        <div class="container"> 
+            <div class="row mt-4">
+                <div style="text-align: center" class="col-md-10">
+                    <h1 >Categorias</h1>
+                </div>
+                
+                <div style="text-align: center" class="col-md-2">
+                    <button class="mi-button" onclick="agregar()">
+                        <div class="agregar">
+                            <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
+                            <h2 style="font-size: 15px">Agregar Categoria</h2>
+                        </div>
+                    </button>
+                </div>
+                
+            </div>
 
-        <div class="container" id="mainContainer">
+            <div class="row mt-4">
+                 <div class="container" id="mainContainer">
 
+                </div>
+            </div>
         </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <div id="modal-creacion" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-sm ">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 10px">REGISTRAR NUEVA CATEGORIA</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px;color: white ">REGISTRAR NUEVA CATEGORIA</center>
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="crearCategoria" method="post">
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                      <label for="NOMBRE_CATEGORIA">Nombre de Categoria</label>
+                                      <label for="NOMBRE_CATEGORIA" style="color: white">Nombre de Categoria</label>
                                     <input id="NOMBRE_CATEGORIA" name="NOMBRE_CATEGORIA" type="text" class="form-control" placeholder="Nombre de Categoria" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="ABREVIATURA">Abreviacion de Categoria</label>
+                                    <label for="ABREVIATURA" style="color: white">Abreviacion de Categoria</label>
                                     <input id="ABREVIATURA" name="ABREVIATURA" type="text" placeholder="Abreviatura" class="form-control"  required/>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="DESC_CATEGORIA">Descripcion de Categoria</label>
+                                    <label for="DESC_CATEGORIA" style="color: white">Descripcion de Categoria</label>
                                     <input id="DESC_CATEGORIA" name="DESC_CATEGORIA" type="text" placeholder="Descripcion de Categoria " class="form-control"  required/>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="IMAGEN">Imagen</label>
+                                    <label for="IMAGEN" style="color: white">Imagen</label>
                                     <input id="IMAGEN" name="IMAGEN" type="text" placeholder="Imagen" class="form-control"  required/>
                                 </div>
                             </div>
@@ -68,7 +101,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header-color modalEliminarHeader">
-                    <center style="width: 100%;font-size: 20px;margin-top: 10px">EDITAR CATEGORIA</center>
+                    <center style="width: 100%;font-size: 20px;margin-top: 10px; color: white" >EDITAR CATEGORIA</center>
 
                 </div>
                 <div class="modal-body">
@@ -76,19 +109,19 @@
                     <form action = "action" id="agregarCategoria">
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="NOMBRE_CATEGORIAe">Nombre de Categoria</label>
+                                <label for="NOMBRE_CATEGORIAe" style="color: white">Nombre de Categoria</label>
                                 <input id="NOMBRE_CATEGORIAe" name="NOMBRE_CATEGORIA"  placeholder="NOMBRE_CATEGORIA" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="ABREVIATURAe">Abreviatura</label>
+                                <label for="ABREVIATURAe" style="color: white">Abreviatura</label>
                                 <input id="ABREVIATURAe" name="ABREVIATURA" type="text" placeholder="Abreviatura" class="form-control"  required/>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="DESC_CATEGORIAe">Descripcion</label>
+                                <label for="DESC_CATEGORIAe" style="color: white">Descripcion</label>
                                 <input id="DESC_CATEGORIAe" name=" DESC_CATEGORIA" type="text" placeholder="Descripcion de Categoria" class="form-control"  required/>
                             </div>
                         </div>

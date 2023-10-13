@@ -14,15 +14,24 @@
         <div id="idParticipante" hidden><%=logged.getIdParticipante()%></div>
         <div id="idTipoCuenta" hidden><%=logged.getIdTipoCuenta()%></div>
         
-        <div class="container">
+        <div class="container ">
 
             <div class="row mt-4">
-                <div style="text-align: center" class="col-md-12">
+                <div style="text-align: center" class="col-md-10">
                     <h1>MIS EQUIPOS</h1>
+                </div>
+                
+                <div style="text-align: center" class="col-md-2">
+                    <button class="mi-button" onclick="registrarNuevo()">
+                        <div class=" card-agregar">
+                            <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
+                            <h2 style="font-size: 15px">REGISTRAR NUEVO</h2>
+                        </div>
+                    </button>
                 </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row mt-4">
                 <div id="lista-mis-Equipos" class="col col-md-12 ">
 
 

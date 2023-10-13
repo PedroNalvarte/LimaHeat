@@ -72,8 +72,8 @@ function cargarTemporadas(idEquipo, idCategoria){
             var html = ``;
                     html += `<button class="mi-button" onclick="registrarNuevo()">`;
                         html += `<div class="card mi-card card-agregar">`;
-                            html += `<i style="font-size: 70px" class="bi bi-plus-circle-fill"></i>`;
-                            html += `<h2>REGISTRAR NUEVO</h2>`;
+                            html += `<i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>`;
+                            html += `<h2 style="font-size: 15px">REGISTRAR NUEVO</h2>`;
                         html += `</div>`;
                     html += `</button>`;
 

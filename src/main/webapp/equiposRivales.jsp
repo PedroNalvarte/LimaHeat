@@ -15,14 +15,19 @@
                 <div style="text-align: center; margin-bottom: 25px" class="col-md-12">
                     <h1>EQUIPOS RIVALES</h1>
                 </div>
+               
             </div>
 
             <div class="row mt-3">
-                <div class="col col-md-12 lista-equipos-rivales">
+                  <div class="col col-md-12 lista-equipos-rivales">
 
-
-
+                      
+                      
+                      
+                      
                 </div>
+                
+                
             </div>
 
         </div>

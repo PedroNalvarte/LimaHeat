@@ -106,15 +106,15 @@ $.ajax({
                 });
             }
 
-            let finalDiv = document.createElement("div");
+            /*let finalDiv = document.createElement("div");
             finalDiv.classList.add("carta");
             finalDiv.classList.add("agregar");
             finalDiv.id = "agregarCategoria";
             finalDiv.innerHTML = "Agregar Categoría<br><br><i class=\"bi bi-plus-circle\"></i>";
-            finalDiv.style.backgroundColor = "#bbbcbd";
+            finalDiv.style.backgroundColor = "#ffcd39";
             finalDiv.style.borderRadius = "10px";
 
-            container.appendChild(finalDiv);
+            container.appendChild(finalDiv);*/
 
             botonAgregar = document.getElementById("agregarCategoria");
 

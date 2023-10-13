@@ -6,21 +6,56 @@
     flex-wrap: wrap;
     column-gap: 2rem;
     row-gap: 2rem;
+    color: black;
+    
 }
 .carta{
-    width: 40%;
-    height: auto;
-    padding: 2.5rem;
-    border: 2px solid black;
-    font-size: 2.3rem;
+    background-color: #f9fafb;
+    padding: 6px;
+     width: 450px;
+    height: 125px;
+     box-shadow: 2px 5px 15px black;
+    font-size: 25px;
     text-align: center;
+   color: black
+     
 }
 
+.agregar{
+   border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: #ffcd39;
+    text-align: center;
+    width: 250px;
+    height: 55px;
+     padding: 6px;
+     color: white;
+       box-shadow: 2px 5px 10px black;
+}
+
+  
+
+
 .agregar:hover{
-    color: white;
+    color: #f9fafb;
 }
 
 .boton-editar, .boton-eliminar{
     cursor: pointer;
 }
 
+.modal-content{
+    background-color: #ce5250;
+}
+
+
+
+.mi-button{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}

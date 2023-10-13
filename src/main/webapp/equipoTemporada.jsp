@@ -91,7 +91,7 @@
 
 
                             <div class="modal-footer btnLogin mt-2">
-                                <button style="width: 30%;font-size: 15px" type="submit" data-dismiss="modal">Registrar</button>
+                                <button style="width: 30%;font-size: 15px" class="btn btn-primary" type="submit" data-dismiss="modal">Registrar</button>
                             </div>
                         </form>
                     </div>

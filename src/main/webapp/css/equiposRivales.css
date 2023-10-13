@@ -6,12 +6,14 @@ body{
 }
 
 .mi-card{
-    background-color: #ce5250;
+    background-color: #f9fafb;
     text-align: center;
     padding: 6px;
-    color: white;
-    width: 100%;
+    color: black;
+    width: 450px;
     height: 125px;
+     box-shadow: 2px 5px 10px black;
+   
 }
 
 .mi-button{
@@ -20,6 +22,7 @@ body{
     border: none;
     outline: none;
     background-color: transparent;
+    
 }
 
 .lista-equipos-rivales{
@@ -30,8 +33,9 @@ body{
 
 #lista-mis-Equipos{
    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px; 
+ 
     
 }
 
@@ -39,15 +43,29 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
+    
 }
 
 .card-agregar{
-    
-    border-radius: 60px 10px 10px 60px;
+   border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
+    background-color: #ffcd39;
+    text-align: center;
+    width: 250px;
+    height: 55px;
+     padding: 6px;
+     color: white;
+       box-shadow: 2px 5px 10px black;
 }
+
+ 
+    
+   
+   
+
+
 
 .botones{
     text-align: end;
@@ -58,5 +76,5 @@ body{
 }
 
 .hola{
-    color: white;
+    color: black;
 }

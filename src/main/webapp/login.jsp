@@ -5,49 +5,36 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio de Sesion</title>
         <%@include file="components/includes/header-noUser.jspf"%>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="stylesheet" href="css/login.css"/>
     </head>
     <body>
 
-        <div class="container">
-            
-            
-            <form action="action" id="inicio-sesion">
-                
-            <div class="row mt-3">
-                <div class="col col-md-12">
-                    <h4>Inicie Sesión</h4>
-                </div>
+        <div class="container-fluid">
+        <div class="row justify-content-end align-items-center" style="background-image: url('img/jugador.png'); background-size: cover; height: 100vh;">
+            <div class="col-md-6 col-lg-4 mr-4"> <!-- Cambiamos col-md-4 a col-md-6 y col-lg-4 -->
+                <form action="action" id="inicio-sesion" style="background-color: rgba(45, 45, 44, 0.2); padding: 20px; border-radius: 10px;">
+                    <center><h2 class="mb-4">INICIAR SESIÓN</h2></center>
+                    <div class="form-group">
+                        <input id="txtUsername" type="text" class="form-control" placeholder="Ingrese su Usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input id="txtPassword" type="password" class="form-control" placeholder="Ingrese su Contraseña" required>
+                    </div>
+                    <button id="btnIngresar" type="submit" class="btn btn-primary btn-block">INGRESAR</button>
+                </form>
             </div>
-                
-            <div class="row mt-3">
-                <div class="col col-md-12">
-                    <input id="txtUsername" type="text" placeholder="Usuario" required>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col col-md-12">
-                    <input id="txtPassword" type="password" placeholder="Contraseña" required>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col col-md-12">
-                    <button id="btnIngresar" type="submit">Ingresar</button>
-                </div>
-            </div>
-
-            </form>
         </div>
+    </div>
+
 
 
         <div>
-            
-                
-                
-                
-            
+           
         </div>
 
         <!-- Modal Confirmar proceso de datos -->

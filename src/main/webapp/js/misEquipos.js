@@ -44,6 +44,8 @@ function cargarMisEquipos(){
                 $("#lista-mis-Equipos").append(html);
             }
             
+            //Boton comentado, ingresaod desde jsp.
+            /*
             var html = ``;
                     html += `<button class="mi-button" onclick="registrarNuevo()">`;
                         html += `<div class="card mi-card card-agregar">`;
@@ -52,7 +54,8 @@ function cargarMisEquipos(){
                         html += `</div>`;
                     html += `</button>`;
 
-            $("#lista-mis-Equipos").append(html);       
+            $("#lista-mis-Equipos").append(html);   
+            */    
         }
     });    
 }

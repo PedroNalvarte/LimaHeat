@@ -10,43 +10,99 @@
 <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="css/general.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 
 <style>
-    .row-info {
-        background-color: #ce5250;
-        
-    }
+    
+    
+/* Estilo para el modal de fondo */
+#modal-cerrar-sesion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Estilo para el contenido del modal */
+#modal-cerrar-sesion .modal-content {
+    background-color: white;
+    border-radius: 15px;
+}
+
+/* Estilo para el encabezado del modal */
+#modal-cerrar-sesion .modal-header-color {
+    background-color: #801F1F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-top-left-radius: 15px; /* Borde superior izquierdo circular */
+    border-top-right-radius: 15px;
+    
+}
+
+/* Estilo para los botones en el pie del modal */
+#modal-cerrar-sesion .modal-footer.btnLogin {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los botones para separarlos */
+    align-items: center; /* Centra verticalmente los botones */
+    padding: 10px 20px; /* Añade un poco de espacio alrededor de los botones */
+}
+
+#btnModalCerrarSesionAceptar {
+    background-color: gray; /* Fondo gris para el botón Aceptar */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+#btnModalCerrarSesionCancelar {
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
 </style>
 
 <div class="row row-info">
-    <div class="col col-md-2">
-           <img class="logo" src="data:image/png;base64,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" alt="Logo">
-      
+    <div class="col-md-2">
+        <img class="logo" src="https://cdn.discordapp.com/attachments/877328260357324832/1161395291866546226/LOGL_LIMA_HEAT_FULL_HD_4K_v1.png?ex=653824a7&is=6525afa7&hm=a5d4513e019d8adbca1d46dc0235b2c32fde287505a80e349fee22c88324220e">
     </div>
-    <div class="col col-md-7"></div>
-    <div class="col col-md-3">
-        <h5 style="margin-top: 15px">¡Hola <%=logged.getApellido1()+" "+logged.getApellido2()+" "+logged.getNombres()%>!</h5>
-        <input type="button" value="Cerrar Sesion" id="btnCerrarSesion"/>
+    <div class="col-md-7"></div>
+    <div class="col-md-3">
+        <h5 style="margin-top: 15px">Bienvenido <br> <%=logged.getApellido1()+" "+logged.getApellido2()+" "+logged.getNombres()%>!</h5>
+        <button id="btnCerrarSesion" class="logout-button">
+            <i class="fas fa-sign-out-alt" id="logout-icon"></i>
+        </button>
     </div>
 </div>
 
+
+
+
 <!-- Modal cerrar sesion -->
 <div id="modal-cerrar-sesion" class="modal fade" role="dialog">
-    <div class="modal-dialog  modal-dialog-centered modal-sm ">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header-color">
-                <center style="width: 100%;font-size: 20px;margin-top: 15px">LIMA HEAT</center>
+                <center style="font-size: 20px; margin-top: 15px; font-weight: bold">Cerrar Sesión</center>
             </div>
             <div class="modal-body">
-                <p style="color: black;font-size: 15px; text-align: center">¿Seguro que desea cerrar sesion?</p>
+                <p style="color: black; font-size: 15px; text-align: center">¿Seguro que desea Cerrar Sesión?</p>
             </div>
             <div class="modal-footer btnLogin">
-                <button style="width: 30%;font-size: 15px" type="button" id="btnModalCerrarSesionAceptar" data-dismiss="modal">Aceptar</button>
-                <button style="width: 30%;font-size: 15px" type="button" id="btnModalCerrarSesionCancelar" data-dismiss="modal">Cancelar</button>
+                <button style="width: 45%; font-size: 15px" type="button" id="btnModalCerrarSesionAceptar" data-dismiss="modal">Aceptar</button>
+                <button style="width: 45%; font-size: 15px" type="button" id="btnModalCerrarSesionCancelar" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
-    </div>
+    </div>
 </div>
 <!-- Fin Modal -->
 
