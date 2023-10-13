@@ -6,6 +6,7 @@
         <title>Temporadas</title>
         <%@include file="components/includes/header.jspf"%>
         <link rel="stylesheet" href="css/temporadas.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     </head>
     <body>
         
@@ -13,7 +14,7 @@
         <div class="container"> 
             <div class="row mt-4">
                 <div style="text-align: center" class="col-md-10">
-                    <h1 >Temporadas</h1>
+                    <h1 style=" font-family: 'Alfa Slab One', serif; color: #5B5B5B">Temporadas</h1>
                 </div>
                 
                 <div style="text-align: center" class="col-md-2">
@@ -50,7 +51,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 10px; color: white">LIMA HEAT</center>
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px; color: white">Registrar Temporada</center>
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="crearTemporada">
@@ -80,7 +81,7 @@
                                 </div>
 
                                 <div class="modal-footer ">
-                                    <button type="submit" value="registrar" class="btn btn-primary" data-dismiss="modal">Registrar <i class="bi bi-plus-circle"></i></button>
+                                    <button type="submit" value="registrar" class="btnRegistrar" data-dismiss="modal">Registrar <i class="bi bi-plus-circle"></i></button>
                                 </div>
 
                             </div>
@@ -131,8 +132,10 @@
                                 </div>
 
                                 <div class="modal-footer btnEditar">
-                                    <button  id="btnEditarTemporada" type="submit" data-dismiss="modal" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-                                    </form>     
+                                    <button  id="btnEditarTemporada" type="submit" data-dismiss="modal" class="btnRegistrar"><i class="bi bi-pencil-square"></i>Editar</button>
+                       
+                        </form>
+                             
 
                                 </div>
 

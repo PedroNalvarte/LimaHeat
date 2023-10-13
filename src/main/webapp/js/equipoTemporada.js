@@ -69,7 +69,7 @@ function cargarTemporadas(idEquipo, idCategoria){
             
            
             
-            var html = ``;
+           /* var html = ``;
                     html += `<button class="mi-button" onclick="registrarNuevo()">`;
                         html += `<div class="card mi-card card-agregar">`;
                             html += `<i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>`;
@@ -77,7 +77,7 @@ function cargarTemporadas(idEquipo, idCategoria){
                         html += `</div>`;
                     html += `</button>`;
 
-            $("#container-temporadas").append(html);
+            $("#container-temporadas").append(html);*/
                    
         }
     });

@@ -7,13 +7,14 @@
         <title>Categorias</title>
         <%@include file="components/includes/header.jspf"%>
         <link rel="stylesheet" href="css/agregarCategoria.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     </head>
     <body>
         
         <div class="container"> 
             <div class="row mt-4">
                 <div style="text-align: center" class="col-md-10">
-                    <h1 >Categorias</h1>
+                    <h1 style=" font-family: 'Alfa Slab One', serif; color: #5B5B5B" >Categorias</h1>
                 </div>
                 
                 <div style="text-align: center" class="col-md-2">
@@ -83,7 +84,7 @@
 
 
                             <div class="modal-footer ">
-                                <button type="submit" value="registrar" class="btn btn-primary" data-dismiss="modal">Registrar <i class="bi bi-plus-circle"></i></button>
+                                <button type="submit" value="registrar" class="btnRegistrar" data-dismiss="modal">Registrar <i class="bi bi-plus-circle"></i></button>
                             </div>
 
                     </div>
@@ -127,7 +128,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="modal-footer btnEditar">
-                                <button  id="btnEditarCategoria" type="submit" data-dismiss="modal" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Editar</button>
+                                <button  id="btnEditarCategoria" type="submit" data-dismiss="modal" class="btnRegistrar"><i class="bi bi-pencil-square"></i>Editar</button>
                                 </form>     
 
                             </div>

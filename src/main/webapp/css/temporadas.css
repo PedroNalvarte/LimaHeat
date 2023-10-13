@@ -26,7 +26,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    background-color: #ffcd39;
+    background-color: #801F1F;
     text-align: center;
     width: 250px;
     height: 55px;
@@ -46,6 +46,8 @@
     cursor: pointer;
 }
 
+
+
 .modal-content{
     background-color: #ce5250;
 }
@@ -58,4 +60,11 @@
     border: none;
     outline: none;
     background-color: transparent;
+}
+
+.btnRegistrar{
+    background-color: #CA8B29;
+    color: white;
+    border-color: #CA8B29;
+    border-radius: 5px;
 }

@@ -90,7 +90,7 @@ function cargarEquipos(){
                 $(".lista-equipos-rivales").append(html);
             }
             
-            var html = ``;
+            /*var html = ``;
                     html += `<button class="mi-button" onclick="registrarNuevo()">`;
                         html += `<div class="card mi-card card-agregar">`;
                             html += `<i style="font-size: 70px" class="bi bi-plus-circle-fill"></i>`;
@@ -98,7 +98,7 @@ function cargarEquipos(){
                         html += `</div>`;
                     html += `</button>`;
 
-            $(".lista-equipos-rivales").append(html);
+            $(".lista-equipos-rivales").append(html);*/
                   
         }
     }); 
