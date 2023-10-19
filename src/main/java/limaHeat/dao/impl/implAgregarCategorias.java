@@ -24,8 +24,6 @@ public List<Object[]> insertarDatos(String NOMBRE_CATEGORIA, String ABREVIATURA,
                 .append("SELECT * FROM \"CATEGORIA\"")
                 .toString();
 
-        System.out.println(sql);
-
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
         return listado;
@@ -41,8 +39,6 @@ public List<Object[]> insertarDatos(String NOMBRE_CATEGORIA, String ABREVIATURA,
                 .append("WHERE \"ID_CATEGORIA\" = " + ID_CATEGORIA)
                 .toString();
 
-        System.out.println(sql);
-
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> editar = obj.selectGeneral(sql);
         return editar;
@@ -56,8 +52,7 @@ public List<Object[]> insertarDatos(String NOMBRE_CATEGORIA, String ABREVIATURA,
                 .append(ID_CATEGORIA)
                 .append("'")
                 .toString();
-        System.out.println(sql);
-
+        
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> obtener = obj.selectGeneral(sql);
 

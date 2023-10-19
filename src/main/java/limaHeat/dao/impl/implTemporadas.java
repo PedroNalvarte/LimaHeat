@@ -62,7 +62,6 @@ public class implTemporadas implements ITemporadas {
                 .append("SELECT \"TEMPORADA\".*, \"TIPO_TEMPORADA\" FROM \"TEMPORADA\", \"TIPO_TEMPORADA\" WHERE \"TEMPORADA\".\"ID_TIPO_TEMPORADA\" = \"TIPO_TEMPORADA\".\"ID_TIPO_TEMPORADA\" AND \"ID_TEMPORADA\" = " + id).toString();
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> temporada = obj.selectGeneral(sql);
-        System.out.println(sql);
    
         return temporada;
     }
@@ -81,7 +80,7 @@ public class implTemporadas implements ITemporadas {
        String sql = new StringBuilder()
                .append("UPDATE \"TEMPORADA\" SET \"NOMBRE_TEMPORADA\" = '" + nombreTemporada + "', \"ID_TIPO_TEMPORADA\" = " + tipoTemporada + ", \"FECHA_INICIO\" = '" + fechaInicio + "'::DATE, \"FECHA_FIN\" = '" + fechaFin + "'::DATE," + " \"FECHA_REGISTRO\" = now()")
                .append(" WHERE \"ID_TEMPORADA\" = " + id).toString();
-       System.out.println(sql);
+
        SelectGeneral obj = new SelectGeneral();
        List<Object[]> resultado = obj.selectGeneral(sql);
        return resultado;

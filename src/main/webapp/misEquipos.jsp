@@ -24,7 +24,7 @@
                 
                 <div style="text-align: center" class="col-md-2">
                     <button class="mi-button" onclick="registrarNuevo()">
-                        <div class=" card-agregar">
+                        <div class="card-agregar">
                             <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
                             <h2 style="font-size: 15px">REGISTRAR NUEVO</h2>
                         </div>
