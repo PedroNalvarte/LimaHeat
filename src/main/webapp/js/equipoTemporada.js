@@ -168,12 +168,6 @@ $('#registrar-equipo-temporada').on('submit', function(event){
         }); 
 });
 
-      
-
-
-
-
-
 //-------------------------------------------------------Carga DDLS----------------------------------------------------------------------
 
 function cargarDDLTipoDocumento(){

@@ -66,10 +66,10 @@
                     </div>
 
                     <div class="col-md-4 mb-1" style="max-width: 300px;">
-                        <div class="card custom-card" onclick="temporadas()">
+                        <div class="card custom-card" onclick="">
                             <img src="" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
                             <div class="card-body">
-                                <h4 class="card-title text-center">OTRO</h4>
+                                <h4 class="card-title text-center">GESTIONAR USUARIOS</h4>
                             </div>
                         </div>
                     </div>

@@ -1,11 +1,15 @@
+let idEquipo;
+let idCategoria;
+let idTemporada;
+
 $(function() {
 
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 
-	let idEquipo = urlParams.get('idE');
-	let idCategoria = urlParams.get('cat');
-        let idTemporada = urlParams.get('temp');
+	idEquipo = urlParams.get('idE');
+	idCategoria = urlParams.get('cat');
+        idTemporada = urlParams.get('temp');
         
         cargarTitulo(idEquipo, idCategoria, idTemporada);
         
@@ -39,13 +43,20 @@ function cargarTitulo(idEquipo, idCategoria, idTemporada){
                     $("#cardCompararJugadores").removeAttr("hidden");
                     
                     
+                }else if(tipoCuenta === "ASISTENTE"){
+                    
+                    $("#cardHistorialPartidos").removeAttr("hidden");
+                    $("#cardHistorialPartidos").removeAttr("hidden");
+                    $("#cardCompararPartidos").removeAttr("hidden");
+                    $("#cardCompararJugadores").removeAttr("hidden");
+                      
                 }else{
                     
                     $("#cardHistorialPartidos").removeAttr("hidden");
                     $("#cardCompararPartidos").removeAttr("hidden");
                     $("#cardCompararJugadores").removeAttr("hidden");
-                      
-                }       
+                    
+                }   
                 
             }else{
                 
@@ -57,5 +68,14 @@ function cargarTitulo(idEquipo, idCategoria, idTemporada){
     
     
     
+    
+}
+
+
+//Funciones de redireccion
+
+function moduloJugadores(){
+    
+    location.href = 'jugadores.jsp?idE='+idEquipo+"&cat="+idCategoria+"&temp="+idTemporada;
     
 }

@@ -37,3 +37,7 @@
     font-size: 24px; /* Cambia el tamaño del ícono a 24px */
     color: #801F1F; /* Cambia el color a rojo (#FF0000) */
 }
+
+.modal-content{
+    background-color: #ce5250;
+}

@@ -28,7 +28,6 @@ public class impModulosEquipo implements IModulosEquipo{
         List<Object[]> listado =  obj.selectGeneral(sql);
         
         return listado;
-    
     }
     
     
