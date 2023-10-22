@@ -83,24 +83,13 @@ public class impColaboradores implements IColaboradores {
         return listado;
     }
 
-    /**
-     *
-     * @param nombre
-     * @param apellido1
-     * @param apellido2
-     * @param idTipoDoc
-     * @param numDocumento
-     * @param fechaNacimiento
-     * @param idColaborador
-     * @return
-     */
     @Override
     public List<Object[]> editarColaborador(String nombre, String apellido1, String apellido2, String idTipoDoc, String numDocumento, String fechaNacimiento, String idColaborador) {
              String sql = new StringBuilder()
                 .append("UPDATE \"PARTICIPANTE\" SET \"NOMBRES\" = '" + nombre + "', \"APELLIDO_1\" = '" + apellido1 + "', \"APELLIDO_2\" = '" + apellido2 + "', \"ID_TIPO_DOCUMENTO_IDENTIDAD\" = " + idTipoDoc + ", \"NUMERO_DOCUMENTO_IDENTIDAD\" = '" + numDocumento + "', \"FECHA_NACIMIENTO\" = '" + fechaNacimiento + "', \"FECHA_REGISTRO\" = now()")
                 .append(" WHERE \"ID_PARTICIPANTE\" = " + idColaborador).toString();
         
-        System.out.println(sql);
+  
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
         return listado;
