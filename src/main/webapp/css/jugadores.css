@@ -1,0 +1,11 @@
+.edad::after{
+    content: ' años'
+}
+
+.kg::after{
+    content: ' kg'
+}
+
+.cm::after{
+    content: ' cm'
+}

@@ -10,4 +10,7 @@ public interface IJugadores {
                                     String fecnac, String posicion, String numeroDorsal, String idEquipo, String idCategoria, String idTemporada);
     
     public List<Object[]> listarJugadores(String idEquipo, String idCategoria, String idTemporada);
+    
+     public List<Object[]> editarJugador(String nom, String ape1, String ape2, String tipDoc, String numDoc, String peso, String altura, 
+                                    String posicion, String numeroDorsal, String idEquipo, String idCategoria, String idTemporada, String idParticipante);
 }

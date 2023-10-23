@@ -68,6 +68,29 @@ public class jugadoresServlet extends HttpServlet {
             
             response.getWriter().write(resultado);
             
+        }else if(accion.equals("editar-jugador")){
+            
+            String nom = request.getParameter("nom");
+            String ape1 = request.getParameter("ape1");
+            String ape2 = request.getParameter("ape2");
+            String tipDoc = request.getParameter("tipDoc");
+            String numDoc = request.getParameter("numDoc");
+            String peso = request.getParameter("peso");
+            String altura = request.getParameter("altura");
+            String posicion = request.getParameter("posicion");
+            String numeroDorsal = request.getParameter("numeroDorsal");
+            String idEquipo = request.getParameter("idEquipo");
+            String idCategoria = request.getParameter("idCategoria");
+            String idTemporada = request.getParameter("idTemporada");
+            String idParticipante = request.getParameter("idParticipante");
+            
+            IJugadores jugadoresDAO = new impJugadores();
+            List<Object[]> listado = jugadoresDAO.editarJugador(nom, ape1, ape2, tipDoc, numDoc, peso, altura, posicion, numeroDorsal, idEquipo, idCategoria, idTemporada, idParticipante);
+            
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+            
         }
     }
 
