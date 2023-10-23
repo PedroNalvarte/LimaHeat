@@ -32,6 +32,32 @@
 
             </div>
 
+            <div class="row mt-3">
+
+                <div class="col col-md-12">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Nombre Completo</th>
+                                <th>Dorsal</th>
+                                <th>Posicion</th>
+                                <th>Edad</th>
+                                <th>Peso</th>
+                                <th>Estatura</th>
+                                <th>Editar</th>
+                                <th>Estadisticas</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tblJugadores"></tbody>
+                    </table>
+                    
+                </div>
+
+            </div>
+
         </div>
 
         <!-- Modal registrar equipo rival -->
@@ -93,7 +119,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col col-md-4">
                                     <label for="fecNac" style="color: white"><strong>Fecha de Nacimiento:</strong></label>
@@ -113,6 +139,80 @@
 
                             <div class="modal-footer btnLogin mt-2">
                                 <button style="width: 30%;font-size: 15px; color: white; background-color: #CA8B29; border-color: #CA8B29" type="submit" data-dismiss="modal">Registrar Jugador</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
+        
+        <!-- Modal registrar equipo rival -->
+        <div id="modal-editar" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-xl ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px; color: white">EDITAR JUGADOR</center>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: black;font-size: 15px;color: white">Ingrese los datos que desea editar.</p>
+
+                        <form action="action" id="registrar-jugador">
+
+                            <div class="row">
+                                <div class="col col-md-4">
+                                    <label for="ddlCategoria" style="color: white"><strong>Nombre:</strong></label>
+                                    <input id="txtNom" class="form-control" required>  
+                                </div>
+
+                                <div class="col col-md-4">
+                                    <label for="ddlCategoria" style="color: white"><strong>Primer Apellido:</strong></label>
+                                    <input id="txtApe1" class="form-control" required> 
+                                </div>
+
+                                <div class="col col-md-4">
+                                    <label for="ddlCategoria" style="color: white"><strong>Segundo Apellido:</strong></label>
+                                    <input id="txtApe2" class="form-control" required> 
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col col-md-12">
+
+                                    <div class="row">
+                                        <div class="col col-md-6">
+                                            <label for="txtPeso" style="color: white"><strong>Peso:</strong></label>
+                                            <input id="txtPeso" class="form-control" required>
+                                        </div>
+
+                                        <div class="col col-md-6">
+                                            <label for="txtAltura" style="color: white"><strong>Altura:</strong></label>
+                                            <input id="txtAltura" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-md-4">
+                                    <label for="fecNac" style="color: white"><strong>Fecha de Nacimiento:</strong></label>
+                                    <input id="fecNac" class="form-control" type="date" required>  
+                                </div>
+
+                                <div class="col col-md-4">
+                                    <label for="ddlPosicion" style="color: white"><strong>Posición:</strong></label>
+                                    <select id="ddlPosicion" class="form-control" required></select>
+                                </div>
+
+                                <div class="col col-md-4">
+                                    <label for="txtDorsal" style="color: white"><strong>Número Dorsal:</strong></label>
+                                    <input id="txtDorsal" class="form-control" required> 
+                                </div>
+                            </div>
+
+                            <div class="modal-footer btnLogin mt-2">
+                                <button style="width: 30%;font-size: 15px; color: white; background-color: #CA8B29; border-color: #CA8B29" type="submit" data-dismiss="modal">Editar Jugador</button>
                             </div>
                         </form>
                     </div>

@@ -55,6 +55,18 @@ public class jugadoresServlet extends HttpServlet {
             
             response.getWriter().write(resultado);
             
+        }else if(accion.equals("cargaListaJugadores")){
+            
+            String idEquipo = request.getParameter("idEquipo");
+            String idCategoria = request.getParameter("idCategoria");
+            String idTemporada = request.getParameter("idTemporada");
+            
+            IJugadores jugadoresDAO = new impJugadores();
+            List<Object[]> listado = jugadoresDAO.listarJugadores(idEquipo, idCategoria, idTemporada);
+            
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
             
         }
     }

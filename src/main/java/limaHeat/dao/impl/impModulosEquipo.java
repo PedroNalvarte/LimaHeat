@@ -21,8 +21,6 @@ public class impModulosEquipo implements IModulosEquipo{
             .append("where p.\"ID_TIPO_PARTICIPANTE\" = 1 ")
             .append("and ej.\"ID_EQUIPO\" = "+idEquipo+" and ej.\"ID_CATEGORIA\"  = "+idCategoria+" and ej.\"ID_TEMPORADA\" = "+idTemporada+"")
             .toString();
-        
-        System.out.println(sql);
              
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);

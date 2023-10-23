@@ -12,6 +12,7 @@ $(function() {
         idTemporada = urlParams.get('temp');
         
         cargarTitulo(idEquipo, idCategoria, idTemporada);
+        cargarlista();
 });
 
 function registrarNuevo(){
@@ -68,6 +69,48 @@ $('#registrar-jugador').on('submit', function(event){
 
 function cargarlista(){
     
+    //"ID_PARTICIPANTE"	"NOMBRES"	"APELLIDO_1"	"APELLIDO_2"	"NUMERO_DORSAL"	"POSICION"	date_part	"PESO"	"ALTURA"
+    $.ajax({
+        url: "jugadoresServlet",
+        dataType: "json",
+        data:{
+            accion: "cargaListaJugadores", idEquipo:idEquipo, idCategoria:idCategoria, idTemporada:idTemporada
+        },
+        success: function (result) {
+            
+            let cantidad = result.rows.length;
+            
+            $("#tblJugadores").html("");
+            
+            if(cantidad > 0){
+                
+                for(let i = 0; i<cantidad; i++){
+                    
+                    var html = ``;
+                        html += `<tr>`;
+                            html += `<td>${i+1}</td>`;
+                            html += `<td id="nom${result.rows[i][0]}">${result.rows[i][1]} ${result.rows[i][2]} ${result.rows[i][3]}</td>`;
+                            html += `<td id="dorsal${result.rows[i][0]}">${result.rows[i][4]}</td>`;
+                            html += `<td id="posicion${result.rows[i][0]}">${result.rows[i][5]}</td>`;
+                            html += `<td id="edad${result.rows[i][0]}"${result.rows[i][6]}</td>`;
+                            html += `<td id="peso${result.rows[i][0]}">${result.rows[i][7]}</td>`;
+                            html += `<td id="nom${result.rows[i][0]}">${result.rows[i][8]}</td>`;
+                            html += `<td id="nom${result.rows[i][0]}"><a id="${result.rows[i][0]}" onclick="editarJugador(this.id)" <i class="bi bi-pencil"></i></td>`;
+                            html += `<td>Estadisticas</td>`;
+                    html += `</tr>`;
+                 
+                $("#tblJugadores").append(html); 
+                }
+            }
+               
+        }
+    }); 
+    
+}
+
+function editarJugador(idJugador){
+    
+    $("#modal-editar").modal("show");
 }
 
 //"NOMBRE_EQUIPO"	"NOMBRE_TEMPORADA"	"TIPO_TEMPORADA"	nombre    ID_TIPO_EQUIPO      TIPO_EQUIPO
