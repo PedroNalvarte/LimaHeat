@@ -24,7 +24,7 @@
 
                 <div style="" class="col col-md-3">
                     <div style="text-align: center" class="col-md-2">
-                        <button class="mi-button" onclick="registrarNuevo()">
+                        <button class="mi-button" onclick="registrarNuevos()">
                             <div class="agregar">
                                 <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
                                 <h2 style="font-size: 15px">Registrar Nuevo Jugador</h2>

@@ -5,7 +5,6 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modulos Equipo</title>
-
         <%@include file="components/includes/header.jspf"%>
         <link rel="stylesheet" href="css/modulos.css"/>
     </head>
@@ -27,7 +26,7 @@
                 
                 <div hidden id="cardHistorialPartidos" class="col-md-4 mb-2" style="max-width: 300px;">
                     <center>
-                        <div class="card custom-card" onclick="categorias()">
+                        <div class="card custom-card" onclick="modulosPartidos()">
                             <img src="https://cdn.discordapp.com/attachments/877328260357324832/1161459981057540156/categorias.png?ex=653860e6&is=6525ebe6&hm=1d2270cc7b88bdf3590c61fe9fb54c8773ee977f417a2207cf37c0f997cae254&"  alt="Imagen de la tarjeta 1" width="250" height="250" class="mx-auto">
                             <div class="card-body">
                                 <h4 class="card-title text-center">HISTORIAL DE PARTIDOS</h4>

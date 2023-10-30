@@ -15,7 +15,7 @@ $(function () {
     cargarlista();
 });
 
-function registrarNuevo() {
+function registrarNuevos() {
 
     cargarDDLTipoDocumento("ddlDocId");
     cargarDDLPosicion("ddlPosicion");
@@ -113,7 +113,7 @@ function cargarlista() {
 function editarJugador(idJugador) {
     
     cargarDDLTipoDocumento("edtddlDocId");
-    cargarDDLPosicion("edtddlPosicion")
+    cargarDDLPosicion("edtddlPosicion");
     
     $("#edttxtNom").val($("#nom"+idJugador).attr('nombre'));
     $("#edttxtApe1").val($("#nom"+idJugador).attr('ape1'));
