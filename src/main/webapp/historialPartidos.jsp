@@ -9,6 +9,7 @@
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
+        
         <div class="container">
             <div class="row">
                 <div class="col col-md-9">
@@ -144,16 +145,12 @@
                         <button value="SI" class="btn btn-danger" id="confirmar-eliminar" data-dismiss="modal">SI</button>
                         <button value="NO" class="btn btn-primary" id="cancelar-eliminar" data-dismiss="modal">NO</button>
                     </div>
-
-
-
                 </div>
-
-
             </div>
         </div>
+        
     <%@include file="components/includes/footer.jspf"%>
     <script src="js/historialPartidos.js"></script>
 
-</body>
+    </body>
 </html>

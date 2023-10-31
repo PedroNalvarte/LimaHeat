@@ -1,208 +1,292 @@
-let idEquipo;
-let idCategoria;
-let idTemporada;
-let seleccionarEquipoRival;
-let contenidoCol = document.getElementById('jugadoresLoc');
+let idEquipoLoc;
+let idCategoriaLoc;
+let idTemporadaLoc;
+
+let qJugadoresLoc;
+let qJugadoresRiv;
+
 $(function () {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    idEquipo = urlParams.get('idE');
-    idCategoria = urlParams.get('cat');
-    idTemporada = urlParams.get('temp');
-    
-    seleccionarEquipoRival = document.createElement('select');
-    let resultados;
+    idEquipoLoc = urlParams.get('idE');
+    idCategoriaLoc = urlParams.get('cat');
+    idTemporadaLoc = urlParams.get('temp');
+
+    cargarDDLEquiposRivales(idEquipoLoc, idCategoriaLoc, idTemporadaLoc);
+    listarJugadores(idEquipoLoc, idCategoriaLoc, idTemporadaLoc,"tbEquipoLocal","Loc");
+
+
+});
+
+function listarJugadores(idEquipo, idCategoria, idTemporada, tablaInsertar, tipo) {
+
+    //"ID_PARTICIPANTE"	"NUMERO_DORSAL"	nombre
     $.ajax({
         url: "registrarEstadisticasPartidoServlet",
         dataType: "json",
-        data:{
-            accion: "listarEquiposRivales", idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada
-        },
-        success: function (result) {
-            if(result.rows !== null)
-            {
-                resultados = result.rows;
-                let opcionDefault = document.createElement("option");
-                opcionDefault.innerHTML = "---Seleccionar Equipo Rival ---";
-                opcionDefault.value = " ";
-                seleccionarEquipoRival.appendChild(opcionDefault);
-                for(let i = 0; i < result.rows.length; i++){
-
-                   let nuevaOpcion = document.createElement("option");
-                   nuevaOpcion.innerHTML = result.rows[0][1];
-                   nuevaOpcion.value = result.rows[0][i];
-                   seleccionarEquipoRival.appendChild(nuevaOpcion);
-                   
-                }
-                
-                seleccionarEquipoRival.id = "select-equipo-rival";
-                
-                
-                document.getElementById("ip-second-row").appendChild(seleccionarEquipoRival);
-            }
-            
-            document.getElementById("select-equipo-rival").addEventListener("change",function(){
-                   var valorSeleccionado = event.target.value;  
-                   listarJugadores(valorSeleccionado);      
-             
-            });
-    
-        }
- });
-});
-
-
-function listarJugadores(equipo){
-   
-   
-        
-
-        $.ajax({
-        url: "registrarEstadisticasPartidoServlet",
-        dataType: "json",
-        data:{
-            accion: "listarJugadoresLocales", idEquipo: equipo, idCategoria: idCategoria, idTemporada: idTemporada
-        },
-        success: function (result) {
-            
-           
-            if(result.rows !== null)
-            {
-                   
-                   let tablaCol = document.getElementById("tablaRiv");
-                   
-                  
-       
-                   let tbody = document.createElement("tbody");
-                   
-
-                   
-                   for(let i = 0; i < result.rows.length; i++){
-                      
-                     let fila = document.createElement("tr");
-                     fila.setAttribute('data-id', result.rows[i][0]);
-                     fila.innerHTML = "<td>" + result.rows[i][1] + "</td>";
-                     fila.innerHTML += "<td>" + result.rows[i][2] + ", " + result.rows[i][3] + " " + result.rows[i][4] + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtMinRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTCARiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTCRRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt2PTCARiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt2PTCRRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt3PTCARiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt3PTCRRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTLARiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTLRRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebRORiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebRDRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebTotRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtAsRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTORiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRBRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTPRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtFPCRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtFPDRiv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt+/-Riv" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtPTSRiv" + (i+1) + "\"/>" + "</td>";
-                     
-                     tbody.appendChild(fila);
-                   }
-                
-                   
-                   
-                  
-                   tablaCol.appendChild(tbody);
-                   
-                   
-                 
-            }
-            
-    
-        }
-        
-        
- });  
- 
-    
-;}
-
-
-
-$(function() {
-        
-
-        $.ajax({
-        url: "registrarEstadisticasPartidoServlet",
-        dataType: "json",
-        data:{
+        data: {
             accion: "listarJugadoresLocales", idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada
         },
         success: function (result) {
-            if(result.rows !== null)
-            {
-                   
-                   let tablaCol = document.getElementById("tablaCol");
-                   
-                  
-       
-                   let tbody = document.createElement("tbody");
-                   
-
-                   
-                   for(let i = 0; i < result.rows.length; i++){
-                      
-                     let fila = document.createElement("tr");
-                     fila.setAttribute('data-id', result.rows[i][0]);
-                     fila.innerHTML = "<td>" + result.rows[i][1] + "</td>";
-                     fila.innerHTML += "<td>" + result.rows[i][2] + ", " + result.rows[i][3] + " " + result.rows[i][4] + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtMinLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTCALoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTCRLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt2PTCALoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt2PTCRLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt3PTCALoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt3PTCRLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTLALoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTLRLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebROLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebRDLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRebTotLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtAsLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTOLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtRBLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtTPLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtFPCLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtFPDLoc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txt+/-Loc" + (i+1) + "\"/>" + "</td>";
-                     fila.innerHTML += "<td>" + "<input type=\"text\" class=\"small-input\" id=\"txtPTSLoc" + (i+1) + "\"/>" + "</td>";
-                     
-                     tbody.appendChild(fila);
-                   }
-                
-                  
-                   
-                  
-                   tablaCol.appendChild(tbody);
-             
-                   
-                 
-            }
             
-    
+            let cantidad = result.rows.length;
+            
+            if(tipo === "Loc"){
+                
+                qJugadoresLoc = cantidad;
+                
+            }else if(tipo === "Riv"){
+                
+                qJugadoresRiv = cantidad;
+                
+            }
+
+            $("#"+tablaInsertar).html("");
+
+            if (cantidad >= 1) {
+
+                for (let i = 0; i < cantidad; i++) {
+
+                    $("#"+tablaInsertar)
+                            .append(
+                                    `<tr>` + `<td>`
+                                    + (i + 1)
+                                    + `</td>`
+
+                                    + `<td>`
+                                    + result.rows[i][2]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[i][1]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + `<input id="txt${tipo}Min${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TCA${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TCR${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}2PTCA${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}2PTCR${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}3PTCA${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}3PTCR${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TLA${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TLR${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}REBRO${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}REBRD${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}AS${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TO${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}RB${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}TP${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}FPC${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input id="txt${tipo}FPD${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}MasMenos${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input id="txt${tipo}PTS${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `</tr>`);
+
+                }
+
+            }
         }
-        
-        
- });  
- 
+    });
+}
+
+//Carga de DDls
+function cargarDDLEquiposRivales(idEquipo, idCategoria, idTemporada) {
+
+    //"ID_EQUIPO"	"ID_CATEGORIA"	"ID_TEMPORADA"	"NOMBRE_EQUIPO"
+    $.ajax({
+        url: "registrarEstadisticasPartidoServlet",
+        dataType: "json",
+        data: {
+            accion: "listarEquiposRivales", idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada
+        },
+        success: function (result) {
+
+            let cantidad = result.rows.length;
+
+            $("#ddlEquipoRival").html("");
+            $("#ddlEquipoRival").append("<option id='ddlTipDocIde0' value=''>Seleccione Equipo Rival</option>");
+            for (let i = 0; i < cantidad; i++) {
+
+                $("#ddlEquipoRival").append("<option idEquipo=" + result.rows[i][0] + " idCategoria=" + result.rows[i][1] + " idTemporada=" + result.rows[i][2] + " >" + result.rows[i][3] + "</option>");
+            }
+        }
+    });
+}
+
+function equipoRivalSelect(){
     
+    let idEquipo = $("#ddlEquipoRival option:selected").attr("idEquipo");
+    let idCategoria = $("#ddlEquipoRival option:selected").attr("idCategoria");
+    let idTemporada = $("#ddlEquipoRival option:selected").attr("idTemporada");
+    
+    listarJugadores(idEquipo, idCategoria, idTemporada,"tbEquipoRival","Riv");
+       
+}
+
+$('#form-estadisticas').on('submit', function (event) {
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    
+    //Datos partido
+    let lugar = $("#txtLugar").val();
+    let detalleResultado = $("#txtDetalleResultado").val();
+    let resultado = $("#ddlResultado option:selected").val();
+    
+    //Datos equipo local a nivelglobal
+    
+    //Datos EquipoRival
+    let idEquipoRiv = $("#ddlEquipoRival option:selected").attr("idEquipo");
+    let idCategoriaRiv = $("#ddlEquipoRival option:selected").attr("idCategoria");
+    let idTemporadaRiv = $("#ddlEquipoRival option:selected").attr("idTemporada");
+    
+    //Estadisticas equipo local
+    let MINloc = "";
+    let TCAloc = "";
+    let TCRloc = "";
+    let dosTPCAloc = "";
+    let dosTPCRloc = "";
+    let tresPTCAloc = "";
+    let tresPTCRloc = "";
+    let TLAloc = "";
+    let TLRloc = "";
+    let REBROloc = "";
+    let REBRDloc = "";
+    let ASloc = "";
+    let TOloc = "";
+    let RBloc = "";
+    let TPloc = "";
+    let FPCloc = "";
+    let FPDloc = "";
+    let masmenosloc = "";
+    let PTSloc = "";
+    
+    for(let i=0;i < qJugadoresLoc;i++){
+        
+        MINloc = MINloc + $("#txtLocMin"+i).val() + ";";
+        TCAloc = TCAloc + $("#txtLocTCA"+i).val() + ";";
+        TCRloc = TCRloc + $("#txtLocTCR"+i).val() + ";";
+        dosTPCAloc = dosTPCAloc + $("#txtLoc2PTCA"+i).val() + ";";
+        dosTPCRloc = dosTPCRloc + $("#txtLoc2PTCR"+i).val() + ";";
+        tresPTCAloc = tresPTCAloc + $("#txtLoc3PTCA"+i).val() + ";";
+        tresPTCRloc = tresPTCRloc + $("#txtLoc3PTCR"+i).val() + ";";
+        TLAloc = TLAloc + $("#txtLocTLA"+i).val() + ";";
+        TLRloc = TLRloc + $("#txtLocTLR"+i).val() + ";";
+        REBROloc = REBROloc + $("#txtLocREBRO"+i).val() + ";";
+        REBRDloc = REBRDloc + $("#txtLocREBRD"+i).val() + ";";
+        ASloc = ASloc + $("#txtLocAS"+i).val() + ";";
+        TOloc = TOloc + $("#txtLocTO"+i).val() + ";";
+        RBloc = RBloc + $("#txtLocRB"+i).val() + ";";
+        TPloc = TPloc + $("#txtLocTP"+i).val() + ";";
+        FPCloc = FPCloc + $("#txtLocFPC"+i).val() + ";";
+        FPDloc = FPDloc + $("#txtLocFPD"+i).val() + ";";
+        masmenosloc = masmenosloc + $("#txtLocMasMenos"+i).val() + ";";
+        PTSloc = PTSloc + $("#txtLocPTS"+i).val() + ";";
+        
+    }
+    
+    //Estadisticas equipo rival
+    let MINriv = "";
+    let TCAriv = "";
+    let TCRriv = "";
+    let dosTPCAriv = "";
+    let dosTPCRriv = "";
+    let tresPTCAriv = "";
+    let tresPTCRriv = "";
+    let TLAriv = "";
+    let TLRriv = "";
+    let REBROriv = "";
+    let REBRDriv = "";
+    let ASriv = "";
+    let TOriv = "";
+    let RBriv = "";
+    let TPriv = "";
+    let FPCriv = "";
+    let FPDriv = "";
+    let masmenosriv = "";
+    let PTSriv = "";
+    
+    for(let i=0;i < qJugadoresRiv;i++){
+        
+        MINriv = MINriv + $("#txtRivMin"+i).val() + ";";
+        TCAriv = TCAriv + $("#txtRivTCA"+i).val() + ";";
+        TCRriv = TCRriv + $("#txtRivTCR"+i).val() + ";";
+        dosTPCAriv = dosTPCAriv + $("#txtRiv2PTCA"+i).val() + ";";
+        dosTPCRriv = dosTPCRriv + $("#txtRiv2PTCR"+i).val() + ";";
+        tresPTCAriv = tresPTCAriv + $("#txtRiv3PTCA"+i).val() + ";";
+        tresPTCRriv = tresPTCRriv + $("#txtRiv3PTCR"+i).val() + ";";
+        TLAriv = TLAriv + $("#txtRivTLA"+i).val() + ";";
+        TLRriv = TLRriv + $("#txtRivTLR"+i).val() + ";";
+        REBROriv = REBROriv + $("#txtRivREBRO"+i).val() + ";";
+        REBRDriv = REBRDriv + $("#txtRivREBRD"+i).val() + ";";
+        ASriv = ASriv + $("#txtRivAS"+i).val() + ";";
+        TOriv = TOriv + $("#txtRivTO"+i).val() + ";";
+        RBriv = RBriv + $("#txtRivRB"+i).val() + ";";
+        TPriv = TPriv + $("#txtRivTP"+i).val() + ";";
+        FPCriv = FPCriv + $("#txtRivFPC"+i).val() + ";";
+        FPDriv = FPDriv + $("#txtRivFPD"+i).val() + ";";
+        masmenosriv = masmenosriv + $("#txtRivMasMenos"+i).val() + ";";
+        PTSriv = PTSriv + $("#txtRivPTS"+i).val() + ";";
+    }
+    
+    alert("Datos local"+idEquipoLoc+" / "+idCategoriaLoc+" / "+idTemporadaLoc+" datos rival "+idEquipoRiv+" / "+idCategoriaRiv+" / "+
+            idTemporadaRiv+" datos partido "+lugar+" / "+detalleResultado+" / "+resultado+" estadistica local "+MINloc+" / "+TCAloc+" / "+
+            TCRloc+" / "+dosTPCAloc+" / "+dosTPCRloc+" / "+tresPTCAloc+" / "+tresPTCRloc+" / "+TLAloc+" / "+TLRloc+" / "+REBROloc+" / "+
+            REBRDloc+" / "+ASloc+" / "+TOloc+" / "+RBloc+" / "+TPloc+" / "+FPCloc+" / "+FPDloc+" / "+masmenosloc+" / "+PTSloc+" estadisticas rival "+
+            MINriv+" / "+TCAriv+" / "+TCRriv+" / "+dosTPCAriv+" / "+dosTPCRriv+" / "+tresPTCAriv+" / "+tresPTCRriv+" / "+TLAriv+" / "+TLRriv+" / "+
+            REBROriv+" / "+REBRDriv+" / "+ASriv+" / "+TOriv+" / "+RBriv+" / "+TPriv+" / "+FPCriv+" / "+FPDriv+" / "+masmenosriv+" / "+PTSriv);
+    
+    //todos las datos al servel luego al procedure para registrar
+    
+
 });
-
-
-
-
-
-
-
-
-
