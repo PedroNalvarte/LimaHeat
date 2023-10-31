@@ -1,0 +1,14 @@
+
+.inputs-partido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+.small-input{
+    width: 30px;
+}

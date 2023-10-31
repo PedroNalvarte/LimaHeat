@@ -16,6 +16,6 @@ List<Object[]> CargarNombresJugadoresxCategoria(String ID_TEMPORADA, String ID_C
 
 List<Object[]> RegistrarEstadisticasJugador(int ID_TEMPORADA,int ID_EQUIPO,int ID_CATEGORIA,int ID_PARTICIPANTE,int  ID_PARTIDO,int MINUTOS_JUGADOS,int SEGUNDOS_JUGADOS,int TC_TOTALES
 
-,int TC_ACERTADOS ):
+,int TC_ACERTADOS );
         
 }

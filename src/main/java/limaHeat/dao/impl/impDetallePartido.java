@@ -38,7 +38,15 @@ public class impDetallePartido implements IDetallePartido {
    String sql = new StringBuilder()
         .append("CALL public.registrar_estadisticas_jugador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
         .toString();
+   SelectGeneral obj = new SelectGeneral();
+    List<Object[]> listado = obj.selectGeneral(sql);
+    return listado;
 }
+
+    @Override
+    public List<Object[]> RegistrarEstadisticasJugador(int ID_TEMPORADA, int ID_EQUIPO, int ID_CATEGORIA, int ID_PARTICIPANTE, int ID_PARTIDO, int MINUTOS_JUGADOS, int SEGUNDOS_JUGADOS, int TC_TOTALES, int TC_ACERTADOS) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
 }

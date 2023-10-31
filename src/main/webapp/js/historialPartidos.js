@@ -18,11 +18,7 @@ $(function () {
 });
 
 function registrarNuevo() {
-    $("#resultado").val("");
-    $("#detalleResultado").val("");
-    $("#lugar").val("");
-
-    $("#modal-registrar").modal("show");
+   location.href = 'registrarPartido.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
 
 }
 
