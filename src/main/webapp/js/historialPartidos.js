@@ -18,7 +18,7 @@ $(function () {
 });
 
 function registrarNuevo() {
-   location.href = 'registrarPartido.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
+    location.href = 'registrarPartido.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
 
 }
 
@@ -100,7 +100,7 @@ function cargarlista() {
                     var html = ``;
                     html += `<tr>`;
                     html += `<td>${i + 1}</td>`;
-                    html += `<td id="txtresultado${partido[i][0]}">${resultado}</td>`;
+                    html += `<td id="txtresultado${partido[i][1]}">${resultado}</td>`;
                     html += `<td id="txtdetallePartido${partido[i][0]}">${partido[i][2]}</td>`;
                     html += `<td id="txtlugar${partido[i][0]}">${partido[i][3]}</td>`;
                     html += `<td id="txtfecha${partido[i][0]}">${fechaFormateada}</td>`;

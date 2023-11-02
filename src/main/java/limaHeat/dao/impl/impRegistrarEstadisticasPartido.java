@@ -10,14 +10,13 @@ import limaHeat.dao.IRegistrarEstadisticasPartido;
 
 public class impRegistrarEstadisticasPartido implements IRegistrarEstadisticasPartido {
 
-    //"ID_EQUIPO"	"ID_CATEGORIA"	"ID_TEMPORADA"	"NOMBRE_EQUIPO"
     @Override
     public List<Object[]> listarEquiposRivales(String idEquipo, String idTemporada, String idCategoria) {
         String sql = new StringBuilder()
                 .append("SELECT DISTINCT ej.\"ID_EQUIPO\", ej.\"ID_CATEGORIA\", ej.\"ID_TEMPORADA\" ,e.\"NOMBRE_EQUIPO\" ")
                 .append("FROM \"EQUIPO_JUGADOR\" ej ")
                 .append("INNER JOIN \"EQUIPO\" e ON e.\"ID_EQUIPO\" = ej.\"ID_EQUIPO\" ")
-                .append("WHERE ej.\"ID_EQUIPO\" <> "+idEquipo+" AND ej.\"ID_CATEGORIA\" = "+idCategoria+" AND ej.\"ID_TEMPORADA\" = "+idTemporada+" ")
+                .append("WHERE ej.\"ID_EQUIPO\" <> " + idEquipo + " AND ej.\"ID_CATEGORIA\" = " + idCategoria + " AND ej.\"ID_TEMPORADA\" = " + idTemporada + " ")
                 .toString();
 
         SelectGeneral obj = new SelectGeneral();
@@ -32,12 +31,24 @@ public class impRegistrarEstadisticasPartido implements IRegistrarEstadisticasPa
                 .append("SELECT ej.\"ID_PARTICIPANTE\",  ej.\"NUMERO_DORSAL\", concat(p.\"NOMBRES\",' ',p.\"APELLIDO_1\",' ',p.\"APELLIDO_2\" ) nombre ")
                 .append("FROM \"EQUIPO_JUGADOR\" ej ")
                 .append("INNER JOIN \"PARTICIPANTE\" p ON ej.\"ID_PARTICIPANTE\" = p.\"ID_PARTICIPANTE\" ")
-                .append("WHERE p.\"ID_TIPO_PARTICIPANTE\" = 2 AND ej.\"ID_EQUIPO\" = "+idEquipo+" AND ej.\"ID_CATEGORIA\" = "+idCategoria+" AND ej.\"ID_TEMPORADA\" = "+idTemporada+" ")
+                .append("WHERE p.\"ID_TIPO_PARTICIPANTE\" = 2 AND ej.\"ID_EQUIPO\" = " + idEquipo + " AND ej.\"ID_CATEGORIA\" = " + idCategoria + " AND ej.\"ID_TEMPORADA\" = " + idTemporada + " ")
                 .toString();
-        
+
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
 
+        return listado;
+    }
+    @Override
+    public List<Object[]> registarEstadisticas(String idEquipoLoc, String idCategoriaLoc, String idTemporadaLoc, String idEquipoRiv, String idCategoriaRiv, String idTemporadaRiv,String Id_loc, String Id_riv, String lugar, String detalleResultado, String resultado, String MINloc, String TCAloc, String TCRloc, String dosTPCAloc, String dosTPCRloc, String tresPTCAloc, String tresPTCRloc, String TLAloc, String TLRloc, String REBROloc, String REBRDloc, String ASloc, String TOloc, String RBloc, String TPloc, String FPCloc, String FPDloc, String masmenosloc, String PTSloc, String MINriv, String TCAriv, String TCRriv, String dosTPCAriv, String dosTPCRriv, String tresPTCAriv, String tresPTCRriv, String TLAriv, String TLRriv, String REBROriv, String REBRDriv, String ASriv, String TOriv, String RBriv, String TPriv, String FPCriv, String FPDriv, String masmenosriv, String PTSriv) {
+
+       String sql = new StringBuilder()
+            .append("CALL public.registrar_estadisticas_partido('"+idEquipoLoc+"','"+idCategoriaLoc+"', '"+idTemporadaLoc+"', '"+idEquipoRiv+"', '"+idCategoriaRiv+"', '"+idTemporadaRiv+"','"+Id_loc+"','"+Id_riv+"', '"+lugar+"', '"+detalleResultado+"', '"+resultado+"', '"+MINloc+"', '"+TCAloc+"', '"+TCRloc+"', '"+dosTPCAloc+"', '"+dosTPCRloc+"', '"+tresPTCAloc+"', '"+tresPTCRloc+"','"+TLAloc+"','"+TLRloc+"', '"+REBROloc+"', '"+REBRDloc+"', '"+ASloc+"', '"+TOloc+"', '"+RBloc+"', '"+TPloc+"', '"+FPCloc+"', '"+FPDloc+"', '"+masmenosloc+"', '"+PTSloc+"', '"+MINriv+"', '"+TCAriv+"', '"+TCRriv+"', '"+dosTPCAriv+"', '"+dosTPCRriv+"', '"+tresPTCAriv+"', '"+tresPTCRriv+"', '"+TLAriv+"', '"+TLRriv+"', '"+REBROriv+"', '"+REBRDriv+"', '"+ASriv+"', '"+TOriv+"', '"+RBriv+"', '"+TPriv+"', '"+FPCriv+"', '"+FPDriv+"', '"+masmenosriv+"', '"+PTSriv+"') ;")
+            .toString();      
+             System.out.println ("HOLA, LLEGAMOS");
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado = obj.selectGeneral(sql);
+        
         return listado;
     }
 
