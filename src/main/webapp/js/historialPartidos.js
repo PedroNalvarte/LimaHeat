@@ -76,7 +76,7 @@ function cargarlista() {
 
             if (partido.length > 0) {
                 for (let i = 0; i < partido.length; i++) {
-                    var fechaEnBaseDeDatos = partido[i][5];
+                    var fechaEnBaseDeDatos = partido[i][6];
                     var fechaFormateada = new Date(fechaEnBaseDeDatos);
                     var opcionesDeFormato = {
                         year: 'numeric',
@@ -91,21 +91,25 @@ function cargarlista() {
 
                     let resultado = partido[i][1];
                     if (resultado === 'P') {
-                        resultado = 'Pendiente';
+                        resultado = 'Perdido';
                     } else if (resultado === 'G') {
                         resultado = 'Ganado';
-                    } else if (resultado === 'L') {
-                        resultado = 'Perdido';
-                    } else if (resultado === 'E') {
+                    } 
+                     else if (resultado === 'E') {
                         resultado = 'Empate';
                     }
-                    var html = ``;
+                    
+                    if(result.rows[i][5] === 'RIVAL'){
+                    let contador = 1;
+                        var html = ``;
                     html += `<tr>`;
-                    html += `<td>${i + 1}</td>`;
+                    
+                    html += `<td>${contador}</td>`;
+                    html += `<td id="txtrival${partido[i][0]}">${partido[i][4]}</td>`;
                     html += `<td id="txtresultado${partido[i][0]}">${resultado}</td>`;
-                    html += `<td id="txtdetallePartido${partido[i][0]}">${partido[i][2]}</td>`;
+                    html += `<td id="txtdetalle${partido[i][0]}">${partido[i][2]}</td>`;
                     html += `<td id="txtlugar${partido[i][0]}">${partido[i][3]}</td>`;
-                    html += `<td id="txtfecha${partido[i][0]}">${fechaFormateada}</td>`;
+                     html += `<td id="txtfecha${partido[i][0]}">${fechaFormateada}</td>`;
                     html += `<td>
                                     <a class="btn-editar" data-partido-id="(${partido[i][0]})"><i class="bi bi-pencil"></i></a>
 
@@ -117,9 +121,9 @@ function cargarlista() {
 
                     html += `</tr>`;
 
-
+                        
                     $("#tblPartidos").append(html);
-
+                    contador++;
                     // Agregar un manejador de eventos para los botones de eliminar
                     $("#tblPartidos").on("click", ".btn-eliminar", function () {
                         let ID_PARTIDO = $(this).data("partido-id");
@@ -130,6 +134,7 @@ function cargarlista() {
                         let ID_PARTIDO = $(this).data("partido-id");
                         editarPartido(ID_PARTIDO);
                     });
+                    }
                 }
             }
         }

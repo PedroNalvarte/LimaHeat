@@ -10,7 +10,7 @@ public interface IRegistrarPartido {
 
     List<Object[]> registrarPartido(String RESULTADO,String DETALLE_RESULTADO, String LUGAR);
 
-    List<Object[]> listarPartidos();
+    List<Object[]> listarPartidos(String equipo, String categoria, String temporada);
     
     List<Object[]>EditarPartido(String RESULTADO,String DETALLE_RESULTADO,String LUGAR,String idPartido);
 

@@ -29,9 +29,11 @@ public class registrarPartido extends HttpServlet {
         String accion = request.getParameter("accion");
 
         if (accion.equals("listarPartido")) {
-
+            String temporada = request.getParameter("idTemporada");
+            String equipo = request.getParameter("idEquipo");
+            String categoria = request.getParameter("idCategoria");
             IRegistrarPartido registrarDao = new impRegistrarPartido();
-            List<Object[]> listado = registrarDao.listarPartidos();
+            List<Object[]> listado = registrarDao.listarPartidos(equipo, categoria, temporada);
             String listar;
             listar = json.matriz(listado);
             response.getWriter().write(listar);

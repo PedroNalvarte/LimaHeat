@@ -31,12 +31,22 @@ public class impRegistrarPartido implements IRegistrarPartido {
     }
 
     @Override
-    public List<Object[]> listarPartidos() {
+    public List<Object[]> listarPartidos(String equipo, String categoria, String temporada) {
 
         String sql = new StringBuilder()
-                .append("SELECT * FROM \"PARTIDO\"")
-                .toString();
-
+        .append("select  distinct p.\"ID_PARTIDO\", p.\"RESULTADO\", p.\"DETALLE_RESULTADO\", p.\"LUGAR\", ")
+        .append("e.\"NOMBRE_EQUIPO\", case when ej.\"ID_EQUIPO\" = " + equipo)
+        .append(" then 'LOCAL' else 'RIVAL' end as \"RIVAL\", ")
+        .append(" p.\"FECHA_REGISTRO\"    from \"PARTIDO\" p ")
+        .append("inner join \"ESTADISTICAS_JUGADOR\" ej  on p.\"ID_PARTIDO\" = ej.\"ID_PARTIDO\" ")
+        .append("inner join \"EQUIPO\" e on e.\"ID_EQUIPO\" = ej.\"ID_EQUIPO\" ")
+        .append("where ej.\"ID_EQUIPO\"  in (select ej.\"ID_EQUIPO\"  from \"PARTIDO\" p inner join \"ESTADISTICAS_JUGADOR\" ej ON ej.\"ID_PARTIDO\" = p.\"ID_PARTIDO\" where ej.\"ID_TEMPORADA\" = " + temporada)
+        .append(" and ej.\"ID_CATEGORIA\" = " + categoria)
+        .append(" and ej.\"ID_PARTIDO\" in (select p2.\"ID_PARTIDO\" from \"PARTIDO\" p2 inner join \"ESTADISTICAS_JUGADOR\" ej2 on p2.\"ID_PARTIDO\" = ej2.\"ID_PARTIDO\" and ej2.\"ID_EQUIPO\" = " + equipo)
+        .append(")  ) and ej.\"ID_TEMPORADA\" = " + temporada)
+        .append(" and ej.\"ID_CATEGORIA\" = " + categoria + ";")
+        .toString();
+       System.out.println(sql);
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
         return listado;

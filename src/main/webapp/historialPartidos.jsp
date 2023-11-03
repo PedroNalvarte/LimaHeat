@@ -68,6 +68,7 @@
                         <thead>
                             <tr>
                                 <th>Nº</th>
+                                <th>Rival</th>
                                 <th>Resultado</th>
                                 <th>Detalle del Resultado</th>
                                 <th>Lugar</th>
