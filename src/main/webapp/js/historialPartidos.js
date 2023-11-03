@@ -12,16 +12,18 @@ $(function () {
     idTemporada = urlParams.get('temp');
 
     cargarTitulo(idEquipo, idCategoria, idTemporada);
+    cargarRendimientoGeneral(idEquipo, idCategoria, idTemporada);
     cargarlista();
 
 
 });
 
 function registrarNuevo() {
-    location.href = 'registrarPartido.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
+   location.href = 'registrarPartido.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
 
 }
 
+/*
 $('#registrarPartido').on('submit', function (event) {
 
     event.preventDefault();
@@ -55,7 +57,7 @@ $('#registrarPartido').on('submit', function (event) {
     });
 
 });
-
+*/
 function cargarlista() {
     $.ajax({
         url: "registrarPartido", // Asegúrate de que la URL sea correcta
@@ -100,7 +102,7 @@ function cargarlista() {
                     var html = ``;
                     html += `<tr>`;
                     html += `<td>${i + 1}</td>`;
-                    html += `<td id="txtresultado${partido[i][1]}">${resultado}</td>`;
+                    html += `<td id="txtresultado${partido[i][0]}">${resultado}</td>`;
                     html += `<td id="txtdetallePartido${partido[i][0]}">${partido[i][2]}</td>`;
                     html += `<td id="txtlugar${partido[i][0]}">${partido[i][3]}</td>`;
                     html += `<td id="txtfecha${partido[i][0]}">${fechaFormateada}</td>`;
@@ -111,7 +113,7 @@ function cargarlista() {
                                     <a class="btn-eliminar" data-partido-id="${partido[i][0]}"><i class="bi bi-trash"></i></a>
                     
                                     <a class="btn-Visualizar" data-partido-id="${partido[i][0]}" href="detallePartido.jsp?id=${partido[i][0]}"><i class="bi bi-plus-circle"></i></a>
-</td>`;
+                    </td>`;
 
                     html += `</tr>`;
 
@@ -238,5 +240,101 @@ $(document).on("click", "#btnEditarPartido", function () {
     });
 });
 
+
+//////////////////////////////////////////
+//"TC_TOTALES"	"TC_ACERTADOS"	"TC_2P_TOTALES"	"TC_2P_ACERTADOS"	"TC_3P_TOTALES"	"TC_3P_ACERTADOS"	"REB_RO"	"REB_RD"	"AS"	"TO"	"RB"	"TP"	"FP_C"	"FP_D"	"DIFERENCIA_PUNTOS"	"PTS"	"TL_ACERTADOS"	"TL_TOTALES"
+function cargarRendimientoGeneral(idEquipo, idCategoria, idTemporada){
+    
+    $.ajax({
+        url: "historialPartidosServlet",
+        dataType: "json",
+        data: {
+            accion: "cargarRendimientoGeneral", idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada
+        },
+        success: function (result) {
+            
+            let tiro = ((result.rows[0][1] / result.rows[0][0]) * 100).toFixed(2);
+            let tiro2 = ((result.rows[0][3] / result.rows[0][2]) * 100).toFixed(2);
+            let tiro3 = ((result.rows[0][5] / result.rows[0][4]) * 100).toFixed(2);
+            let tiroLibre = ((result.rows[0][17] / result.rows[0][16]) * 100).toFixed(2);
+            
+            if (isNaN(tiro)) {
+            tiro = 0;
+            }
+            if (isNaN(tiro2)) {
+            tiro2 = 0;
+            }
+            if (isNaN(tiro3)) {
+            tiro3 = 0;
+            }
+            if (isNaN(tiroLibre)) {
+            tiroLibre = 0;
+            }
+            
+            $("#tbRendimiendoGeneral").html("");
+            
+            $("#tbRendimiendoGeneral")
+                            .append(
+                                    `<tr>` + `<td class="porcentaje">`
+                                    + tiro
+                                    + `</td>`
+
+                                    + `<td class="porcentaje">`
+                                    + tiro2
+                                    + `</td>`
+                            
+                                    + `<td class="porcentaje">`
+                                    + tiro3
+                                    + `</td>`
+                            
+                                    + `<td class="porcentaje">`
+                                    + tiroLibre
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + (result.rows[0][6] + result.rows[0][7])
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][8]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][9]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][10]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][11]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][12]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][13]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][14]
+                                    + `</td>`
+                            
+                                    + `<td>`
+                                    + result.rows[0][15]
+                                    + `</td>`
+                                   
+                                    
+                                    + `</tr>`);
+
+                }
+           
+    });
+    
+    
+}
 
 

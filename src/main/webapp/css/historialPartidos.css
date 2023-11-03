@@ -1,2 +1,5 @@
 
 
+.porcentaje:after{
+    content: "%";
+}

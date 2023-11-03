@@ -45,6 +45,22 @@ public class impHistorialPartidos implements IHistorialPartidos{
         return listado;
     }
 
+    @Override
+    public List<Object[]> cargarRendimientoGeneral(String idEquipo, String idCategoria, String idTemporada) {
+        
+        String sql = new StringBuilder()
+                .append("select sum(\"TC_TOTALES\"), sum(\"TC_ACERTADOS\"), sum(\"TC_2P_TOTALES\"),sum(\"TC_2P_ACERTADOS\"),sum(\"TC_3P_TOTALES\"),sum(\"TC_3P_ACERTADOS\"), ")
+                .append("sum(\"REB_RO\"),sum(\"REB_RD\"),sum(\"AS\"),sum(\"TO\"),sum(\"RB\"),sum(\"TP\"),sum(\"FP_C\"),sum(\"FP_D\"),sum(\"DIFERENCIA_PUNTOS\"),sum(\"PTS\"),sum(\"TL_ACERTADOS\"), ")
+                .append("sum(\"TL_TOTALES\")  from \"ESTADISTICAS_JUGADOR\" ej  ")
+                .append("where ej.\"ID_EQUIPO\" = "+idEquipo+" and ej.\"ID_CATEGORIA\" = "+idCategoria+" and ej.\"ID_TEMPORADA\" = "+idTemporada+"")
+                .toString();
+        
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado = obj.selectGeneral(sql);
+        return listado;
+        
+    }
+
    
 
     

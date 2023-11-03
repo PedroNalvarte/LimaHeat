@@ -95,7 +95,7 @@
                         <thead class="thead-dark">
 
                             <tr>
-                                <th colspan="4"></th>
+                                <th colspan="5"></th>
                                 <th colspan="2">TC</th>
                                 <th colspan="2">2P TC</th>
                                 <th colspan="2">3P TC</th>
@@ -110,6 +110,7 @@
                                 <th>Nombre</th>
                                 <th>Dorsal</th>
                                 <th>Min</th>
+                                <th>Sec</th>
                                 <th>A</th>
                                 <th>R</th>
                                 <th>A</th>
@@ -152,7 +153,7 @@
                         <thead class="thead-dark">
 
                             <tr>
-                                <th colspan="4"></th>
+                                <th colspan="5"></th>
                                 <th colspan="2">TC</th>
                                 <th colspan="2">2P TC</th>
                                 <th colspan="2">3P TC</th>
@@ -167,6 +168,7 @@
                                 <th>Nombre</th>
                                 <th>Dorsal</th>
                                 <th>Min</th>
+                                <th>Sec</th>
                                 <th>A</th>
                                 <th>R</th>
                                 <th>A</th>
