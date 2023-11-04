@@ -193,6 +193,7 @@ $('#form-estadisticas').on('submit', function (event) {
     let idEquipoRiv = $("#ddlEquipoRival option:selected").attr("idEquipo");
     let idCategoriaRiv = $("#ddlEquipoRival option:selected").attr("idCategoria");
     let idTemporadaRiv = $("#ddlEquipoRival option:selected").attr("idTemporada");
+    let fechaPartido = $("#txtFecha").val();
     
     //Estadisticas equipo local
     let idJugadoresLoc = "";
@@ -219,27 +220,27 @@ $('#form-estadisticas').on('submit', function (event) {
     
     for(let i=0;i < qJugadoresLoc;i++){
         
-        idJugadoresLoc = idJugadoresLoc + $("#idILoc"+i).attr("idParticipante") + ";";
-        MINloc = MINloc + $("#txtLocMin"+i).val() + ";";
-        SECloc = SECloc + $("#txtLocSec"+i).val() + ";";
-        TCAloc = TCAloc + $("#txtLocTCA"+i).val() + ";";
-        TCRloc = TCRloc + $("#txtLocTCR"+i).val() + ";";
-        dosTPCAloc = dosTPCAloc + $("#txtLoc2PTCA"+i).val() + ";";
-        dosTPCRloc = dosTPCRloc + $("#txtLoc2PTCR"+i).val() + ";";
-        tresPTCAloc = tresPTCAloc + $("#txtLoc3PTCA"+i).val() + ";";
-        tresPTCRloc = tresPTCRloc + $("#txtLoc3PTCR"+i).val() + ";";
-        TLAloc = TLAloc + $("#txtLocTLA"+i).val() + ";";
-        TLRloc = TLRloc + $("#txtLocTLR"+i).val() + ";";
-        REBROloc = REBROloc + $("#txtLocREBRO"+i).val() + ";";
-        REBRDloc = REBRDloc + $("#txtLocREBRD"+i).val() + ";";
-        ASloc = ASloc + $("#txtLocAS"+i).val() + ";";
-        TOloc = TOloc + $("#txtLocTO"+i).val() + ";";
-        RBloc = RBloc + $("#txtLocRB"+i).val() + ";";
-        TPloc = TPloc + $("#txtLocTP"+i).val() + ";";
-        FPCloc = FPCloc + $("#txtLocFPC"+i).val() + ";";
-        FPDloc = FPDloc + $("#txtLocFPD"+i).val() + ";";
-        masmenosloc = masmenosloc + $("#txtLocMasMenos"+i).val() + ";";
-        PTSloc = PTSloc + $("#txtLocPTS"+i).val() + ";";
+        idJugadoresLoc = idJugadoresLoc + $("#idILoc"+i).attr("idParticipante") + "-";
+        MINloc = MINloc + $("#txtLocMin"+i).val() + "-";
+        SECloc = SECloc + $("#txtLocSec"+i).val() + "-";
+        TCAloc = TCAloc + $("#txtLocTCA"+i).val() + "-";
+        TCRloc = TCRloc + $("#txtLocTCR"+i).val() + "-";
+        dosTPCAloc = dosTPCAloc + $("#txtLoc2PTCA"+i).val() + "-";
+        dosTPCRloc = dosTPCRloc + $("#txtLoc2PTCR"+i).val() + "-";
+        tresPTCAloc = tresPTCAloc + $("#txtLoc3PTCA"+i).val() + "-";
+        tresPTCRloc = tresPTCRloc + $("#txtLoc3PTCR"+i).val() + "-";
+        TLAloc = TLAloc + $("#txtLocTLA"+i).val() + "-";
+        TLRloc = TLRloc + $("#txtLocTLR"+i).val() + "-";
+        REBROloc = REBROloc + $("#txtLocREBRO"+i).val() + "-";
+        REBRDloc = REBRDloc + $("#txtLocREBRD"+i).val() + "-";
+        ASloc = ASloc + $("#txtLocAS"+i).val() + "-";
+        TOloc = TOloc + $("#txtLocTO"+i).val() + "-";
+        RBloc = RBloc + $("#txtLocRB"+i).val() + "-";
+        TPloc = TPloc + $("#txtLocTP"+i).val() + "-";
+        FPCloc = FPCloc + $("#txtLocFPC"+i).val() + "-";
+        FPDloc = FPDloc + $("#txtLocFPD"+i).val() + "-";
+        masmenosloc = masmenosloc + $("#txtLocMasMenos"+i).val() + "-";
+        PTSloc = PTSloc + $("#txtLocPTS"+i).val() + "-";
         
     }
     
@@ -268,37 +269,58 @@ $('#form-estadisticas').on('submit', function (event) {
     
     for(let i=0;i < qJugadoresRiv;i++){
         
-        idJugadoresRiv = idJugadoresRiv + $("#idIRiv"+i).attr("idParticipante") + ";";
-        MINriv = MINriv + $("#txtRivMin"+i).val() + ";";
-        SECriv = SECriv + $("#txtRivSec"+i).val() + ";";
-        TCAriv = TCAriv + $("#txtRivTCA"+i).val() + ";";
-        TCRriv = TCRriv + $("#txtRivTCR"+i).val() + ";";
-        dosTPCAriv = dosTPCAriv + $("#txtRiv2PTCA"+i).val() + ";";
-        dosTPCRriv = dosTPCRriv + $("#txtRiv2PTCR"+i).val() + ";";
-        tresPTCAriv = tresPTCAriv + $("#txtRiv3PTCA"+i).val() + ";";
-        tresPTCRriv = tresPTCRriv + $("#txtRiv3PTCR"+i).val() + ";";
-        TLAriv = TLAriv + $("#txtRivTLA"+i).val() + ";";
-        TLRriv = TLRriv + $("#txtRivTLR"+i).val() + ";";
-        REBROriv = REBROriv + $("#txtRivREBRO"+i).val() + ";";
-        REBRDriv = REBRDriv + $("#txtRivREBRD"+i).val() + ";";
-        ASriv = ASriv + $("#txtRivAS"+i).val() + ";";
-        TOriv = TOriv + $("#txtRivTO"+i).val() + ";";
-        RBriv = RBriv + $("#txtRivRB"+i).val() + ";";
-        TPriv = TPriv + $("#txtRivTP"+i).val() + ";";
-        FPCriv = FPCriv + $("#txtRivFPC"+i).val() + ";";
-        FPDriv = FPDriv + $("#txtRivFPD"+i).val() + ";";
-        masmenosriv = masmenosriv + $("#txtRivMasMenos"+i).val() + ";";
-        PTSriv = PTSriv + $("#txtRivPTS"+i).val() + ";";
+        idJugadoresRiv = idJugadoresRiv + $("#idIRiv"+i).attr("idParticipante") + "-";
+        MINriv = MINriv + $("#txtRivMin"+i).val() + "-";
+        SECriv = SECriv + $("#txtRivSec"+i).val() + "-";
+        TCAriv = TCAriv + $("#txtRivTCA"+i).val() + "-";
+        TCRriv = TCRriv + $("#txtRivTCR"+i).val() + "-";
+        dosTPCAriv = dosTPCAriv + $("#txtRiv2PTCA"+i).val() + "-";
+        dosTPCRriv = dosTPCRriv + $("#txtRiv2PTCR"+i).val() + "-";
+        tresPTCAriv = tresPTCAriv + $("#txtRiv3PTCA"+i).val() + "-";
+        tresPTCRriv = tresPTCRriv + $("#txtRiv3PTCR"+i).val() + "-";
+        TLAriv = TLAriv + $("#txtRivTLA"+i).val() + "-";
+        TLRriv = TLRriv + $("#txtRivTLR"+i).val() + "-";
+        REBROriv = REBROriv + $("#txtRivREBRO"+i).val() + "-";
+        REBRDriv = REBRDriv + $("#txtRivREBRD"+i).val() + "-";
+        ASriv = ASriv + $("#txtRivAS"+i).val() + "-";
+        TOriv = TOriv + $("#txtRivTO"+i).val() + "-";
+        RBriv = RBriv + $("#txtRivRB"+i).val() + "-";
+        TPriv = TPriv + $("#txtRivTP"+i).val() + "-";
+        FPCriv = FPCriv + $("#txtRivFPC"+i).val() + "-";
+        FPDriv = FPDriv + $("#txtRivFPD"+i).val() + "-";
+        masmenosriv = masmenosriv + $("#txtRivMasMenos"+i).val() + "-";
+        PTSriv = PTSriv + $("#txtRivPTS"+i).val() + "-";
     }
     
+    /*
     alert("Datos local"+idEquipoLoc+" / "+idCategoriaLoc+" / "+idTemporadaLoc+" datos rival "+idEquipoRiv+" / "+idCategoriaRiv+" / "+
-            idTemporadaRiv+" datos partido "+lugar+" / "+detalleResultado+" / "+resultado+" estadistica local "+" "+idJugadoresLoc +" "+MINloc+" / "+SECloc+" / "+TCAloc+" / "+
+            idTemporadaRiv+" datos partido "+lugar+" / "+fechaPartido+" / "+detalleResultado+" / "+resultado+" estadistica local "+" "+idJugadoresLoc +" "+MINloc+" / "+SECloc+" / "+TCAloc+" / "+
             TCRloc+" / "+dosTPCAloc+" / "+dosTPCRloc+" / "+tresPTCAloc+" / "+tresPTCRloc+" / "+TLAloc+" / "+TLRloc+" / "+REBROloc+" / "+
             REBRDloc+" / "+ASloc+" / "+TOloc+" / "+RBloc+" / "+TPloc+" / "+FPCloc+" / "+FPDloc+" / "+masmenosloc+" / "+PTSloc+" estadisticas rival "+
             " "+idJugadoresRiv +" "+MINriv+" / "+SECriv+" / "+TCAriv+" / "+TCRriv+" / "+dosTPCAriv+" / "+dosTPCRriv+" / "+tresPTCAriv+" / "+tresPTCRriv+" / "+TLAriv+" / "+TLRriv+" / "+
             REBROriv+" / "+REBRDriv+" / "+ASriv+" / "+TOriv+" / "+RBriv+" / "+TPriv+" / "+FPCriv+" / "+FPDriv+" / "+masmenosriv+" / "+PTSriv);
     
-    //todos las datos al servel luego al procedure para registrar
+     */
+    
+    $.ajax({
+        url: "registrarEstadisticasPartidoServlet",
+        dataType: "json",
+        data: {
+            accion: "registrarEstadisticas", idEquipoLoc:idEquipoLoc, idCategoriaLoc:idCategoriaLoc, idTemporadaLoc:idTemporadaLoc,
+            idEquipoRiv:idEquipoRiv, idCategoriaRiv:idCategoriaRiv, idTemporadaRiv:idTemporadaRiv, lugar:lugar, fechaPartido:fechaPartido, detalleResultado:detalleResultado,
+            resultado:resultado, idJugadoresLoc:idJugadoresLoc, MINloc:MINloc, SECloc:SECloc, TCAloc:TCAloc, TCRloc:TCRloc, dosTPCAloc:dosTPCAloc,
+            dosTPCRloc:dosTPCRloc, tresPTCAloc:tresPTCAloc, tresPTCRloc:tresPTCRloc, TLAloc:TLAloc, TLRloc:TLRloc, REBROloc:REBROloc,
+            REBRDloc:REBRDloc, ASloc:ASloc, TOloc:TOloc, RBloc:RBloc, TPloc:TPloc, FPCloc:FPCloc, FPDloc:FPDloc, masmenosloc:masmenosloc,
+            PTSloc:PTSloc, idJugadoresRiv:idJugadoresRiv, MINriv:MINriv, SECriv:SECriv, TCAriv:TCAriv, TCRriv:TCRriv, dosTPCAriv:dosTPCAriv,
+            dosTPCRriv:dosTPCRriv, tresPTCAriv:tresPTCAriv, tresPTCRriv:tresPTCRriv, TLAriv:TLAriv, TLRriv:TLRriv,REBROriv:REBROriv,
+            REBRDriv:REBRDriv, ASriv:ASriv, TOriv:TOriv, RBriv:RBriv, TPriv:TPriv, FPCriv:FPCriv, FPDriv:FPDriv, masmenosriv:masmenosriv, PTSriv:PTSriv
+        },
+        success: function (result) {
+
+            
+        }
+    });
+    
     
 
 });

@@ -70,7 +70,7 @@ function obtenerDatos(ID_CATEGORIA) {
 //LISTAR
 ///////////////////////////////////////////////////////////////////////////////
 
-let container = document.getElementById("mainContainer");
+let container = document.getElementById("lista-mis-Equipos");
 let botonAgregar;
 let botonEditarCategoria;
 let listaCategorias = [];
@@ -85,6 +85,7 @@ $.ajax({
         if (result.rows !== null) {
             for (let i = 0; i < result.rows.length; i++) {
 
+                
                 let nuevoDiv = document.createElement("div");
                 nuevoDiv.classList.add("carta");
                 listaCategorias.push("Categoría " + result.rows[i][1] + " " + result.rows[i][2]);

@@ -68,3 +68,11 @@
     border-color: #CA8B29;
     border-radius: 5px;
 }
+
+#lista-mis-Equipos{
+   display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px; 
+ 
+    
+}

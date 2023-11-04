@@ -53,19 +53,20 @@ public class registrarEstadisticaPartidoServlet extends HttpServlet {
         } 
         
         else if (accion.equals("registrarEstadisticas")) {
-
+            
             String idEquipoLoc = request.getParameter("idEquipoLoc");
             String idCategoriaLoc = request.getParameter("idCategoriaLoc");
             String idTemporadaLoc = request.getParameter("idTemporadaLoc");
             String idEquipoRiv = request.getParameter("idEquipoRiv");
             String idCategoriaRiv = request.getParameter("idCategoriaRiv");
             String idTemporadaRiv = request.getParameter("idTemporadaRiv");
-            String Id_loc = request.getParameter("Id_loc");
-            String Id_riv = request.getParameter("Id_riv");
             String lugar = request.getParameter("lugar");
+            String fechaPartido = request.getParameter("fechaPartido");
             String detalleResultado = request.getParameter("detalleResultado");
             String resultado = request.getParameter("resultado");
+            String idJugadoresLoc = request.getParameter("idJugadoresLoc");
             String MINloc = request.getParameter("MINloc");
+            String SECloc = request.getParameter("SECloc");
             String TCAloc = request.getParameter("TCAloc");
             String TCRloc = request.getParameter("TCRloc");
             String dosTPCAloc = request.getParameter("dosTPCAloc");
@@ -84,7 +85,9 @@ public class registrarEstadisticaPartidoServlet extends HttpServlet {
             String FPDloc = request.getParameter("FPDloc");
             String masmenosloc = request.getParameter("masmenosloc");
             String PTSloc = request.getParameter("PTSloc");
+            String idJugadoresRiv = request.getParameter("idJugadoresRiv");
             String MINriv = request.getParameter("MINriv");
+            String SECriv = request.getParameter("SECriv");
             String TCAriv = request.getParameter("TCAriv");
             String TCRriv = request.getParameter("TCRriv");
             String dosTPCAriv = request.getParameter("dosTPCAriv");
@@ -103,9 +106,19 @@ public class registrarEstadisticaPartidoServlet extends HttpServlet {
             String FPDriv = request.getParameter("FPDriv");
             String masmenosriv = request.getParameter("masmenosriv");
             String PTSriv = request.getParameter("PTSriv");
+            
+            /*
+            System.out.println("Datos local"+idEquipoLoc+" / "+idCategoriaLoc+" / "+idTemporadaLoc+" datos rival "+idEquipoRiv+" / "+idCategoriaRiv+" / "+
+            idTemporadaRiv+" datos partido "+lugar+" / "+detalleResultado+" / "+resultado+" estadistica local "+" "+idJugadoresLoc +" "+MINloc+" / "+SECloc+" / "+TCAloc+" / "+
+            TCRloc+" / "+dosTPCAloc+" / "+dosTPCRloc+" / "+tresPTCAloc+" / "+tresPTCRloc+" / "+TLAloc+" / "+TLRloc+" / "+REBROloc+" / "+
+            REBRDloc+" / "+ASloc+" / "+TOloc+" / "+RBloc+" / "+TPloc+" / "+FPCloc+" / "+FPDloc+" / "+masmenosloc+" / "+PTSloc+" estadisticas rival "+
+            " "+idJugadoresRiv +" "+MINriv+" / "+SECriv+" / "+TCAriv+" / "+TCRriv+" / "+dosTPCAriv+" / "+dosTPCRriv+" / "+tresPTCAriv+" / "+tresPTCRriv+" / "+TLAriv+" / "+TLRriv+" / "+
+            REBROriv+" / "+REBRDriv+" / "+ASriv+" / "+TOriv+" / "+RBriv+" / "+TPriv+" / "+FPCriv+" / "+FPDriv+" / "+masmenosriv+" / "+PTSriv);
+            */
+            
 
             IRegistrarEstadisticasPartido registrarPartidoDao = new impRegistrarEstadisticasPartido();
-            List<Object[]> listado = registrarPartidoDao.registarEstadisticas(idEquipoLoc,idCategoriaLoc, idTemporadaLoc, idEquipoRiv, idCategoriaRiv, idTemporadaRiv, Id_loc, Id_riv, lugar, detalleResultado, resultado, MINloc, TCAloc, TCRloc, dosTPCAloc, dosTPCRloc, tresPTCAloc, tresPTCRloc, TLAloc, TLRloc, REBROloc, REBRDloc, ASloc, TOloc, RBloc, TPloc, FPCloc, FPDloc, masmenosloc, PTSloc, MINriv, TCAriv, TCRriv, dosTPCAriv, dosTPCRriv, tresPTCAriv, tresPTCRriv, TLAriv, TLRriv, REBROriv, REBRDriv, ASriv, TOriv, RBriv, TPriv, FPCriv, FPDriv, masmenosriv, PTSriv);
+            List<Object[]> listado = registrarPartidoDao.registarEstadisticas(idEquipoLoc, idCategoriaLoc, idTemporadaLoc, idEquipoRiv, idCategoriaRiv, idTemporadaRiv, lugar, fechaPartido, detalleResultado, resultado, idJugadoresLoc, MINloc, SECloc, TCAloc, TCRloc, dosTPCAloc, dosTPCRloc, tresPTCAloc, tresPTCRloc, TLAloc, TLRloc, REBROloc, REBRDloc, ASloc, TOloc, RBloc, TPloc, FPCloc, FPDloc, masmenosloc, PTSloc, idJugadoresRiv, MINriv, SECriv, TCAriv, TCRriv, dosTPCAriv, dosTPCRriv, tresPTCAriv, tresPTCRriv, TLAriv, TLRriv, REBROriv, REBRDriv, ASriv, TOriv, RBriv, TPriv, FPCriv, FPDriv, masmenosriv, PTSriv);
             lista = json.matriz(listado);
             response.getWriter().write(lista);
         }

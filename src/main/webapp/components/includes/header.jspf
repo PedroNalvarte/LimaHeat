@@ -77,7 +77,7 @@
 
 <div class="row row-info">
     <div class="col-md-2">
-        <img class="logo" src="https://cdn.discordapp.com/attachments/877328260357324832/1161395291866546226/LOGL_LIMA_HEAT_FULL_HD_4K_v1.png?ex=653824a7&is=6525afa7&hm=a5d4513e019d8adbca1d46dc0235b2c32fde287505a80e349fee22c88324220e">
+        <a href="#" onclick="window.location.href = 'modulos.jsp';"><img class="logo" src="https://cdn.discordapp.com/attachments/877328260357324832/1161395291866546226/LOGL_LIMA_HEAT_FULL_HD_4K_v1.png?ex=653824a7&is=6525afa7&hm=a5d4513e019d8adbca1d46dc0235b2c32fde287505a80e349fee22c88324220e"></a>
     </div>
     <div class="col-md-7"></div>
     <div class="col-md-3">

@@ -42,10 +42,17 @@
                 <div class="col col-md-12">
                     <div class="row">
 
-                        <div class="col col-md-3">
+                        <div class="col col-md-2">
                             <div class="col col-md-12">
                                 <label for="txtLugar"><strong>Lugar:</strong></label>
                                 <input id="txtLugar" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col col-md-2">
+                            <div class="col col-md-12">
+                                <label for="txtFecha"><strong>Fecha:</strong></label>
+                                <input id="txtFecha" type="date" class="form-control" required>
                             </div>
                         </div>
 
@@ -56,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-md-3">
+                        <div class="col col-md-2">
                             <div class="col col-md-12">
                                 <label for="ddlResultado"><strong>Resultado:</strong></label>
                                 <select id="ddlResultado" class="form-control" required>

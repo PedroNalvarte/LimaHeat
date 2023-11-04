@@ -1,4 +1,4 @@
-    let container = document.getElementById("mainContainer");
+    let container = document.getElementById("lista-mis-Equipos");
     let botonAgregar;
     let listaTemporadas = [];
     let listaTiposTemp = [];

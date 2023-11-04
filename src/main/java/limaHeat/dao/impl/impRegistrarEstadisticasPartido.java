@@ -39,17 +39,22 @@ public class impRegistrarEstadisticasPartido implements IRegistrarEstadisticasPa
 
         return listado;
     }
-    @Override
-    public List<Object[]> registarEstadisticas(String idEquipoLoc, String idCategoriaLoc, String idTemporadaLoc, String idEquipoRiv, String idCategoriaRiv, String idTemporadaRiv,String Id_loc, String Id_riv, String lugar, String detalleResultado, String resultado, String MINloc, String TCAloc, String TCRloc, String dosTPCAloc, String dosTPCRloc, String tresPTCAloc, String tresPTCRloc, String TLAloc, String TLRloc, String REBROloc, String REBRDloc, String ASloc, String TOloc, String RBloc, String TPloc, String FPCloc, String FPDloc, String masmenosloc, String PTSloc, String MINriv, String TCAriv, String TCRriv, String dosTPCAriv, String dosTPCRriv, String tresPTCAriv, String tresPTCRriv, String TLAriv, String TLRriv, String REBROriv, String REBRDriv, String ASriv, String TOriv, String RBriv, String TPriv, String FPCriv, String FPDriv, String masmenosriv, String PTSriv) {
 
-       String sql = new StringBuilder()
-            .append("CALL public.registrar_estadisticas_partido('"+idEquipoLoc+"','"+idCategoriaLoc+"', '"+idTemporadaLoc+"', '"+idEquipoRiv+"', '"+idCategoriaRiv+"', '"+idTemporadaRiv+"','"+Id_loc+"','"+Id_riv+"', '"+lugar+"', '"+detalleResultado+"', '"+resultado+"', '"+MINloc+"', '"+TCAloc+"', '"+TCRloc+"', '"+dosTPCAloc+"', '"+dosTPCRloc+"', '"+tresPTCAloc+"', '"+tresPTCRloc+"','"+TLAloc+"','"+TLRloc+"', '"+REBROloc+"', '"+REBRDloc+"', '"+ASloc+"', '"+TOloc+"', '"+RBloc+"', '"+TPloc+"', '"+FPCloc+"', '"+FPDloc+"', '"+masmenosloc+"', '"+PTSloc+"', '"+MINriv+"', '"+TCAriv+"', '"+TCRriv+"', '"+dosTPCAriv+"', '"+dosTPCRriv+"', '"+tresPTCAriv+"', '"+tresPTCRriv+"', '"+TLAriv+"', '"+TLRriv+"', '"+REBROriv+"', '"+REBRDriv+"', '"+ASriv+"', '"+TOriv+"', '"+RBriv+"', '"+TPriv+"', '"+FPCriv+"', '"+FPDriv+"', '"+masmenosriv+"', '"+PTSriv+"') ;")
-            .toString();      
-             System.out.println ("HOLA, LLEGAMOS");
+    @Override
+    public List<Object[]> registarEstadisticas(String idEquipoLoc, String idCategoriaLoc, String idTemporadaLoc, String idEquipoRiv, String idCategoriaRiv, String idTemporadaRiv, String lugar, String fechaPartido, String detalleResultado, String resultado, String idJugadoresLoc, String MINloc, String SECloc, String TCAloc, String TCRloc, String dosTPCAloc, String dosTPCRloc, String tresPTCAloc, String tresPTCRloc, String TLAloc, String TLRloc, String REBROloc, String REBRDloc, String ASloc, String TOloc, String RBloc, String TPloc, String FPCloc, String FPDloc, String masmenosloc, String PTSloc, String idJugadoresRiv, String MINriv, String SECriv, String TCAriv, String TCRriv, String dosTPCAriv, String dosTPCRriv, String tresPTCAriv, String tresPTCRriv, String TLAriv, String TLRriv, String REBROriv, String REBRDriv, String ASriv, String TOriv, String RBriv, String TPriv, String FPCriv, String FPDriv, String masmenosriv, String PTSriv) {
+        
+        String sql = new StringBuilder()
+            .append("CALL public.registrar_estadisticas_partido('"+idEquipoLoc+"','"+idCategoriaLoc+"','"+idTemporadaLoc+"','"+idEquipoRiv+"','"+idCategoriaRiv+"','"+idTemporadaRiv+"','"+lugar+"','"+fechaPartido+"','"+detalleResultado+"','"+resultado+"','"+idJugadoresLoc+"','"+MINloc+"','"+SECloc+"','"+TCAloc+"','"+TCRloc+"','"+dosTPCAloc+"','"+dosTPCRloc+"','"+tresPTCAloc+"','"+tresPTCRloc+"','"+TLAloc+"','"+TLRloc+"','"+REBROloc+"','"+REBRDloc+"','"+ASloc+"','"+TOloc+"','"+RBloc+"','"+TPloc+"','"+FPCloc+"','"+FPDloc+"','"+masmenosloc+"','"+PTSloc+"','"+idJugadoresRiv+"','"+MINriv+"','"+SECriv+"','"+TCAriv+"','"+TCRriv+"','"+dosTPCAriv+"','"+dosTPCRriv+"','"+tresPTCAriv+"','"+tresPTCRriv+"','"+TLAriv+"','"+TLRriv+"','"+REBROriv+"','"+REBRDriv+"','"+ASriv+"','"+TOriv+"','"+RBriv+"','"+TPriv+"','"+FPCriv+"','"+FPDriv+"','"+masmenosriv+"','"+PTSriv+"');")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            .toString(); 
+        
+        System.out.println(sql);
+
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
-        
+
         return listado;
     }
+    
+    
 
 }

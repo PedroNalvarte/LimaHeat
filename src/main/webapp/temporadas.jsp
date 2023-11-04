@@ -29,8 +29,7 @@
             </div>
 
             <div class="row mt-4">
-                 <div class="container" id="mainContainer">
-
+                <div id="lista-mis-Equipos" class="col col-md-12 ">
                 </div>
             </div>
         </div>
