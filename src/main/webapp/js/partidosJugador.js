@@ -1,6 +1,6 @@
 let idParticipante;
 let idEquipo;
-
+let tituloJugador = document.getElementById("nombreJugador");
 
 $(function () {
 
@@ -13,6 +13,7 @@ $(function () {
   
     mostrarRendimiento();
     listarPartidos();
+    cargarTitulo();
     
 });
 
@@ -50,7 +51,7 @@ function listarPartidos(){
                         day: '2-digit'              
                     };
                     var fechaFormateada = fechaFormateada.toLocaleString(undefined, opcionesDeFormato);
-                console.log(result.rows); 
+                
                 $("#tblPartidos").append("<tr><td>" + result.rows[i][1] + "</td>"
                          + "<td>" + resultado 
                          + "</td><td>" + result.rows[i][3] 
@@ -99,6 +100,19 @@ function mostrarRendimiento(){
             }
         }
     });
+}
+
+function cargarTitulo(){
+    $.ajax({
+        url: "partidosJugadorServlet",
+        dataType: "json",
+        data: {
+            accion: "nombreJugador", jugador: idParticipante
+        },
+        success: function (result) {
+             tituloJugador.textContent += " " + result.rows[0][0];
+        }
+    }); 
 }
 
 

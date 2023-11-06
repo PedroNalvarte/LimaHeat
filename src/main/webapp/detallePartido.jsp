@@ -12,144 +12,124 @@
 
         <!-- Modal Datos EL -->
         <div class="container">
-            <div class="row">
+            
                 <div class="col col-md-9">
-                    <h1 id="titulo">Registrar Estadisticas de Nuevo Partido </h1>
+                    <h1 id="titulo">Estadisticas de Partido </h1>
                     <h3 id="detalle_EL"></h3>
                 </div>
-                <div style="" class="col col-md-3">
-                    <div style="text-align: center" class="col-md-2">
-                        <button class="mi-button" onclick="registrarDatoEquipoLocal()">
-                            <div class="agregar">
-                                <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
-                                <h2 style="font-size: 15px">Registrar Datos(L)</h2>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
+                <br>
+            
+           <h2 id="equipoLocal"></h2>
+         <div class="row mt-4">
                 <div class="col col-md-12">
-                    <h2>DATOS DEL EQUIPO LOCAL</h2>
-                    <table class="table">
-                        <thead>
+                      <table id="tblEquipoLocal" class="table table-striped">
+                        <thead class="thead-dark">
+
+                            <tr>
+                                <th colspan="3"></th>
+                                <th colspan="2">TC</th>
+                                <th colspan="2">2P TC</th>
+                                <th colspan="2">3P TC</th>
+                                <th colspan="2">TL</th>
+                                <th colspan="3">REB</th>
+                                <th colspan="4"></th>
+                                <th colspan="2">FP</th>
+                                <th colspan="2"></th>
+                            </tr>
                             <tr>
                                 <th>N°</th>
-                                <th>NOMBRE</th>
-                                <th>MIN</th>
-                                <th>TC</th>
-                                <th>2P TC</th>
-                                <th>3P TC</th>
-                                <th>TL</th>
-                                <th></th>
-                                <th>REB</th>
-                                <th></th>
-                                <th></th>
+                                <th>Nombre</th>
+                                <th>Min</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>RO</th>
+                                <th>RD</th>
+                                <th>Tot</th>
                                 <th>AS</th>
                                 <th>TO</th>
                                 <th>RB</th>
                                 <th>TP</th>
-                                <th>FP</th>
+                                <th>C</th>
+                                <th>D</th>
                                 <th>+/-</th>
                                 <th>PTS</th>
                             </tr>
-                            <tr>
-                                
-                                <th input</th>
-                                
-                                <th></th>
-                                <th></th>
-                                <th>A / R%</th>
-                                <th>A / R%</th>
-                                <th>A / R%</th>
-                                <th>A / R%</th>
-                                <th>RO</th>
-                                <th>RD</th>
-                                <th>RT</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th>C / D</th>
-                                <th></th>
-                            </tr>
 
                         </thead>
-                        <tbody id="tblDatos"></tbody>
+                        <tbody id="tbEquipoLocal">
+
+                        </tbody>
+                        
                     </table>
+                    
+                  
                 </div>
             </div>
-        </div>
+        <br>
 
         <!-- Modal datos EV -->
 
         <div class="container">
-            <div class="row">
-                <div style="" class="col col-md-3">
-                    <div style="float: right">
-                        <button class="mi-button" onclick="registrarDatoEquipoVisitante()" style="float: right;">
-                            <div class="agregar">
-                                <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
-                                <h2 style="font-size: 15px">Registrar Datos(L)</h2>
-                            </div>
-                        </button>
-                    </div>
+        
+               <h2 id="equipoRival"></h2>
+         <div class="row mt-4">
+                <div class="col col-md-12">
+                      <table id="tblEquipoRival" class="table table-striped">
+                        <thead class="thead-dark">
+
+                            <tr>
+                                <th colspan="3"></th>
+                                <th colspan="2">TC</th>
+                                <th colspan="2">2P TC</th>
+                                <th colspan="2">3P TC</th>
+                                <th colspan="2">TL</th>
+                                <th colspan="3">REB</th>
+                                <th colspan="4"></th>
+                                <th colspan="2">FP</th>
+                                <th colspan="2"></th>
+                            </tr>
+                            <tr>
+                                <th>N°</th>
+                                <th>Nombre</th>
+                                <th>Min</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>A/R</th>
+                                <th>%</th>
+                                <th>RO</th>
+                                <th>RD</th>
+                                <th>Tot</th>
+                                <th>AS</th>
+                                <th>TO</th>
+                                <th>RB</th>
+                                <th>TP</th>
+                                <th>C</th>
+                                <th>D</th>
+                                <th>+/-</th>
+                                <th>PTS</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="tbEquipoRival">
+
+                        </tbody>
+                        
+                    </table>
+                    
+                  
                 </div>
             </div>
-            <div class="table-container table-outline">
-                <div class="row mt-4">
-                    <div class="col col-md-12">
-                        <h2>DATOS DEL EQUIPO RIVAL</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>N°</th>
-                                    <th>NOMBRE</th>
-                                    <th>MIN</th>
-                                    <th>TC</th>
-                                    <th>2P TC</th>
-                                    <th>3P TC</th>
-                                    <th>TL</th>
-                                    <th></th>
-                                    <th>REB</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>AS</th>
-                                    <th>TO</th>
-                                    <th>RB</th>
-                                    <th>TP</th>
-                                    <th>FP</th>
-                                    <th>+/-</th>
-                                    <th>PTS</th>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>A / R%</th>
-                                    <th>A / R%</th>
-                                    <th>A / R%</th>
-                                    <th>A / R%</th>
-                                    <th>RO</th>
-                                    <th>RD</th>
-                                    <th>RT</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>C / D</th>
-                                    <th></th>
-
-
-                                </tr>
-
-                            </thead>
-                            <tbody>
-                                <!-- Tus datos van aquí -->
-                            </tbody>
-                        </table>
+        
 
 
                         <tbody id="tblDatos"></tbody>
@@ -344,7 +324,7 @@
     </div>
 
     <%@include file="components/includes/footer.jspf"%>
-    <script src="js/equiposRivales.js"></script>
+    <script src="js/detallePartido.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

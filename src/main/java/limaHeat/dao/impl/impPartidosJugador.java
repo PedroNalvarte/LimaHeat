@@ -79,10 +79,20 @@ public class impPartidosJugador implements IPartidosJugador{
                   .append(" from \"ESTADISTICAS_JUGADOR\" ej ")
                   .append("where ej.\"ID_PARTICIPANTE\"  = " +  jugador + ";")
                   .toString();
-          System.out.println(sql);
+        
           SelectGeneral obj = new SelectGeneral();
           List<Object[]> listado = obj.selectGeneral(sql);
           return listado;
+    }
+
+    @Override
+    public List<Object[]> cargarJugador(String jugador) {
+        String sql = new StringBuilder(" select p.\"NOMBRES\" || ', ' || p.\"APELLIDO_1\"  || ' ' || p.\"APELLIDO_2\"  from \"PARTICIPANTE\" p ")
+                .append(" where p.\"ID_PARTICIPANTE\"  = " + jugador + "; ")
+                .toString();
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado = obj.selectGeneral(sql);
+        return listado;
     }
     
 }

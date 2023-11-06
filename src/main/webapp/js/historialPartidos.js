@@ -116,7 +116,7 @@ function cargarlista() {
                                     
                                     <a class="btn-eliminar" data-partido-id="${partido[i][0]}"><i class="bi bi-trash"></i></a>
                     
-                                    <a class="btn-Visualizar" data-partido-id="${partido[i][0]}" href="detallePartido.jsp?id=${partido[i][0]}"><i class="bi bi-plus-circle"></i></a>
+                                    <a class="btn-Visualizar" data-partido-id="${partido[i][0]}" href="detallePartido.jsp?id=${partido[i][0]}&idE=${idEquipo}"><i class="bi bi-plus-circle"></i></a>
                     </td>`;
 
                     html += `</tr>`;

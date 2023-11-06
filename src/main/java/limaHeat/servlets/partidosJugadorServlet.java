@@ -80,6 +80,15 @@ public class partidosJugadorServlet extends HttpServlet {
              
              response.getWriter().write(resultado);
          }
+         else if(accion.equals("nombreJugador")){
+             String resultado;
+             String jugador = request.getParameter("jugador");
+             IPartidosJugador partidosJugadorDao = new impPartidosJugador();
+             List<Object[]> listado = partidosJugadorDao.cargarJugador(jugador);
+             resultado = json.matriz(listado);
+             
+             response.getWriter().write(resultado);
+         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

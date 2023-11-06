@@ -13,7 +13,7 @@
          <div id="idParticipante" hidden><%=logged.getIdParticipante()%></div>
                  <div class="row mt-4">
                 <div class="col col-md-12">
-                    <h5 style="text-align: center;" >RENDIMIENTO GENERAL DEL JUGADOR</h5>
+                    <h5 style="text-align: center;" id="nombreJugador" >RENDIMIENTO GENERAL DEL JUGADOR: </h5>
                     <table id="tblRendimiendoGeneral" class="table table-striped">
                         <thead class="thead-dark">
 

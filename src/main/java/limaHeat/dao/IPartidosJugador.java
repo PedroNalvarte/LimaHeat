@@ -9,4 +9,5 @@ public interface IPartidosJugador {
      List<Object[]> mostrarEstadisticaPartidoRival(String partido, String equipo);
      List<Object[]> mostrarRendimientoGeneral(String jugador);
      List<Object[]> cargarTitulos(String partido);
+     List<Object[]> cargarJugador(String jugador);
 }
