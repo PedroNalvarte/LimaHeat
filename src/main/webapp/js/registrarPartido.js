@@ -316,6 +316,8 @@ $('#form-estadisticas').on('submit', function (event) {
             REBRDriv:REBRDriv, ASriv:ASriv, TOriv:TOriv, RBriv:RBriv, TPriv:TPriv, FPCriv:FPCriv, FPDriv:FPDriv, masmenosriv:masmenosriv, PTSriv:PTSriv
         },
         success: function (result) {
+            
+            location.href = 'historialPartidos.jsp?idE=' + idEquipoLoc + "&cat=" + idCategoriaLoc + "&temp=" + idTemporadaLoc;
 
             
         }

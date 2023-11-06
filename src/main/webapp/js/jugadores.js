@@ -98,7 +98,7 @@ function cargarlista() {
                     html += `<td id="peso${result.rows[i][0]}" class="kg">${result.rows[i][7]}</td>`;
                     html += `<td id="altura${result.rows[i][0]}" class="cm">${result.rows[i][8]}</td>`;
                     html += `<td id="btnEditar${result.rows[i][0]}"><a id="${result.rows[i][0]}" onclick="editarJugador(this.id)" <i class="bi bi-pencil"></i></td>`;
-                    html += `<td>Estadisticas</td>`;
+                    html += `<td><a id="${result.rows[i][0]}" onclick="detalleJugador(this.id);"><i class="bi bi-eye-fill"></i></td>`;
                     html += `</tr>`;
 
                     $("#tblJugadores").append(html);
@@ -111,20 +111,20 @@ function cargarlista() {
 }
 
 function editarJugador(idJugador) {
-    
+
     cargarDDLTipoDocumento("edtddlDocId");
     cargarDDLPosicion("edtddlPosicion");
-    
-    $("#edttxtNom").val($("#nom"+idJugador).attr('nombre'));
-    $("#edttxtApe1").val($("#nom"+idJugador).attr('ape1'));
-    $("#edttxtApe2").val($("#nom"+idJugador).attr('ape2'));
-    $("#edttxtDocIde").val($("#numdoc"+idJugador).text());
-    $("#edttxtPeso").val($("#peso"+idJugador).text());
-    $("#edttxtAltura").val($("#altura"+idJugador).text());    
-    $("#edttxtDorsal").val($("#dorsal"+idJugador).text());
-    $("#btnEditar").attr("idPArticipante",idJugador);
-    
-    
+
+    $("#edttxtNom").val($("#nom" + idJugador).attr('nombre'));
+    $("#edttxtApe1").val($("#nom" + idJugador).attr('ape1'));
+    $("#edttxtApe2").val($("#nom" + idJugador).attr('ape2'));
+    $("#edttxtDocIde").val($("#numdoc" + idJugador).text());
+    $("#edttxtPeso").val($("#peso" + idJugador).text());
+    $("#edttxtAltura").val($("#altura" + idJugador).text());
+    $("#edttxtDorsal").val($("#dorsal" + idJugador).text());
+    $("#btnEditar").attr("idPArticipante", idJugador);
+
+
     $("#modal-editar").modal("show");
 
 }
@@ -152,7 +152,7 @@ $('#editar-jugador').on('submit', function (event) {
         dataType: "json",
         data: {
             accion: "editar-jugador", nom: nom, ape1: ape1, ape2: ape2, tipDoc: tipDoc, numDoc: numDoc, peso: peso, altura: altura,
-            posicion: posicion, numeroDorsal: numeroDorsal, idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada, idParticipante:idParticipante
+            posicion: posicion, numeroDorsal: numeroDorsal, idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada, idParticipante: idParticipante
         },
         success: function (result) {
 
@@ -194,11 +194,11 @@ function cargarDDLTipoDocumento(id) {
         success: function (result) {
 
             let cantidad = result.rows.length;
-            $("#"+id).html("");
-            $("#"+id).append("<option value=''>SELECCIONE TIPO DOCUMENTO</option>");
+            $("#" + id).html("");
+            $("#" + id).append("<option value=''>SELECCIONE TIPO DOCUMENTO</option>");
 
             for (let i = 0; i < cantidad; i++) {
-                $("#"+id).append("<option value='" + result.rows[i][0] + "'>" + result.rows[i][1] + "</option>");
+                $("#" + id).append("<option value='" + result.rows[i][0] + "'>" + result.rows[i][1] + "</option>");
             }
         }
     });
@@ -216,12 +216,111 @@ function cargarDDLPosicion(id) {
         success: function (result) {
 
             let cantidad = result.rows.length;
-            $("#"+id).html("");
-            $("#"+id).append("<option value=''>SELECCIONE POSICIÓN</option>");
+            $("#" + id).html("");
+            $("#" + id).append("<option value=''>SELECCIONE POSICIÓN</option>");
 
             for (let i = 0; i < cantidad; i++) {
-                $("#"+id).append("<option value='" + result.rows[i][0] + "'>" + result.rows[i][1] + "</option>");
+                $("#" + id).append("<option value='" + result.rows[i][0] + "'>" + result.rows[i][1] + "</option>");
             }
         }
     });
+}
+
+function detalleJugador(idParticipante) {
+
+    $("#modal-rendimiento-general").modal("show");
+
+        $.ajax({
+            url: "jugadoresServlet",
+            dataType: "json",
+            data: {
+                accion: "cargarRendimientoGeneralJugador", idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada, idParticipante:idParticipante
+            },
+            success: function (result) {
+                
+                $("#tituloRenGeneral").text("Rendimiento General de "+result.rows[0][18]);
+
+                let tiro = ((result.rows[0][1] / result.rows[0][0]) * 100).toFixed(2);
+                let tiro2 = ((result.rows[0][3] / result.rows[0][2]) * 100).toFixed(2);
+                let tiro3 = ((result.rows[0][5] / result.rows[0][4]) * 100).toFixed(2);
+                let tiroLibre = ((result.rows[0][17] / result.rows[0][16]) * 100).toFixed(2);
+
+                if (isNaN(tiro)) {
+                    tiro = 0;
+                }
+                if (isNaN(tiro2)) {
+                    tiro2 = 0;
+                }
+                if (isNaN(tiro3)) {
+                    tiro3 = 0;
+                }
+                if (isNaN(tiroLibre)) {
+                    tiroLibre = 0;
+                }
+
+                $("#tbRendimiendoGeneral").html("");
+
+                $("#tbRendimiendoGeneral")
+                    .append(
+                        `<tr>` + `<td class="porcentaje">`
+                        + tiro
+                        + `</td>`
+
+                        + `<td class="porcentaje">`
+                        + tiro2
+                        + `</td>`
+
+                        + `<td class="porcentaje">`
+                        + tiro3
+                        + `</td>`
+
+                        + `<td class="porcentaje">`
+                        + tiroLibre
+                        + `</td>`
+
+                        + `<td>`
+                        + (result.rows[0][6] + result.rows[0][7])
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][8]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][9]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][10]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][11]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][12]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][13]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][14]
+                        + `</td>`
+
+                        + `<td>`
+                        + result.rows[0][15]
+                        + `</td>`
+
+
+                        + `</tr>`);
+
+            }
+
+        });
+
+
+    
 }

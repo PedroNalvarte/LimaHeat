@@ -11,6 +11,8 @@ public interface IJugadores {
     
     public List<Object[]> listarJugadores(String idEquipo, String idCategoria, String idTemporada);
     
-     public List<Object[]> editarJugador(String nom, String ape1, String ape2, String tipDoc, String numDoc, String peso, String altura, 
+    public List<Object[]> editarJugador(String nom, String ape1, String ape2, String tipDoc, String numDoc, String peso, String altura, 
                                     String posicion, String numeroDorsal, String idEquipo, String idCategoria, String idTemporada, String idParticipante);
+
+    public List<Object[]> cargarRendimientoGeneralJugador(String idEquipo,String idCategoria,String idTemporada, String idParticipante);
 }

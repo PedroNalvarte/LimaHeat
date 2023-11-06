@@ -91,6 +91,19 @@ public class jugadoresServlet extends HttpServlet {
             
             response.getWriter().write(resultado);
             
+        }if(accion.equals("cargarRendimientoGeneralJugador")){
+            
+            String idEquipo = request.getParameter("idEquipo");
+            String idCategoria = request.getParameter("idCategoria");
+            String idTemporada = request.getParameter("idTemporada");
+            String idParticipante = request.getParameter("idParticipante");
+        
+            IJugadores jugadoresDAO = new impJugadores();
+            List<Object[]> listado = jugadoresDAO.cargarRendimientoGeneralJugador(idEquipo, idCategoria, idTemporada, idParticipante);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+            
         }
     }
 

@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="css/jugadores.css"/>
     </head>
     <body>
-        
-        
+
+
 
         <div class="container">
 
@@ -58,7 +58,7 @@
 
                         <tbody id="tblJugadores"></tbody>
                     </table>
-                    
+
                 </div>
 
             </div>
@@ -151,7 +151,7 @@
             </div>
         </div>
         <!-- Fin Modal -->
-        
+
         <!-- Modal registrar equipo rival -->
         <div id="modal-editar" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-xl ">
@@ -228,6 +228,50 @@
                                 <button id="btnEditar" style="width: 30%;font-size: 15px; color: white; background-color: #CA8B29; border-color: #CA8B29" type="submit" data-dismiss="modal">Editar Jugador</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
+
+        <!-- Modal rendimiento de jugador -->
+        <div id="modal-rendimiento-general" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-xl ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px; color: white">ESTADISTICAS</center>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mt-4">
+                            <div class="col col-md-12">
+                                <h5 style="text-align: center;" id="tituloRenGeneral"></h5>
+                                <table id="tblRendimiendoGeneral" class="table table-striped">
+                                    <thead class="thead-dark">
+
+                                        <tr>
+                                            <th>% Tiro</th>
+                                            <th>% Tiro 2 puntos</th>
+                                            <th>% Tiro 3 puntos</th>
+                                            <th>% Tiro Libre</th>
+                                            <th>Rebotes totales</th>
+                                            <th>Asistencias Totales</th>
+                                            <th>Pérdidas Totales</th>
+                                            <th>Robos Totales</th>
+                                            <th>Tapones Totales</th>
+                                            <th>Faltas Cometidas Totales</th>
+                                            <th>Faltas Recibidas Totales</th>
+                                            <th>Puntos Netos Totales</th>
+                                            <th>Puntos anotados</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="tbRendimiendoGeneral">
+
+                                    </tbody>
+                                </table>
+                            </div>  
+                        </div>
                     </div>
                 </div>
             </div>
