@@ -54,29 +54,6 @@
                 </div>
 
 
-                <div hidden id="cardCompararPartidos" class="col-md-4 mb-2" style="max-width: 300px;">
-                    <center>
-                        <div class="card custom-card" onclick="equiposRivales()">
-                            <img src="https://cdn.discordapp.com/attachments/877328260357324832/1161471744893268061/rivales.png?ex=65386bdb&is=6525f6db&hm=cfbf639c39205d7ffb323918f5b45d9ea8e96c0061445b37ec1b883e718bd174&"  alt="Imagen de la tarjeta 1" width="250" height="250" class="mx-auto">
-                            <div class="card-body">
-                                <h4 class="card-title text-center">COMPARAR PARTIDOS</h4>
-                            </div>
-                        </div>
-                    </center>
-                </div>
-
-                <div hidden id="cardCompararJugadores" class="col-md-4 mb-2" style="max-width: 300px;">
-                    <center>
-                        <div class="card custom-card" onclick="equiposRivales()">
-                            <img src="https://cdn.discordapp.com/attachments/877328260357324832/1161471744893268061/rivales.png?ex=65386bdb&is=6525f6db&hm=cfbf639c39205d7ffb323918f5b45d9ea8e96c0061445b37ec1b883e718bd174&"  alt="Imagen de la tarjeta 1" width="250" height="250" class="mx-auto">
-                            <div class="card-body">
-                                <h4 class="card-title text-center">COMPARAR JUGADORES</h4>
-                            </div>
-                        </div>
-                    </center>
-                </div>
-
-
                 <br>
             </div>
         </div>

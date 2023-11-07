@@ -36,3 +36,8 @@ function misEquipos() {
 function temporadas() {
     window.location.href = "temporadas.jsp";
 }
+
+function gestionarUsuarios(){
+    window.location.href = "gestionarUsuarios.jsp";
+}
+

@@ -77,9 +77,9 @@ $('#cambio-contraseña').on('submit', function(event){
     
     let usuario = $("#btnModalContrasenaAceptar").attr("usuario");
     let nuevaContrasena = $("#txtNuevoPassword").val();
-    let repeticionContraseña = $("#txtRepetirPassword").val();
+    let repeticionContrasena = $("#txtRepetirPassword").val();
     
-    if(nuevaContrasena === repeticionContraseña){
+    if(nuevaContrasena === repeticionContrasena){
         
         $.ajax({
         url: "limaHeatServlet",
