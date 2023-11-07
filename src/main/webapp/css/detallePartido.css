@@ -1,0 +1,22 @@
+ .table-container {
+    margin-bottom: 20px;
+  }
+
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table th, .table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .spacer {
+    border: none;
+  }
+
+  .table-outline {
+    outline: 1px solid #000; /* Añade un borde alrededor del contenedor sin afectar el interior */
+  }

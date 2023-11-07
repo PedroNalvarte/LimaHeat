@@ -76,8 +76,6 @@ public class equipoTemporadaServlet extends HttpServlet {
             String idEquipo = request.getParameter("idEquipo");
             String idCategoria = request.getParameter("idCategoria");
             
-            System.out.println("hola servlet");
-            
             IEquipoTemporada equipoTemporadaDao = new impEquipoTemporada();
             List<Object[]> listado = equipoTemporadaDao.listarTemporadas(idEquipo, idCategoria);
             resultado = json.matriz(listado);

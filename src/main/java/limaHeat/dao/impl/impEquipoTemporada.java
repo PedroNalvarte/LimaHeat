@@ -44,7 +44,7 @@ public class impEquipoTemporada implements IEquipoTemporada{
             .append("from \"TEMPORADA\" t ")
             .append("inner join \"TIPO_TEMPORADA\" tt on t.\"ID_TIPO_TEMPORADA\" = tt.\"ID_TIPO_TEMPORADA\" ")
             .toString();
-        System.out.println(sql);
+
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
         
@@ -57,8 +57,6 @@ public class impEquipoTemporada implements IEquipoTemporada{
         String sql = new StringBuilder()
             .append("CALL public.registrarequipotemporada('"+nombres+"', '"+ape1+"', '"+ape2+"', "+tipoDocIde+", '"+numDocIDe+"', "+idTemporada+", "+idEquipo+", "+idCategoria+"); ")
             .toString();
-        
-        System.out.println(sql);
              
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
@@ -71,13 +69,12 @@ public class impEquipoTemporada implements IEquipoTemporada{
     public List<Object[]> listarTemporadas(String idEquipo, String idCategoria) {
         
         String sql = new StringBuilder()
-            .append("select ej.\"ID_TEMPORADA\", t.\"NOMBRE_TEMPORADA\", tt.\"TIPO_TEMPORADA\" , t.\"FECHA_INICIO\", t.\"FECHA_FIN\" from \"EQUIPO_JUGADOR\" ej ")
+            .append("select distinct ej.\"ID_TEMPORADA\", t.\"NOMBRE_TEMPORADA\", tt.\"TIPO_TEMPORADA\" , t.\"FECHA_INICIO\", t.\"FECHA_FIN\" from \"EQUIPO_JUGADOR\" ej ")
             .append("inner join \"TEMPORADA\" t on T.\"ID_TEMPORADA\" = EJ.\"ID_TEMPORADA\" ")
             .append("inner join \"TIPO_TEMPORADA\" tt on tt.\"ID_TIPO_TEMPORADA\" = t.\"ID_TIPO_TEMPORADA\" ")
             .append("where \"ID_EQUIPO\" = "+idEquipo+" and \"ID_CATEGORIA\" = "+idCategoria+" ")
             .toString();
         
-        System.out.println(sql);
              
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
@@ -94,7 +91,6 @@ public class impEquipoTemporada implements IEquipoTemporada{
             .append("VALUES(" + id_categoria + ", " + id_equipo + ", " + id_temporada + ", " + id_participante + ", null, null, 'A', now())")
             .toString();
         
-        System.out.println(sql);
              
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
@@ -107,7 +103,6 @@ public class impEquipoTemporada implements IEquipoTemporada{
         String sql = new StringBuilder()
                 .append("SELECT * FROM \"EQUIPO_JUGADOR\" WHERE \"ID_PARTICIPANTE\" = " + idParticipante)
                 .toString();
-        System.out.println(sql);
             
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);

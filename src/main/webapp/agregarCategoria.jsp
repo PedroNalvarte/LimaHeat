@@ -10,13 +10,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        
+
         <div class="container"> 
             <div class="row mt-4">
                 <div style="text-align: center" class="col-md-10">
-                    <h1 style=" font-family: 'Alfa Slab One', serif; color: #5B5B5B" >Categorias</h1>
+                    <h1 style=" font-family: 'Alfa Slab One', serif; color: #5B5B5B" >Categorías</h1>
                 </div>
-                
+
                 <div style="text-align: center" class="col-md-2">
                     <button class="mi-button" onclick="agregar()">
                         <div class="agregar">
@@ -25,29 +25,33 @@
                         </div>
                     </button>
                 </div>
-                
+
             </div>
+
 
             <div class="row mt-4">
-                 <div class="container" id="mainContainer">
+                <div id="lista-mis-Equipos" class="col col-md-12 ">
+
+
 
                 </div>
+
             </div>
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div id="modal-creacion" class="modal fade" role="dialog">
             <div class="modal-dialog  modal-dialog-centered modal-sm ">
                 <!-- Modal content-->
@@ -59,7 +63,7 @@
                         <form action = "action" id="crearCategoria" method="post">
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                      <label for="NOMBRE_CATEGORIA" style="color: white">Nombre de Categoria</label>
+                                    <label for="NOMBRE_CATEGORIA" style="color: white">Nombre de Categoria</label>
                                     <input id="NOMBRE_CATEGORIA" name="NOMBRE_CATEGORIA" type="text" class="form-control" placeholder="Nombre de Categoria" required>
                                 </div>
                             </div>

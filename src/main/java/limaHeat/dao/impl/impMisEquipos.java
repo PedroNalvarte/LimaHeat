@@ -15,8 +15,6 @@ public class impMisEquipos implements IMisEquipos{
             .append("inner join \"CATEGORIA\" c on c.\"ID_CATEGORIA\" = e.\"ID_CATEGORIA\" ")
             .append("where e.\"ID_TIPO_EQUIPO\" = '1' and e.\"ESTADO_REGISTRO\" = 'A'")
             .toString();
-        
-        System.out.println(sql);
              
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
@@ -48,8 +46,7 @@ public class impMisEquipos implements IMisEquipos{
             .append("inner join \"CATEGORIA\" c on c.\"ID_CATEGORIA\" = e.\"ID_CATEGORIA\" ")
             .append("inner join \"EQUIPO_JUGADOR\" ej ON ej.\"ID_PARTICIPANTE\" = " + idParticipante)
             .toString();
-        
-        System.out.println(sql);
+       
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado = obj.selectGeneral(sql);
         return listado;

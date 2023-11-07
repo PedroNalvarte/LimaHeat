@@ -48,8 +48,6 @@ public class implLimaHeat implements ILimaHeat{
             .append("WHERE \"ID_PARTICIPANTE\"= (select \"ID_PARTICIPANTE\"  from \"PARTICIPANTE\" p where \"USUARIO\" = '"+usuario+"')")
             .toString();
         
-        System.out.println(sql);
-        
         SelectGeneral obj = new SelectGeneral();
         List<Object[]> listado =  obj.selectGeneral(sql);
         

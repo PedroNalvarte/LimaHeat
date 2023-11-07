@@ -120,7 +120,7 @@ function registrarNuevo(){
         let idCategoriaP = urlParamsP.get('cat');
         let id =  $("#idParticipante").text();
         
-        alert("idTemporada: " + idTemporada + ", idEquipoP " + idEquipoP + ", idCategoriaP: " + idCategoriaP + ", idParticipante: " + id);
+        //alert("idTemporada: " + idTemporada + ", idEquipoP " + idEquipoP + ", idCategoriaP: " + idCategoriaP + ", idParticipante: " + id);
         
         $.ajax({
            url: "equipoTemporadaServlet",
@@ -167,12 +167,6 @@ $('#registrar-equipo-temporada').on('submit', function(event){
             }
         }); 
 });
-
-      
-
-
-
-
 
 //-------------------------------------------------------Carga DDLS----------------------------------------------------------------------
 

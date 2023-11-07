@@ -10,6 +10,11 @@
 <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="css/general.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
@@ -72,7 +77,7 @@
 
 <div class="row row-info">
     <div class="col-md-2">
-        <img class="logo" src="https://cdn.discordapp.com/attachments/877328260357324832/1161395291866546226/LOGL_LIMA_HEAT_FULL_HD_4K_v1.png?ex=653824a7&is=6525afa7&hm=a5d4513e019d8adbca1d46dc0235b2c32fde287505a80e349fee22c88324220e">
+        <a href="#" onclick="window.location.href = 'modulos.jsp';"><img class="logo" src="https://cdn.discordapp.com/attachments/877328260357324832/1161395291866546226/LOGL_LIMA_HEAT_FULL_HD_4K_v1.png?ex=653824a7&is=6525afa7&hm=a5d4513e019d8adbca1d46dc0235b2c32fde287505a80e349fee22c88324220e"></a>
     </div>
     <div class="col-md-7"></div>
     <div class="col-md-3">
