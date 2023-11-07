@@ -37,6 +37,18 @@ public class historialPartidos extends HttpServlet{
             
             response.getWriter().write(resultado);
             
+        }else if(accion.equals("eliminarPartido")){
+            
+            String idPartido = request.getParameter("idPartido");
+            
+            IHistorialPartidos histoPartidosDAO = new impHistorialPartidos();
+            List<Object[]> listado = histoPartidosDAO.eliminarPartido(idPartido);
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+            
+            
+        
         }
     }
 

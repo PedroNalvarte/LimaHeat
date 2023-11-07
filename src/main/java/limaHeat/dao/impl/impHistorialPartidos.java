@@ -61,6 +61,17 @@ public class impHistorialPartidos implements IHistorialPartidos{
         
     }
 
+    @Override
+    public List<Object[]> eliminarPartido(String idPartido) {
+        String sql = new StringBuilder()
+                .append("CALL public.eliminarpartido("+idPartido+");")
+                .toString();
+        
+        SelectGeneral obj = new SelectGeneral();
+        List<Object[]> listado = obj.selectGeneral(sql);
+        return listado;
+    }
+
    
 
     

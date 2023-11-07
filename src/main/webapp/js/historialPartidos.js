@@ -111,12 +111,10 @@ function cargarlista() {
                     html += `<td id="txtlugar${partido[i][0]}">${partido[i][3]}</td>`;
                      html += `<td id="txtfecha${partido[i][0]}">${fechaFormateada}</td>`;
                     html += `<td>
-                                    <a class="btn-editar" data-partido-id="(${partido[i][0]})"><i class="bi bi-pencil"></i></a>
-
                                     
-                                    <a class="btn-eliminar" data-partido-id="${partido[i][0]}"><i class="bi bi-trash"></i></a>
-                    
-                                    <a class="btn-Visualizar" data-partido-id="${partido[i][0]}" href="detallePartido.jsp?id=${partido[i][0]}&idE=${idEquipo}"><i class="bi bi-plus-circle"></i></a>
+                        <a class="btn-eliminar" data-partido-id="${partido[i][0]}"onclick="eliminarPartido(${partido[i][0]})" ><i class="bi bi-trash"></i></a>
+
+                        <a class="btn-Visualizar" data-partido-id="${partido[i][0]}" href="detallePartido.jsp?id=${partido[i][0]}&idE=${idEquipo}"><i class="bi bi-plus-circle"></i></a>
                     </td>`;
 
                     html += `</tr>`;
@@ -341,5 +339,40 @@ function cargarRendimientoGeneral(idEquipo, idCategoria, idTemporada){
     
     
 }
+
+function eliminarPartido(idPartido){
+    
+    $("#modal-eliminar-Partido").modal("show");
+    $("#modal-eliminar-Partido").attr("idPartido",idPartido);
+    
+}
+
+$("#confirmar-eliminar").click(function(){
+	
+    let idPartido = $("#modal-eliminar-Partido").attr("idPartido");
+    
+    $.ajax({
+        url: "historialPartidosServlet", // Asegúrate de que la URL sea correcta
+        dataType: "json",
+        data: {
+            accion: "eliminarPartido",idPartido:idPartido
+        },
+        success: function (result) {
+            
+            $("#modal-eliminar-Partido").modal("hide");
+            cargarlista();
+
+            
+        }
+
+    });
+		
+});
+
+$("#cancelar-eliminar").click(function(){
+	
+    $("#modal-eliminar-Partido").modal("hide");
+		
+});
 
 

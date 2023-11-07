@@ -12,6 +12,8 @@ public interface IHistorialPartidos {
     List<Object[]> editarPartido(String equipoLocal,String equipoVisitante, String fecha, String lugar,String resultado,String detalleResultado, String idPartido);
     
     List<Object[]> cargarRendimientoGeneral(String idEquipo,String idCategoria,String idTemporada);
+    
+    List<Object[]> eliminarPartido(String idPartido);
 
    
 }
