@@ -40,11 +40,9 @@ public class colaboradores extends HttpServlet {
         
         if(accion.equals("listar")){
             String resultado;
-            String equipo = request.getParameter("equipo");
-            String temporada = request.getParameter("temporada");
-            String categoria = request.getParameter("categoria");
+
             IColaboradores colaboradoresDao = new impColaboradores();
-            List<Object[]> listado = colaboradoresDao.listarColaboradores(equipo, temporada, categoria);
+            List<Object[]> listado = colaboradoresDao.listarColaboradores();
             
             resultado = json.matriz(listado);
       
@@ -55,6 +53,14 @@ public class colaboradores extends HttpServlet {
             String resultado;
             IColaboradores colaboradoresDao = new impColaboradores();
             List<Object[]> listado = colaboradoresDao.listarTipoDocumento();
+            resultado = json.matriz(listado);
+            
+            response.getWriter().write(resultado);
+        }
+        else if(accion.equals("listarTipoParticipante")){
+             String resultado;
+            IColaboradores colaboradoresDao = new impColaboradores();
+            List<Object[]> listado = colaboradoresDao.listarTipoParticipante();
             resultado = json.matriz(listado);
             
             response.getWriter().write(resultado);
@@ -70,9 +76,10 @@ public class colaboradores extends HttpServlet {
             String idEquipo = request.getParameter("idEquipo");
             String idCategoria = request.getParameter("idCategoria");
             String idTemporada = request.getParameter("idTemporada");
+            String tipoParticipante = request.getParameter("tipoParticipante");
             
             IColaboradores colaboradoresDao = new impColaboradores();
-            List<Object[]> listado = colaboradoresDao.registrarColaborador(nombre, apellido1, apellido2, idTipoDocumento, numDocumento, fecha_nacimiento, idEquipo, idCategoria, idTemporada);
+            List<Object[]> listado = colaboradoresDao.registrarColaborador(nombre, apellido1, apellido2, idTipoDocumento, numDocumento, fecha_nacimiento, idEquipo, idCategoria, idTemporada, tipoParticipante);
             resultado = json.matriz(listado);
             
             response.getWriter().write(resultado);
@@ -105,10 +112,39 @@ public class colaboradores extends HttpServlet {
             String numDocumento = request.getParameter("numDocumento");
             String fecha_nacimiento = request.getParameter("fecha_nacimiento");
             String id = request.getParameter("idColaborador");
+            String tipoParticipante = request.getParameter("tipoParticipante");
             
 
             IColaboradores colaboradoresDao = new impColaboradores();
-            List<Object[]> listado = colaboradoresDao.editarColaborador(nombre, apellido1, apellido2, idTipoDocumento, numDocumento, fecha_nacimiento, id);
+            List<Object[]> listado = colaboradoresDao.editarColaborador(nombre, apellido1, apellido2, idTipoDocumento, numDocumento, fecha_nacimiento, id, tipoParticipante);
+            resultado = json.matriz(listado);
+            response.getWriter().write(resultado);
+        }
+        else if(accion.equals("listarEquipos")){
+              String resultado;
+            String participante = request.getParameter("participante");
+            
+            IColaboradores colaboradoresDao = new impColaboradores();
+            List<Object[]> listado = colaboradoresDao.listarEquipos(participante);
+            resultado = json.matriz(listado);
+            response.getWriter().write(resultado);
+        }
+        else if(accion.equals("asignar")){
+            String resultado;
+            String participante = request.getParameter("participante");
+            String equipo = request.getParameter("equipo");
+            String temporada = request.getParameter("temporada");
+            String categoria = request.getParameter("categoria");
+            IColaboradores colaboradoresDao = new impColaboradores();
+            List<Object[]> listado = colaboradoresDao.asignarEquipo(equipo, categoria, temporada, participante);
+            resultado = json.matriz(listado);
+            response.getWriter().write(resultado);
+        }
+        else if(accion.equals("listarAsignados")){
+            String resultado;
+            String participante = request.getParameter("participante");
+            IColaboradores colaboradoresDao = new impColaboradores();
+            List<Object[]> listado = colaboradoresDao.equiposAsignados(participante);
             resultado = json.matriz(listado);
             response.getWriter().write(resultado);
         }

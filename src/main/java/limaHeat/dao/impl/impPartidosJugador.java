@@ -7,7 +7,7 @@ public class impPartidosJugador implements IPartidosJugador{
 
     @Override
     public List<Object[]> listarPartidosJugador(String jugador, String equipo) {
-         String sql = new StringBuilder("select distinct p.\"ID_PARTIDO\", e.\"NOMBRE_EQUIPO\"  , p.\"RESULTADO\", p.\"DETALLE_RESULTADO\", p.\"LUGAR\", p.fecha_partido, t.\"NOMBRE_TEMPORADA\" || ' ' || tt.\"TIPO_TEMPORADA\"  from \"PARTIDO\" p ")
+         String sql = new StringBuilder("select distinct p.\"ID_PARTIDO\", e.\"NOMBRE_EQUIPO\"  , p.\"RESULTADO\", p.\"DETALLE_RESULTADO\", p.\"LUGAR\", p.fecha_partido, t.\"NOMBRE_TEMPORADA\" || ' ' || tt.\"TIPO_TEMPORADA\", COALESCE((select ej2.observacion  from \"ESTADISTICAS_JUGADOR\" ej2 where ej2.\"ID_PARTIDO\" = ej.\"ID_PARTIDO\" and \"ID_PARTICIPANTE\" = " + jugador + "), 'SIN OBSERVACIONES') from \"PARTIDO\" p ")
             .append("join \"ESTADISTICAS_JUGADOR\" ej on ej.\"ID_PARTIDO\" = p.\"ID_PARTIDO\" ")
             .append("join \"TEMPORADA\" t on ej.\"ID_TEMPORADA\"  = t.\"ID_TEMPORADA\" ")
             .append("join \"TIPO_TEMPORADA\" tt on t.\"ID_TIPO_TEMPORADA\" = tt.\"ID_TIPO_TEMPORADA\" ")

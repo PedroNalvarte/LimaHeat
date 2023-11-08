@@ -41,25 +41,18 @@
                 </div>  
             </div>
         
-        <h1>Historial de Partidos</h1>
+        <h1>Observaciones</h1>
         
              
             <div class="row mt-4">
                 <div class="col col-md-12">
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Rival</th>
-                                <th>Resultado</th>
-                                <th>Detalle del Resultado</th>
-                                <th>Lugar</th>
-                                <th>Fecha</th>
-                                <th>Temporada</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblPartidos"></tbody>
-                    </table>
+                    
+                    
+                        <div id="tblPartidos" class="container">
+                            
+                        </div>
+                    
                 </div>
             </div>
        

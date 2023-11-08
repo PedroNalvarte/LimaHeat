@@ -52,18 +52,9 @@ function listarPartidos(){
                     };
                     var fechaFormateada = fechaFormateada.toLocaleString(undefined, opcionesDeFormato);
                 
-                $("#tblPartidos").append("<tr><td>" + result.rows[i][1] + "</td>"
-                         + "<td>" + resultado 
-                         + "</td><td>" + result.rows[i][3] 
-                         + "</td><td>" + result.rows[i][4] 
-                         + "</td><td>" + fechaFormateada 
-                         + "</td><td>" + result.rows[i][6]
-                         + "</td><td>" +
-                            "<a class=\"btn-Visualizar\" data-partido-id=\"" + result.rows[i][0] + "\" href=\"detallePartidoJugador.jsp?id=" + result.rows[i][0] + "&idE=" + idEquipo + "\">" +
-                                "<i class=\"bi bi-plus-circle\"></i>" +
-                            "</a>"
- 
-                         + "</td></tr>");
+                $("#tblPartidos").append("<h4>" + fechaFormateada + " Partido contra: " + result.rows[i][1] + "- " + resultado + "</h4>"
+                         + "<p>" + result.rows[i][7] + "</p>"
+                      );
 
             }
         }

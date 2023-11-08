@@ -8,7 +8,7 @@
         <%@include file="components/includes/header.jspf"%>
     </head>
     <body>
-        <h1>Colaboradores</h1>
+        <h1>Administrar Colaboradores</h1>
         <br>
         <h2>Busqueda</h2>
         <div class="input-group">
@@ -43,6 +43,13 @@
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="registrarColaborador">
+                            <div class="row mt-4">
+                                <div class="col col-md-12">
+                                    <select id="tipoParticipante" name="tipoParticipante" class="form-control" required>
+                                        <option>--Tipo de Colaborador--</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <label for="nombreColaborador" >Nombre del Colaborador:</label>
@@ -133,6 +140,13 @@
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="editarColaborador">
+                              <div class="row mt-4">
+                                <div class="col col-md-12">
+                                    <select id="tipoParticipanteE" name="tipoParticipante" class="form-control" required>
+                                        <option>--Tipo de Colaborador--</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <label for="nombreColaboradorE" >Nombre del Colaborador:</label>
@@ -185,7 +199,61 @@
             </div>
         </div>
         <!-- Fin Modal -->
+       
         
+        <!-- Modal Asignar-->
+              <div id="modal-asignar-colaborador" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-sm ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px;" >ASIGNAR COLABORADOR</center>
+                    </div>
+                    <div class="modal-body">
+                            <select id="equiposAsignar" name="equiposAsignar" class="form-control" required>
+                                       
+                                    </select>  
+                    </div>
+                    <div class="modal-footer ">
+                                 
+                    </div>
+                         <button value="SI" class="btn btn-primary" id="confirmar-asignacion" data-dismiss="modal">ASIGNAR</button>
+                          
+                           
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Fin modal -->
+        
+         <!-- Modal Equipos Asignados-->
+        <div id="modal-equipos-colaborador" class="modal fade" role="dialog">
+            <div class="modal-dialog  modal-dialog-centered modal-sm ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header-color">
+                        <center style="width: 100%;font-size: 20px;margin-top: 10px;" >Equipos Asignados</center>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="listaEquiposAsignados">
+                            
+                        </ul>
+                    </div>
+                    <div class="modal-footer ">
+                                 
+                    </div>
+                        
+                          
+                           
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Fin modal -->
     <%@include file="components/includes/footer.jspf"%>
     <script src="js/colaboradores.js"></script>
     </body>

@@ -7,7 +7,7 @@ let idCategoria;
 let idTemporada;
 
 
-
+// Listar Colaboradores
 $(function() {
     
 	const queryString = window.location.search;
@@ -15,16 +15,14 @@ $(function() {
         let tipoDocumentoC = document.getElementById("tipoDocumento");
         listarTipoDocumento(tipoDocumentoC);
         listarTipoDocumento(document.getElementById("tipoDocumentoE"));
-	idEquipo = urlParams.get('idE');
-	idCategoria = urlParams.get('cat');
-        idTemporada = urlParams.get('temp');
-        
+        listarTipoParticipante(document.getElementById("tipoParticipante"));
+        listarTipoParticipante(document.getElementById("tipoParticipanteE"));
 
         $.ajax({
         url: "colaboradores",
         dataType: "json",
         data:{
-            accion: "listar", equipo: idEquipo, temporada: idTemporada, categoria: idCategoria
+            accion: "listar"
         },
         success: function (result) {
             if(result.rows !== null)
@@ -34,22 +32,23 @@ $(function() {
                    tablaCol.classList.add("table");
                    tablaCol.id = "tablaCol";
                    tablaCol.classList.add("table-striped");
-                   tablaCol.innerHTML += "<tr><th>Nombres</th><th>Apellidos</th><th>Tipo de Documento de Identidad</th><th>Documento de Identidad</th><th>Fecha de Nacimiento</th><th>Opciones</th></tr>";
+                   tablaCol.innerHTML += "<tr><th>Nombres</th><th>Apellidos</th><th>Tipo de Documento de Identidad</th><th>Documento de Identidad</th><th>Fecha de Nacimiento</th><th>Tipo de Colaborador</th><th>Acciones</th></tr>";
                    let tbody = document.createElement("tbody");
                    
 
                    
                    for(let i = 0; i < result.rows.length; i++){
-                      
+                    
                      let fila = document.createElement("tr");
                      fila.setAttribute('data-id', result.rows[i][0]);
                      fila.innerHTML = "<td>" + result.rows[i][1] + "</td>";
-                     fila.innerHTML += "<td>" + result.rows[i][2] + ", " + result.rows[i][3] + "</td>";
+                     fila.innerHTML += "<td>" + result.rows[i][2] + "</td>";
+                     fila.innerHTML += "<td>" + result.rows[i][3] + "</td>";
                      fila.innerHTML += "<td>" + result.rows[i][4] + "</td>";
-                     fila.innerHTML += "<td>" + result.rows[i][5] + "</td>";
                      fila.innerHTML += "<td>" + result.rows[i][6] + "</td>";
+                     fila.innerHTML += "<td>" + result.rows[i][5] + "</td>";
                   
-                     fila.innerHTML += "<td><i class=\"bi bi-pencil boton-editar\"></i> <i class=\"bi bi-x-circle boton-eliminar\" id=\"boton-eliminar\"></i></td>";
+                     fila.innerHTML += "<td><button class=\"boton-asignar\">Asignar</button><i class=\"bi bi-eye\ verAsignados\" ></i><i class=\"bi bi-pencil boton-editar\"></i> <i class=\"bi bi-x-circle boton-eliminar\" id=\"boton-eliminar\"></i></td>";
                      tbody.appendChild(fila);
                    }
                 
@@ -76,7 +75,36 @@ $(function() {
                                    obtenerColaborador(dataId);
                          }); 
                     }
-                 
+                    
+                     let botonAsignar = document.getElementsByClassName("boton-asignar");
+                     
+                     for(let i = 0; i < botonAsignar.length; i++){
+                         
+                          botonAsignar[i].addEventListener("click", function (){
+                             
+                              
+                                   let dataId = this.parentElement.parentElement.getAttribute("data-id");
+                                   listarEquipos(dataId);
+                                   
+                              
+                               
+                         }); 
+                     }
+                     
+                     let botonVerAsignados = document.getElementsByClassName("verAsignados");
+                     
+                     for(let i = 0; i < botonVerAsignados.length; i++){
+                         botonVerAsignados[i].addEventListener("click", function (){
+                             
+                              
+                                   let dataId = this.parentElement.parentElement.getAttribute("data-id");
+                                   listarEquiposAsignados(dataId);
+                                   
+                              
+                               
+                         });  
+                     }
+                   
             }
             else{
                 let mensajeNull = document.createElement("h2");
@@ -138,6 +166,7 @@ function registrarColaborador(){
     let tipoDocIdC = $("#tipoDocumento").val();
     let numeroDocC = $("#numeroDocumento").val();
     let fechaNacimientoC = $("#fechaNacimiento").val();
+    let tipoParticipante = $("#tipoParticipante").val();
     
   
     $.ajax({
@@ -145,11 +174,12 @@ function registrarColaborador(){
         dataType: "json",
         data:{
             accion: "registrarColaborador", nombre: nombreC, apellido1:apellido1C, apellido2:apellido2C,
-            idTipoDoc: tipoDocIdC, numDocumento: numeroDocC, fecha_nacimiento: fechaNacimientoC, idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada
-        },
+            idTipoDoc: tipoDocIdC, numDocumento: numeroDocC, fecha_nacimiento: fechaNacimientoC, idEquipo: idEquipo, idCategoria: idCategoria, idTemporada: idTemporada,
+            tipoParticipante: tipoParticipante
+         },
         success: function (result) {
              $("#modal-creacion-colaborador").modal("hide");
-             window.location.href = "colaboradores.jsp?idE=" + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada ;
+             window.location.href = "colaboradores.jsp" ;
       
             
         },
@@ -195,7 +225,7 @@ function registrarColaborador(){
  /*Editar Colaborador*/
 function obtenerColaborador(id){
     
-    
+  let tipoParticipante = $('#tipoParticipanteE');
   let nombreColaborador = $('#nombreColaboradorE');
   let apellido1 = $('#apellido1ColaboradorE');
   let apellido2 = $('#apellido2ColaboradorE');
@@ -221,12 +251,12 @@ function obtenerColaborador(id){
               apellido2.val(result.rows[0][2]);
               tipoDocId.selectedIndex = result.rows[0][3];
               numeroDoc.val(result.rows[0][4]);
-            
+              tipoParticipante.val(result.rows[0][6]);
               let fechaNacimientoSegundos= formatearFecha(result.rows[0][5]);
               
               
               fechaNacimiento.val(fechaNacimientoSegundos);
-            
+              
                setTimeout(function() {
                    $("#modal-editar-colaborador").modal('show');
                 }, 150);
@@ -249,19 +279,20 @@ $('#editarColaborador').on('submit', function(event){
     let tipoDocIdC = $("#tipoDocumentoE").val();
     let numeroDocC = $("#numeroDocumentoE").val();
     let fechaNacimientoC = $("#fechaNacimientoE").val();
-    
+    let tipoParticipante = $("#tipoParticipanteE").val();
   
     $.ajax({
         url: "colaboradores",
         dataType: "json",
         data:{
             accion: "editarColaborador", nombre: nombreC, apellido1:apellido1C, apellido2:apellido2C,
-            idTipoDoc: tipoDocIdC, numDocumento: numeroDocC, fecha_nacimiento: fechaNacimientoC, idColaborador: idColaborador
+            idTipoDoc: tipoDocIdC, numDocumento: numeroDocC, fecha_nacimiento: fechaNacimientoC, idColaborador: idColaborador,
+            tipoParticipante: tipoParticipante
         },
         success: function (result) {
              $("#modal-editar-colaborador").modal("hide");
              document.getElementById("confirmarEditarColaborador").setAttribute('data-id', "");
-             window.location.href = "colaboradores.jsp?idE=" + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada ;
+             window.location.href = "colaboradores.jsp";
       
             
         },
@@ -307,10 +338,112 @@ $.ajax({
 
     return fechaFormateada;
 }
+
+function listarTipoParticipante(select){
+  $.ajax({
+        url: "colaboradores",
+        dataType: "json",
+        data:{
+            accion: "listarTipoParticipante"
+        },
+        success: function (result) {
+            if(result.rows !== null)
+            {
+                for(let i = 0; i < result.rows.length; i++){
+
+                   let nuevaOpcion = document.createElement("option");
+                   nuevaOpcion.innerHTML = result.rows[i][1];
+                   nuevaOpcion.value = result.rows[i][0];
+                   select.appendChild(nuevaOpcion);
+                }
+            }
+    
+        }
+ }); 
+}
  
 
 
+let participanteSeleccionado;
+function listarEquipos(data){
+    
+    
+    participanteSeleccionado = data;
+    let select = document.getElementById("equiposAsignar");
+     select.innerHTML = "";
+     select.innerHTML +=" <option>--Equipos Disponibles a Asignar--</option>"
+    $.ajax({
+        url: "colaboradores",
+        dataType: "json",
+        data:{
+            accion: "listarEquipos", participante: data
+        },
+        success: function (result) {
+            if(result.rows !== null)
+            {
+                for(let i = 0; i < result.rows.length; i++){
+
+                   let nuevaOpcion = document.createElement("option");
+                   nuevaOpcion.innerHTML = result.rows[i][3];
+                   nuevaOpcion.setAttribute('id-equipo', result.rows[i][0]);
+                   nuevaOpcion.setAttribute('id-categoria', result.rows[i][1]);
+                   nuevaOpcion.setAttribute('id-temporada', result.rows[i][2]);
+                   nuevaOpcion.value = result.rows[i][0];
+                   select.appendChild(nuevaOpcion);
+                }
+                
+                  $("#modal-asignar-colaborador").modal('show');
+            }
+    
+        }
+ }); 
+}
+
+let confirmarAsignacion = document.getElementById("confirmar-asignacion");
 
 
+confirmarAsignacion.addEventListener("click", function(){
+    let combo = document.getElementById("equiposAsignar");
+    let selectedOption = combo.options[combo.selectedIndex];
+    let equipo = selectedOption.getAttribute("id-equipo");
+    let categoria = selectedOption.getAttribute("id-categoria");
+    let temporada = selectedOption.getAttribute("id-temporada");
+    let participante = participanteSeleccionado;
+    
+     $.ajax({
+        url: "colaboradores",
+        dataType: "json",
+        data:{
+            accion: "asignar", participante: participante, equipo: equipo, categoria: categoria, temporada: temporada
+        },
+        success: function (result) {
+            $("#modal-asignar-colaborador").modal('hide');
+            window.location.href = "colaboradores.jsp";
+        }
+ }); 
+});
 
 
+function listarEquiposAsignados(data){
+    let lista = document.getElementById("listaEquiposAsignados");
+    lista.innerHTML = "";
+   
+         $.ajax({
+        url: "colaboradores",
+        dataType: "json",
+        data:{
+            accion: "listarAsignados", participante: data
+        },
+        success: function (result) {
+            
+            for(let i = 0; i < result.rows.length; i++){
+                let elemento = document.createElement("li");
+                elemento.innerHTML += "EQUIPO: " + result.rows[i][0] + " TEMPORADA: " + result.rows[i][1];
+                
+                lista.appendChild(elemento)
+            }
+            
+             $("#modal-equipos-colaborador").modal('show');
+        }
+ }); 
+}
