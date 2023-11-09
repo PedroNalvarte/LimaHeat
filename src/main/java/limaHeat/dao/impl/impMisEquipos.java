@@ -42,9 +42,10 @@ public class impMisEquipos implements IMisEquipos{
     public List<Object[]> cargarMisEquiposParticipantes(String idParticipante) {
         
         String sql = new StringBuilder()
-            .append("select e.\"ID_EQUIPO\", e.\"ID_CATEGORIA\", c.\"NOMBRE_CATEGORIA\", e.\"NOMBRE_EQUIPO\"  from \"EQUIPO\" e  ")
+            .append("select e.\"ID_EQUIPO\", e.\"ID_CATEGORIA\", c.\"NOMBRE_CATEGORIA\", e.\"NOMBRE_EQUIPO\"  from \"EQUIPO\" e ")
             .append("inner join \"CATEGORIA\" c on c.\"ID_CATEGORIA\" = e.\"ID_CATEGORIA\" ")
-            .append("inner join \"EQUIPO_JUGADOR\" ej ON ej.\"ID_PARTICIPANTE\" = " + idParticipante)
+            .append("inner join \"EQUIPO_JUGADOR\" ej on ej.\"ID_EQUIPO\" = e.\"ID_EQUIPO\" ")
+            .append("where ej.\"ID_PARTICIPANTE\" = "+idParticipante+" ")
             .toString();
        
         SelectGeneral obj = new SelectGeneral();

@@ -43,16 +43,15 @@
                         </div>
                     </div>
                 </div>
-
-                <div hidden id="cardGestionarColaborador" class="col-md-4 mb-2" style="max-width: 300px;">
-                    <div class="card custom-card" onclick="misEquipos()">
-                        <img src="https://cdn.discordapp.com/attachments/877328260357324832/1161471744289296384/equipos.png?ex=65386bda&is=6525f6da&hm=85deba80d44d7aa95c7ce86bcab6339f802003c937f339d0e5981a3bbcad4f08&"  alt="Imagen de la tarjeta 2" width="250" height="250" class="mx-auto">
+                
+                <div hidden id="cardMisEstadisticas" class="col-md-4 mb-1" style="max-width: 300px;">
+                    <div class="card custom-card" onclick="moduloMisEstadisticas()">
+                        <img src=https://cdn.discordapp.com/attachments/877328260357324832/1161471743932764261/temporadas.png?ex=65386bda&is=6525f6da&hm=dc93a0a6915d3397555a7a005ce197b43f3419ad02cec06672ddd2c3a8b5b86e& alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
                         <div class="card-body">
-                            <h4 class="card-title text-center">GESTIONAR COLABORADOR</h4>
+                            <h4 class="card-title text-center">MIS ESTADISTICAS</h4>
                         </div>
                     </div>
                 </div>
-
 
                 <br>
             </div>

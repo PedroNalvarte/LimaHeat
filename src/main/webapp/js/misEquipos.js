@@ -7,12 +7,12 @@ $(function() {
     idTipoCuenta = $("#idTipoCuenta").text();
     
     if(idTipoCuenta === "1"){
-        
         cargarMisEquipos();
         
     }else{
-        
         cargarMisEquiposParticipante(idParticipante);
+        $(".mi-button").attr("hidden","1");
+        
         
     }
 });

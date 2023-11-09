@@ -38,23 +38,20 @@ function cargarTitulo(idEquipo, idCategoria, idTemporada) {
 
                     $("#cardHistorialPartidos").removeAttr("hidden");
                     $("#cardJugadores").removeAttr("hidden");
-                    $("#cardGestionarColaborador").removeAttr("hidden");
-                    $("#cardCompararPartidos").removeAttr("hidden");
-                    $("#cardCompararJugadores").removeAttr("hidden");
+
+
 
 
                 } else if (tipoCuenta === "ASISTENTE") {
 
                     $("#cardHistorialPartidos").removeAttr("hidden");
-                    $("#cardHistorialPartidos").removeAttr("hidden");
-                    $("#cardCompararPartidos").removeAttr("hidden");
-                    $("#cardCompararJugadores").removeAttr("hidden");
+
 
                 } else {
 
                     $("#cardHistorialPartidos").removeAttr("hidden");
-                    $("#cardCompararPartidos").removeAttr("hidden");
-                    $("#cardCompararJugadores").removeAttr("hidden");
+                    $("#cardMisEstadisticas").removeAttr("hidden");
+
 
                 }
 
@@ -84,4 +81,8 @@ function modulosPartidos() {
     
     location.href = 'historialPartidos.jsp?idE=' + idEquipo + "&cat=" + idCategoria + "&temp=" + idTemporada;
     
+}
+
+function moduloMisEstadisticas(){
+    location.href = 'misEstadisticas.jsp?idE=' + idEquipo;
 }

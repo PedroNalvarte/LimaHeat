@@ -11,6 +11,10 @@
     <body>
         
          <div id="idParticipante" hidden><%=logged.getIdParticipante()%></div>
+         
+         <div class="container">
+             
+         
                  <div class="row mt-4">
                 <div class="col col-md-12">
                     <h5 style="text-align: center;" id="nombreJugador" >RENDIMIENTO GENERAL DEL JUGADOR: </h5>
@@ -45,9 +49,7 @@
         
              
             <div class="row mt-4">
-                <div class="col col-md-12">
-                    <table class="table">
-                    
+                <div class="col col-md-12">                    
                     
                         <div id="tblPartidos" class="container">
                             
@@ -55,6 +57,8 @@
                     
                 </div>
             </div>
+        
+        </div>
        
         <%@include file="components/includes/footer.jspf"%>
         <script src="js/partidosJugador.js"></script>

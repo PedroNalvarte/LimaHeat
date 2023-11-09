@@ -10,8 +10,16 @@ $(function() {
         $("#container-temporadas").attr("idEquipo",idEquipo);
         $("#container-temporadas").attr("idCategoria",idCategoria);
         
+        let idTipoCuenta = $("#idTipoCuenta").text();
+        
+        if(idTipoCuenta === "2" || idTipoCuenta === "3"){
+            $(".mi-button").attr("hidden","1");
+        }
+        
         cargarTitulo(idEquipo, idCategoria);
         cargarTemporadas(idEquipo, idCategoria);
+        
+        
        
         
 });

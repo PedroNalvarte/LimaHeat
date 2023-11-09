@@ -10,8 +10,12 @@ $(function() {
         
     }else if(idTipoCuenta === "3"){
         
-        $("#moduloCategoria").attr("hidden",1);
-        $("#moduloTemporadas").attr("hidden",1);
+        $(".card-categorias").attr("hidden",1);
+        $(".card-temporadas").attr("hidden",1);
+        $(".card-gestionar").attr("hidden",1);
+        $(".card-colaboradores").attr("hidden",1);
+        
+     
         
     }
     
@@ -39,5 +43,9 @@ function temporadas() {
 
 function gestionarUsuarios(){
     window.location.href = "gestionarUsuarios.jsp";
+}
+
+function colaboradores(){
+    window.location.href = "colaboradores.jsp";
 }
 
