@@ -70,7 +70,7 @@
                                     <option value="">SELECCIONES RESULTADO</option>
                                     <option value="G">GANADO</option>
                                     <option value="P">PERDIDO</option>
-                                    <option value="E">EMPATADO</option>
+                        
                                 </select>
                             </div>
                         </div>

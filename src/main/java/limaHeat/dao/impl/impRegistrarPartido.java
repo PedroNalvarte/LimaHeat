@@ -37,7 +37,7 @@ public class impRegistrarPartido implements IRegistrarPartido {
         .append("select  distinct p.\"ID_PARTIDO\", p.\"RESULTADO\", p.\"DETALLE_RESULTADO\", p.\"LUGAR\", ")
         .append("e.\"NOMBRE_EQUIPO\", case when ej.\"ID_EQUIPO\" = " + equipo)
         .append(" then 'LOCAL' else 'RIVAL' end as \"RIVAL\", ")
-        .append(" p.\"FECHA_REGISTRO\"    from \"PARTIDO\" p ")
+        .append(" p.fecha_partido    from \"PARTIDO\" p ")
         .append("inner join \"ESTADISTICAS_JUGADOR\" ej  on p.\"ID_PARTIDO\" = ej.\"ID_PARTIDO\" ")
         .append("inner join \"EQUIPO\" e on e.\"ID_EQUIPO\" = ej.\"ID_EQUIPO\" ")
         .append("where ej.\"ID_EQUIPO\"  in (select ej.\"ID_EQUIPO\"  from \"PARTIDO\" p inner join \"ESTADISTICAS_JUGADOR\" ej ON ej.\"ID_PARTIDO\" = p.\"ID_PARTIDO\" where ej.\"ID_TEMPORADA\" = " + temporada)
