@@ -65,7 +65,7 @@
                         </center>
                     </div>
 
-                    <div class="card-gestionar col-md-4 mb-1" style="max-width: 300px;">
+                    <div class="card-gestionar col-md-4 mb-1" style="max-width: 300px">
                         <div class="card custom-card" onclick="gestionarUsuarios()">
                             <img src="https://www.xtrafondos.com/descargar.php?id=1774&resolucion=2560x1440https://www.xtrafondos.com/descargar.php?id=1774&resolucion=2560x1440" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
                             <div class="card-body">
