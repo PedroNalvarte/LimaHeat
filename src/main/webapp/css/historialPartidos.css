@@ -2,4 +2,37 @@
 
 .porcentaje:after{
     content: "%";
+    
+}
+
+:before{
+    color: black;
+}
+
+.agregar{
+   border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: #801F1F;
+    text-align: center;
+    width: 250px;
+    height: 55px;
+     padding: 6px;
+     color: white;
+       box-shadow: 2px 5px 10px black;
+}
+
+
+
+.mi-button{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#tblRendimiendoGeneral{
+    background-color: #ffcd39;
 }

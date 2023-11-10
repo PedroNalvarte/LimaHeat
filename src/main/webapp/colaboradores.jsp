@@ -30,11 +30,14 @@
 
                 <div class="col col-md-2">
                     <div class="input-group-append mx-2">
-                        <button class="btn btn-danger" type="button" id="btn-registrar-colaborador">REGISTRAR NUEVO COLABORADOR</button>
+                        <button class="btn btn-danger" type="button" id="btn-registrar-colaborador" style="background-color: #801F1F"><i class="bi bi-plus-circle"></i>REGISTRAR NUEVO COLABORADOR</button>
                     </div>
                 </div>
             </div>
 
+                   
+            
+            
             <div class="row mt-4">
                 <div class="col col-md-12">
                     <div id="contenidoCol">
@@ -51,58 +54,58 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 10px;">Registrar Nuevo Colaborador</center>
+                        <center style="color: white; width: 100%;font-size: 20px;margin-top: 10px;">Registrar Nuevo Colaborador</center>
                     </div>
                     <div class="modal-body">
                         <form action = "action" id="registrarColaborador">
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <select id="tipoParticipante" name="tipoParticipante" class="form-control" required>
-                                        <option>--Tipo de Colaborador--</option>
+                                        <option style="color: white">--Tipo de Colaborador--</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="nombreColaborador" >Nombre del Colaborador:</label>
+                                    <label for="nombreColaborador" style="color: white" >Nombre del Colaborador:</label>
                                     <input id="nombreColaborador" name="nombreColaborador" type="text" class="form-control" placeholder="Nombre del Colaborador" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="apellido1Colaborador" >Primer Apellido:</label>
+                                    <label for="apellido1Colaborador" style="color: white" >Primer Apellido:</label>
                                     <input id="apellido1Colaborador" name="apellido1Colaborador" type="text" class="form-control" placeholder="Primer Apellido" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="apellido2Colaborador" >Segundo Apellido:</label>
+                                    <label for="apellido2Colaborador" style="color: white" >Segundo Apellido:</label>
                                     <input id="apellido2Colaborador" name="apellido2Colaborador" type="text" class="form-control" placeholder="Segundo Apellido" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
                                     <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
-                                        <option>--Tipo de Documento de Identidad--</option>
+                                        <option style="color: white">--Tipo de Documento de Identidad--</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="numeroDocumento">Número de Documento de Identidad:</label>
+                                    <label for="numeroDocumento" style="color: white">Número de Documento de Identidad:</label>
                                     <input id="numeroDocumento" name="numeroDocumento" type="text" class="form-control" placeholder="Número de Documento de Identidad" required>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col col-md-12">
-                                    <label for="fechaNacimiento" >Fecha de Nacimiento:</label>
+                                    <label for="fechaNacimiento" style="color: white">Fecha de Nacimiento:</label>
                                     <input id="fechaNacimiento" name="fechaNacimiento" type="date" placeholder="Fecha de Inicio" class="form-control"  required/>
                                 </div>
                             </div>
                             <div>
 
                                 <div class="modal-footer ">
-                                    <button type="submit" value="registrar" class="btnRegistrar" data-dismiss="modal">Registrar <i class="bi bi-plus-circle"></i></button>
+                                    <button type="submit" value="registrar" class="btnRegistrar" data-dismiss="modal" style="color: white; background-color: #CA8B29; border-color: #CA8B29">Registrar <i class="bi bi-plus-circle"></i></button>
                                 </div>
 
                             </div>
@@ -121,10 +124,10 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 10px;" >ELIMINAR COLABORADOR</center>
+                        <center style="color: white; width: 100%;font-size: 20px;margin-top: 10px;" >ELIMINAR COLABORADOR</center>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro de que deseas eliminar a este colaborador?</p>
+                        <p style="color: white">¿Estás seguro de que deseas eliminar a este colaborador?</p>
                     </div>
                     <div class="modal-footer ">
                         <button value="SI" class="btn btn-danger" id="confirmar-eliminar" data-dismiss="modal">SI</button>
@@ -148,58 +151,58 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header-color">
-                    <center style="width: 100%;font-size: 20px;margin-top: 10px;">Editar Colaborador</center>
+                    <center style=" color: white; width: 100%;font-size: 20px;margin-top: 10px;">Editar Colaborador</center>
                 </div>
                 <div class="modal-body">
                     <form action = "action" id="editarColaborador">
                         <div class="row mt-4">
                             <div class="col col-md-12">
                                 <select id="tipoParticipanteE" name="tipoParticipante" class="form-control" required>
-                                    <option>--Tipo de Colaborador--</option>
+                                    <option style="color: white">--Tipo de Colaborador--</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="nombreColaboradorE" >Nombre del Colaborador:</label>
+                                <label for="nombreColaboradorE" style="color: white" >Nombre del Colaborador:</label>
                                 <input id="nombreColaboradorE" name="nombreColaboradorE" type="text" class="form-control" placeholder="Nombre del Colaborador" required>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="apellido1ColaboradorE" >Primer Apellido:</label>
+                                <label for="apellido1ColaboradorE" style="color: white" >Primer Apellido:</label>
                                 <input id="apellido1ColaboradorE" name="apellido1ColaboradorE" type="text" class="form-control" placeholder="Primer Apellido" required>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="apellido2ColaboradorE" >Segundo Apellido:</label>
+                                <label for="apellido2ColaboradorE" style="color: white">Segundo Apellido:</label>
                                 <input id="apellido2ColaboradorE" name="apellido2ColaboradorE" type="text" class="form-control" placeholder="Segundo Apellido" required>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
                                 <select id="tipoDocumentoE" name="tipoDocumentoE" class="form-control" required>
-                                    <option>--Tipo de Documento de Identidad--</option>
+                                    <option style="color: white">--Tipo de Documento de Identidad--</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="numeroDocumentoE">Número de Documento de Identidad:</label>
+                                <label for="numeroDocumentoE" style="color: white">Número de Documento de Identidad:</label>
                                 <input id="numeroDocumentoE" name="numeroDocumento" type="text" class="form-control" placeholder="Número de Documento de Identidad" required>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12">
-                                <label for="fechaNacimientoE" >Fecha de Nacimiento:</label>
+                                <label for="fechaNacimientoE" style="color: white">Fecha de Nacimiento:</label>
                                 <input id="fechaNacimientoE" name="fechaNacimiento" type="date" placeholder="Fecha de Inicio" class="form-control"  required/>
                             </div>
                         </div>
                         <div>
 
                             <div class="modal-footer ">
-                                <button type="submit" value="editar" class="btnEditarColaborador" id="confirmarEditarColaborador" data-dismiss="modal">Editar<i class="bi bi-plus-circle"></i></button>
+                                <button type="submit" value="editar" class="btnEditarColaborador" id="confirmarEditarColaborador" data-dismiss="modal" style="color: white; background-color: #CA8B29; border-color: #CA8B29">Editar<i class="bi bi-plus-circle" style="color: white"></i></button>
                             </div>
 
                         </div>
@@ -219,7 +222,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header-color">
-                    <center style="width: 100%;font-size: 20px;margin-top: 10px;" >ASIGNAR COLABORADOR</center>
+                    <center style="color: white; width: 100%;font-size: 20px;margin-top: 10px;" >ASIGNAR COLABORADOR</center>
                 </div>
                 <div class="modal-body">
                     <select id="equiposAsignar" name="equiposAsignar" class="form-control" required>
@@ -229,7 +232,7 @@
                 <div class="modal-footer ">
 
                 </div>
-                <button value="SI" class="btn btn-primary" id="confirmar-asignacion" data-dismiss="modal">ASIGNAR</button>
+                <button value="SI" class="btn btn-primary" id="confirmar-asignacion" data-dismiss="modal" style="background-color: #CA8B29; border-color: #CA8B29">ASIGNAR</button>
 
 
             </div>
@@ -246,9 +249,9 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header-color">
-                <center style="width: 100%;font-size: 20px;margin-top: 10px;" >Equipos Asignados</center>
+                <center style="color: white; width: 100%;font-size: 20px;margin-top: 10px;" >Equipos Asignados</center>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: white">
                 <ul id="listaEquiposAsignados">
 
                 </ul>

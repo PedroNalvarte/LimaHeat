@@ -32,8 +32,8 @@ function listarUsuarios(){
                     html += `<td>${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}</td>`;
                     html += `<td>${result.rows[i][1]}</td>`;
                     html += `<td>${result.rows[i][2]}</td>`;
-                    html += `<td><button id="${result.rows[i][0]}" onClick="btnreiniciarCredenciales(this.id)">Reiniciar</button></td>`;
-                    html += `<td><button id="${result.rows[i][0]}" onClick="btneliminarCuenta(this.id)">Eliminar</button></td>`;
+                    html += `<td><button  id="${result.rows[i][0]}" onClick="btnreiniciarCredenciales(this.id)">Reiniciar</button></td>`;
+                    html += `<td ><button id="${result.rows[i][0]}" onClick="btneliminarCuenta(this.id)">Eliminar</button></td>`;
                     html += `</tr>`;
 
                     $("#tblJugadores").append(html);

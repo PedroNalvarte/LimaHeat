@@ -31,3 +31,34 @@ body{
     height: 20px; /* Establece la altura deseada de la imagen */
     object-fit: cover; /* Escala y recorta la imagen para que encaje en el contenedor */
 }
+
+
+
+#btnModalReiniciarAceptar{
+     background-color: #CA8B29;
+    color: white;
+    border-color: #CA8B29;
+    border-radius: 5px;
+}
+
+#btnModalReiniciarCancelar{
+    background-color: #CA8B29;
+    color: white;
+    border-color: #CA8B29;
+    border-radius: 5px;
+}
+
+#btnModalEliminarAceptar{
+    background-color: #CA8B29;
+    color: white;
+    border-color: #CA8B29;
+    border-radius: 5px;
+}
+
+#btnModalEliminarCancelar{
+     background-color: #CA8B29;
+    color: white;
+    border-color: #CA8B29;
+    border-radius: 5px;
+}
+

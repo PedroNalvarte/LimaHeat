@@ -172,10 +172,10 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 10px;" >ELIMINAR PARTIDO</center>
+                        <center style="color: white; width: 100%;font-size: 20px;margin-top: 10px;" >ELIMINAR PARTIDO</center>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro de que deseas eliminar este Partido?</p>
+                        <p style="color: white">¿Estás seguro de que deseas eliminar este Partido?</p>
                     </div>
                     <div class="modal-footer ">
                         <button value="SI" class="btn btn-danger" id="confirmar-eliminar" data-dismiss="modal">SI</button>

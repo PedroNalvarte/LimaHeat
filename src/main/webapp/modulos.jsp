@@ -67,7 +67,7 @@
 
                     <div class="card-gestionar col-md-4 mb-1" style="max-width: 300px;">
                         <div class="card custom-card" onclick="gestionarUsuarios()">
-                            <img src="" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
+                            <img src="https://www.xtrafondos.com/descargar.php?id=1774&resolucion=2560x1440https://www.xtrafondos.com/descargar.php?id=1774&resolucion=2560x1440" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
                             <div class="card-body">
                                 <h4 class="card-title text-center">GESTIONAR USUARIOS</h4>
                             </div>
@@ -76,7 +76,7 @@
                     
                     <div class="card-colaboradores col-md-4 mb-1" style="max-width: 300px;">
                         <div class="card custom-card" onclick="colaboradores()">
-                            <img src="" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
+                            <img src="https://www.elgrafico.com.ar/media/cache/pub_news_details_large/media/i/a3/90/a390b6dfa1b1c891050920e4bb9e41d1cc0ecd2c.jfif" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">
                             <div class="card-body">
                                 <h4 class="card-title text-center">GESTIONAR COLABORADORES</h4>
                             </div>

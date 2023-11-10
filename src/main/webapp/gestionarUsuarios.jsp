@@ -51,10 +51,10 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                        <center style="color: white; width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
                     </div>
                     <div class="modal-body">
-                        <p style="color: black;font-size: 15px;">¿Seguro que desea reiniciar las credenciales del usuario?</p>
+                        <p style="color: white;font-size: 15px;">¿Seguro que desea reiniciar las credenciales del usuario?</p>
                     </div>
                     <div class="modal-footer btnLogin">
                         <button style="width: 30%;font-size: 15px" type="button" id="btnModalReiniciarAceptar" data-dismiss="modal">Aceptar</button>
@@ -71,10 +71,10 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header-color">
-                        <center style="width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
+                        <center style="color: white; width: 100%;font-size: 20px;margin-top: 3px">LIMA HEAT</center>
                     </div>
                     <div class="modal-body">
-                        <p style="color: black;font-size: 15px;">¿Seguro que desea eliminar el usuario?</p>
+                        <p style="color: white;font-size: 15px;">¿Seguro que desea eliminar el usuario?</p>
                     </div>
                     <div class="modal-footer btnLogin">
                         <button style="width: 30%;font-size: 15px" type="button" id="btnModalEliminarAceptar" data-dismiss="modal">Aceptar</button>

@@ -22,16 +22,22 @@
                     <h3 id="temporada"></h3>
                 </div>
 
-                <div style="" class="col col-md-3">
+                 <div style="" class="col col-md-3">
                     <div style="text-align: center" class="col-md-2">
                         <button class="mi-button" onclick="registrarNuevos()">
                             <div class="agregar">
                                 <i style="font-size: 25px" class="bi bi-plus-circle-fill"></i>
-                                <h2 style="font-size: 15px">Registrar Nuevo Jugador</h2>
+                                <h2 style="font-size: 15px; background-color: #801F1F">Registrar Nuevo Jugador</h2>
                             </div>
                         </button>
                     </div>
-                </div>
+                </div> 
+               
+                
+                
+                
+                
+                
 
             </div>
 
@@ -249,7 +255,7 @@
                                 <table id="tblRendimiendoGeneral" class="table table-striped">
                                     <thead class="thead-dark">
 
-                                        <tr>
+                                        <tr style="color: white">
                                             <th>% Tiro</th>
                                             <th>% Tiro 2 puntos</th>
                                             <th>% Tiro 3 puntos</th>
