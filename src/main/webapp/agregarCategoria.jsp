@@ -79,12 +79,7 @@
                                     <input id="DESC_CATEGORIA" name="DESC_CATEGORIA" type="text" placeholder="Descripcion de Categoria " class="form-control"  required/>
                                 </div>
                             </div>
-                            <div class="row mt-4">
-                                <div class="col col-md-12">
-                                    <label for="IMAGEN" style="color: white">Imagen</label>
-                                    <input id="IMAGEN" name="IMAGEN" type="text" placeholder="Imagen" class="form-control"  required/>
-                                </div>
-                            </div>
+                          
 
 
                             <div class="modal-footer ">

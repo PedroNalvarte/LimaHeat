@@ -6,7 +6,7 @@ $('#crearCategoria').on('submit', function (event) {
     let NOMBRE_CATEGORIA = $("#NOMBRE_CATEGORIA").val();
     let ABREVIATURA = $("#ABREVIATURA").val();
     let DESC_CATEGORIA = $("#DESC_CATEGORIA").val();
-    let IMAGEN = $("#IMAGEN").val();
+    let IMAGEN = "A";
 
 
     $.ajax({
