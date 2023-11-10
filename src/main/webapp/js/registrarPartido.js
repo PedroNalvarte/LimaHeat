@@ -64,74 +64,78 @@ function listarJugadores(idEquipo, idCategoria, idTemporada, tablaInsertar, tipo
                                     + `</td>`
                             
                                     + `<td>`
-                                    + `<input id="txt${tipo}Min${i}" required>`
+                                    + `<input type="number" id="txt${tipo}Min${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}Sec${i}" required>`
+                                    + `<input type="number" id="txt${tipo}Sec${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}TCA${i}" required>`
+                                    + `<input type="number" id="txt${tipo}TCA${i}" required>`
                                     + `</td>`
                                     + `<td>`
-                                    + `<input id="txt${tipo}TCR${i}" required>`
-                                    + `</td>`
-                                    
-                                    + `<td>`
-                                    + `<input id="txt${tipo}2PTCA${i}" required>`
-                                    + `</td>`
-                                    + `<td>`
-                                    + `<input id="txt${tipo}2PTCR${i}" required>`
+                                    + `<input type="number" id="txt${tipo}TCR${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}3PTCA${i}" required>`
+                                    + `<input type="number" id="txt${tipo}2PTCA${i}" required>`
                                     + `</td>`
                                     + `<td>`
-                                    + `<input id="txt${tipo}3PTCR${i}" required>`
-                                    + `</td>`
-                                    
-                                    + `<td>`
-                                    + `<input id="txt${tipo}TLA${i}" required>`
-                                    + `</td>`
-                                    + `<td>`
-                                    + `<input id="txt${tipo}TLR${i}" required>`
+                                    + `<input type="number" id="txt${tipo}2PTCR${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}REBRO${i}" required>`
+                                    + `<input type="number" id="txt${tipo}3PTCA${i}" required>`
                                     + `</td>`
                                     + `<td>`
-                                    + `<input id="txt${tipo}REBRD${i}" required>`
-                                    + `</td>`
-                                    
-                                    + `<td>`
-                                    + `<input id="txt${tipo}AS${i}" required>`
-                                    + `</td>`
-                                    + `<td>`
-                                    + `<input id="txt${tipo}TO${i}" required>`
-                                    + `</td>`
-                                    + `<td>`
-                                    + `<input id="txt${tipo}RB${i}" required>`
-                                    + `</td>`
-                                    + `<td>`
-                                    + `<input id="txt${tipo}TP${i}" required>`
+                                    + `<input type="number" id="txt${tipo}3PTCR${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}FPC${i}" required>`
+                                    + `<input type="number" id="txt${tipo}TLA${i}" required>`
                                     + `</td>`
                                     + `<td>`
-                                    + `<input id="txt${tipo}FPD${i}" required>`
-                                    + `</td>`
-                                    
-                                    + `<td>`
-                                    + `<input id="txt${tipo}MasMenos${i}" required>`
+                                    + `<input type="number" id="txt${tipo}TLR${i}" required>`
                                     + `</td>`
                                     
                                     + `<td>`
-                                    + `<input id="txt${tipo}PTS${i}" required>`
+                                    + `<input type="number" id="txt${tipo}REBRO${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}REBRD${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}AS${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}TO${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}RB${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}TP${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}FPC${i}" required>`
+                                    + `</td>`
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}FPD${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}MasMenos${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input type="number" id="txt${tipo}PTS${i}" required>`
+                                    + `</td>`
+                                    
+                                    + `<td>`
+                                    + `<input class="obs" type="text" id="txt${tipo}OBS${i}" required>`
                                     + `</td>`
                                     
                                     + `</tr>`);
@@ -217,6 +221,7 @@ $('#form-estadisticas').on('submit', function (event) {
     let FPDloc = "";
     let masmenosloc = "";
     let PTSloc = "";
+    let OBSloc = "";
     
     for(let i=0;i < qJugadoresLoc;i++){
         
@@ -241,6 +246,7 @@ $('#form-estadisticas').on('submit', function (event) {
         FPDloc = FPDloc + $("#txtLocFPD"+i).val() + "-";
         masmenosloc = masmenosloc + $("#txtLocMasMenos"+i).val() + "-";
         PTSloc = PTSloc + $("#txtLocPTS"+i).val() + "-";
+        OBSloc = OBSloc + $("#txtLocOBS"+i).val() + "-";
         
     }
     
@@ -266,6 +272,7 @@ $('#form-estadisticas').on('submit', function (event) {
     let FPDriv = "";
     let masmenosriv = "";
     let PTSriv = "";
+    let OBSriv = "";
     
     for(let i=0;i < qJugadoresRiv;i++){
         
@@ -290,6 +297,7 @@ $('#form-estadisticas').on('submit', function (event) {
         FPDriv = FPDriv + $("#txtRivFPD"+i).val() + "-";
         masmenosriv = masmenosriv + $("#txtRivMasMenos"+i).val() + "-";
         PTSriv = PTSriv + $("#txtRivPTS"+i).val() + "-";
+        OBSriv = OBSriv + $("#txtRivOBS"+i).val() + "-";
     }
     
     /*
@@ -298,9 +306,11 @@ $('#form-estadisticas').on('submit', function (event) {
             TCRloc+" / "+dosTPCAloc+" / "+dosTPCRloc+" / "+tresPTCAloc+" / "+tresPTCRloc+" / "+TLAloc+" / "+TLRloc+" / "+REBROloc+" / "+
             REBRDloc+" / "+ASloc+" / "+TOloc+" / "+RBloc+" / "+TPloc+" / "+FPCloc+" / "+FPDloc+" / "+masmenosloc+" / "+PTSloc+" estadisticas rival "+
             " "+idJugadoresRiv +" "+MINriv+" / "+SECriv+" / "+TCAriv+" / "+TCRriv+" / "+dosTPCAriv+" / "+dosTPCRriv+" / "+tresPTCAriv+" / "+tresPTCRriv+" / "+TLAriv+" / "+TLRriv+" / "+
-            REBROriv+" / "+REBRDriv+" / "+ASriv+" / "+TOriv+" / "+RBriv+" / "+TPriv+" / "+FPCriv+" / "+FPDriv+" / "+masmenosriv+" / "+PTSriv);
+            REBROriv+" / "+REBRDriv+" / "+ASriv+" / "+TOriv+" / "+RBriv+" / "+TPriv+" / "+FPCriv+" / "+FPDriv+" / "+masmenosriv+" / "+PTSriv+" / "+OBSloc+" / "+OBSriv);
     
      */
+    
+    
     
     $.ajax({
         url: "registrarEstadisticasPartidoServlet",
@@ -313,7 +323,7 @@ $('#form-estadisticas').on('submit', function (event) {
             REBRDloc:REBRDloc, ASloc:ASloc, TOloc:TOloc, RBloc:RBloc, TPloc:TPloc, FPCloc:FPCloc, FPDloc:FPDloc, masmenosloc:masmenosloc,
             PTSloc:PTSloc, idJugadoresRiv:idJugadoresRiv, MINriv:MINriv, SECriv:SECriv, TCAriv:TCAriv, TCRriv:TCRriv, dosTPCAriv:dosTPCAriv,
             dosTPCRriv:dosTPCRriv, tresPTCAriv:tresPTCAriv, tresPTCRriv:tresPTCRriv, TLAriv:TLAriv, TLRriv:TLRriv,REBROriv:REBROriv,
-            REBRDriv:REBRDriv, ASriv:ASriv, TOriv:TOriv, RBriv:RBriv, TPriv:TPriv, FPCriv:FPCriv, FPDriv:FPDriv, masmenosriv:masmenosriv, PTSriv:PTSriv
+            REBRDriv:REBRDriv, ASriv:ASriv, TOriv:TOriv, RBriv:RBriv, TPriv:TPriv, FPCriv:FPCriv, FPDriv:FPDriv, masmenosriv:masmenosriv, PTSriv:PTSriv, OBSloc:OBSloc, OBSriv:OBSriv
         },
         success: function (result) {
             
@@ -322,8 +332,6 @@ $('#form-estadisticas').on('submit', function (event) {
             
         }
     });
-    
-    
-
+     
 });
 

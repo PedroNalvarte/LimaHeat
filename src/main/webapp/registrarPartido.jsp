@@ -110,7 +110,7 @@
                                 <th colspan="2">REB</th>
                                 <th colspan="4"></th>
                                 <th colspan="2">FP</th>
-                                <th colspan="2"></th>
+                                <th colspan="3"></th>
                             </tr>
                             <tr>
                                 <th>N°</th>
@@ -136,6 +136,7 @@
                                 <th>D</th>
                                 <th>+/-</th>
                                 <th>PTS</th>
+                                <th>Observación</th>
                             </tr>
 
                         </thead>
@@ -168,7 +169,7 @@
                                 <th colspan="2">REB</th>
                                 <th colspan="4"></th>
                                 <th colspan="2">FP</th>
-                                <th colspan="2"></th>
+                                <th colspan="3"></th>
                             </tr>
                             <tr>
                                 <th>N°</th>
@@ -194,6 +195,7 @@
                                 <th>D</th>
                                 <th>+/-</th>
                                 <th>PTS</th>
+                                <th>Observación</th>
                             </tr>
 
                         </thead>

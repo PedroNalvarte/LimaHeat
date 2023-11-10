@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     
-                    <!<!-- comment 
+                    <!-- comment 
                     <div class="card-estadisticas col-md-4 mb-1" style="max-width: 300px;">
                         <div class="card custom-card" onclick="colaboradores()">
                             <img src="" alt="Imagen de la tarjeta 3" width="250" height="250" class="mx-auto">

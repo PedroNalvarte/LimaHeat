@@ -106,6 +106,8 @@ public class registrarEstadisticaPartidoServlet extends HttpServlet {
             String FPDriv = request.getParameter("FPDriv");
             String masmenosriv = request.getParameter("masmenosriv");
             String PTSriv = request.getParameter("PTSriv");
+            String OBSloc = request.getParameter("OBSloc");
+            String OBSriv = request.getParameter("OBSriv");
             
             /*
             System.out.println("Datos local"+idEquipoLoc+" / "+idCategoriaLoc+" / "+idTemporadaLoc+" datos rival "+idEquipoRiv+" / "+idCategoriaRiv+" / "+
@@ -118,7 +120,7 @@ public class registrarEstadisticaPartidoServlet extends HttpServlet {
             
 
             IRegistrarEstadisticasPartido registrarPartidoDao = new impRegistrarEstadisticasPartido();
-            List<Object[]> listado = registrarPartidoDao.registarEstadisticas(idEquipoLoc, idCategoriaLoc, idTemporadaLoc, idEquipoRiv, idCategoriaRiv, idTemporadaRiv, lugar, fechaPartido, detalleResultado, resultado, idJugadoresLoc, MINloc, SECloc, TCAloc, TCRloc, dosTPCAloc, dosTPCRloc, tresPTCAloc, tresPTCRloc, TLAloc, TLRloc, REBROloc, REBRDloc, ASloc, TOloc, RBloc, TPloc, FPCloc, FPDloc, masmenosloc, PTSloc, idJugadoresRiv, MINriv, SECriv, TCAriv, TCRriv, dosTPCAriv, dosTPCRriv, tresPTCAriv, tresPTCRriv, TLAriv, TLRriv, REBROriv, REBRDriv, ASriv, TOriv, RBriv, TPriv, FPCriv, FPDriv, masmenosriv, PTSriv);
+            List<Object[]> listado = registrarPartidoDao.registarEstadisticas(idEquipoLoc, idCategoriaLoc, idTemporadaLoc, idEquipoRiv, idCategoriaRiv, idTemporadaRiv, lugar, fechaPartido, detalleResultado, resultado, idJugadoresLoc, MINloc, SECloc, TCAloc, TCRloc, dosTPCAloc, dosTPCRloc, tresPTCAloc, tresPTCRloc, TLAloc, TLRloc, REBROloc, REBRDloc, ASloc, TOloc, RBloc, TPloc, FPCloc, FPDloc, masmenosloc, PTSloc, idJugadoresRiv, MINriv, SECriv, TCAriv, TCRriv, dosTPCAriv, dosTPCRriv, tresPTCAriv, tresPTCRriv, TLAriv, TLRriv, REBROriv, REBRDriv, ASriv, TOriv, RBriv, TPriv, FPCriv, FPDriv, masmenosriv, PTSriv, OBSloc, OBSriv);
             lista = json.matriz(listado);
             response.getWriter().write(lista);
         }
